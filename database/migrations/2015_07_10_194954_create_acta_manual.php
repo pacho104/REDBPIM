@@ -11,7 +11,6 @@ class CreateActaManual extends Migration {
 	 */
 	public function up()
 	{
-
         DB::statement('CREATE TABLE IF NOT EXISTS redbpim.acta_manual (
                           id INT NOT NULL AUTO_INCREMENT,
                           acta_banco_id_acta_banco INT NOT NULL,
@@ -32,8 +31,6 @@ class CreateActaManual extends Migration {
         DB::statement('CREATE INDEX fk_acta_manual_banco1_idx ON redbpim.acta_manual (acta_banco_id_acta_banco ASC) ');
 
         DB::statement('CREATE INDEX fk_acta_manual_procedimientos1_idx ON redbpim.acta_manual (man_proced_id_man_proced ASC) ');
-
-
 	}
 
 	/**
@@ -44,6 +41,5 @@ class CreateActaManual extends Migration {
 	public function down()
     {
         DB::statement('DROP TABLE IF EXISTS redbpim.acta_manual');
-
     }
 }

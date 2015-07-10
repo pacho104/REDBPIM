@@ -22,7 +22,6 @@ class CreateActaBanco extends Migration {
                 ON DELETE RESTRICT
                 ON UPDATE CASCADE)
             ENGINE = InnoDB ');
-
 	}
 
 	/**
