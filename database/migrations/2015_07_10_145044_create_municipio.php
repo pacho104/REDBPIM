@@ -11,7 +11,7 @@ class CreateMunicipio extends Migration {
 	 */
 	public function up()
 	{
-		//Migracion Para la Creacion de la Tabla Municipio
+		//Migracion Para la Creacion de la Tabla municipio
 
         DB::statement('CREATE TABLE IF NOT EXISTS redbpim.municipio (
                 id INT NOT NULL AUTO_INCREMENT,
