@@ -12,7 +12,7 @@ class CreateTipoSecretaria extends Migration {
 	 */
 	public function up()
 	{
-		// //Migracion Para la Creacion de la Tabla Tipo Secretaria
+		// //Migracion Para la Creacion de la Tabla Tipo Secretaria pp
 
         DB::statement('CREATE TABLE IF NOT EXISTS RedBpim.tipo_secretaria (
                       id INT NOT NULL AUTO_INCREMENT,
