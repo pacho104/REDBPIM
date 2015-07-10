@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateNoticia extends Migration {
@@ -31,7 +30,7 @@ class CreateNoticia extends Migration {
 	{
         //Se Elimina la Tabla en Caso de Requerirse así
 
-        DB::statement('DROP TABLES redbpim.noticia') ;
+        DB::statement('DROP TABLE redbpim.noticia');
 	}
 
 }
