@@ -23,7 +23,7 @@ class CreateMunicipio extends Migration {
                 PRIMARY KEY (id),
                 CONSTRAINT fk_municipio_dep
                 FOREIGN KEY (id_departamento)
-                REFERENCES RedBpim.departamento (id)
+                REFERENCES redbpim.departamento (id)
                 ON DELETE RESTRICT
                 ON UPDATE CASCADE)
                 ENGINE = InnoDB');
