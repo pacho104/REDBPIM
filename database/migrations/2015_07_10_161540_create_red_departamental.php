@@ -57,7 +57,7 @@ class CreateRedDepartamental extends Migration {
 	 */
 	public function down()
 	{
-        DB::statement('DROP TABLE IF EXISTS redbpim.red_departamental') ;
-	}
+
+    }
 
 }

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateActaManual extends Migration {
@@ -19,21 +18,22 @@ class CreateActaManual extends Migration {
                           man_proced_id_man_proced INT NOT NULL,
                           PRIMARY KEY (id),
                           CONSTRAINT fk_act_manl_act_banco
-                            FOREIGN KEY (acta_banco_idacta_banco)
-                            REFERENCES redbpim.actabanco (id)
+                            FOREIGN KEY (acta_banco_id_acta_banco)
+                            REFERENCES redbpim.acta_banco (id)
                             ON DELETE RESTRICT
                             ON UPDATE CASCADE,
-                          CONSTRAINT fk_acta_manl_man_procd
-                            FOREIGN KEY (man_proced_id_manProced)
+                            CONSTRAINT fk_acta_manl_man_procd
+                            FOREIGN KEY (man_proced_id_man_proced)
                             REFERENCES redbpim.manual_procedimientos (id)
                             ON DELETE RESTRICT
                             ON UPDATE CASCADE)
-                        ENGINE = InnoDB;
+                        ENGINE = InnoDB');
 
-                        CREATE INDEX fk_acta_manual_acta_banco1_idx ON redbpim.acta_manual (acta_banco_idacta_banco ASC);
+        DB::statement('CREATE INDEX fk_acta_manual_banco1_idx ON redbpim.acta_manual (acta_banco_id_acta_banco ASC) ');
 
-                        CREATE INDEX fk_actaManual_manual_procedimientos1_idx ON redbpim.acta_manual (man_proced_id_man_proced ASC);
-                        ');
+        DB::statement('CREATE INDEX fk_acta_manual_procedimientos1_idx ON redbpim.acta_manual (man_proced_id_man_proced ASC) ');
+
+
 	}
 
 	/**

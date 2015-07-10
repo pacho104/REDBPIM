@@ -25,7 +25,7 @@ class CreateTipoIdentificacion extends Migration {
 	 */
 	public function down()
 	{
-        DB::statement('DROP TABLES redbpim.tipo_identificacion');
+        DB::statement('DROP TABLE redbpim.tipo_identificacion');
 	}
 
 }

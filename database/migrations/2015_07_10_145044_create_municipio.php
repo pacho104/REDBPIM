@@ -32,7 +32,7 @@ class CreateMunicipio extends Migration {
 	 */
 	public function down()
 	{
-        DB::statement('DROP TABLES redbpim.municipio') ;
+        DB::statement('DROP TABLE redbpim.municipio');
 	}
 
 }

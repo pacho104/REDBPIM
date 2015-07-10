@@ -29,7 +29,7 @@ class CreateTipoSecretaria extends Migration {
 	{
 		//Se Elimina la Tabla en Caso de Requerirse así
 
-        DB::statement('DROP TABLES redbpim.tipo_secretaria') ;
+        DB::statement('DROP TABLE redbpim.tipo_secretaria');
 	}
 
 }

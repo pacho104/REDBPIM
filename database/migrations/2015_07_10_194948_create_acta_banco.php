@@ -31,7 +31,7 @@ class CreateActaBanco extends Migration {
 
 	public function down()
 	{
-        DB::statement('DROP TABLES redbpim.acta_banco');
+        DB::statement('DROP TABLE redbpim.acta_banco');
 	}
 
 }
