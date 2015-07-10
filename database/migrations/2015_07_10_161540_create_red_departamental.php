@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateRedDepartamental extends Migration {
@@ -47,9 +46,7 @@ class CreateRedDepartamental extends Migration {
 
                             DB::statement('CREATE INDEX fk_red_departamental_departamento1_idx ON redbpim.red_departamental (id_departamento ASC)');
 
-                            DB::statement('CREATE INDEX fk_red_departamental_manual_Procedimientos1_idx ON redbpim.red_departamental (id_manual_procedimientos ASC)');
-
-
+        DB::statement('CREATE INDEX fk_red_departamental_manual_procedimientos1_idx ON redbpim.red_departamental (id_manual_procedimientos ASC)');
 
 	}
 
