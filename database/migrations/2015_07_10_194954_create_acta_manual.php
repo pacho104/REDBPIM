@@ -6,7 +6,7 @@ class CreateActaManual extends Migration {
 
 	/**
 	 * Run the migrations.
-	 * Migracion para crear la tabla acta_manual en la base de datos con todos sus atributos con el metodo up
+	 * Migracion para crear la tabla acta_manual en la base de datos con todos sus atributos con el metodo up()
 	 * @return void
 	 */
 	public function up()
