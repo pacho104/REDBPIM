@@ -8,6 +8,7 @@ class CreateCargoUsuario extends Migration {
 	/**
 	 * Run the migrations.
 	 *
+     * Migracion para crear la tabla cargo de usuario en la base de datos con todos sus atributos con el metodo up
 	 * @return void
 	 */
 	public function up()
@@ -21,13 +22,13 @@ class CreateCargoUsuario extends Migration {
 
 	/**
 	 * Reverse the migrations.
-	 *
+	 * metodo down para realizar el rollback de la migracion de la tabla cargo_usuario
 	 * @return void
 	 */
 	public function down()
     {
 
-        DB::statement(' DROP TABLE IF EXISTS redbpim.cargo_usuario');
+        DB::statement('DROP TABLE IF EXISTS redbpim.cargo_usuario');
 
     }
 }
