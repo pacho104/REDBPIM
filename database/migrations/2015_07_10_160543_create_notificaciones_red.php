@@ -39,7 +39,7 @@ class CreateNotificacionesRed extends Migration {
 	 */
 	public function down()
 	{
-        DB::statement('DROP TABLE redbpim.notificaciones_red');
+        DB::statement('DROP TABLES redbpim.notificaciones_red');
 	}
 
 }

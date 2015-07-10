@@ -30,7 +30,7 @@ class CreateNoticia extends Migration {
 	{
         //Se Elimina la Tabla en Caso de Requerirse así
 
-        DB::statement('DROP TABLE redbpim.noticia');
+        DB::statement('DROP TABLES redbpim.noticia');
 	}
 
 }
