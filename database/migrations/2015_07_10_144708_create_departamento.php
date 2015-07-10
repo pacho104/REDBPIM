@@ -1,19 +1,16 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateDepartamento extends Migration {
 
 	/**
-	 * Run the migrations.
-	 *
-	 * @return void
+     * Crear la Migracion.
+     * Migracion Para la Creacion de la Tabla Departamento a traves del método Up
+     * @return void
 	 */
 	public function up()
 	{
-		//Migracion Para la Creacion de la Tabla Departamento
-
         DB::statement('CREATE TABLE IF NOT EXISTS redbpim.departamento (
                       id INT NOT NULL AUTO_INCREMENT,
                       cod_dane_dep INT NOT NULL,
@@ -23,14 +20,11 @@ class CreateDepartamento extends Migration {
     }
 
 	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
+     * Eliminar la Migracion.
+     * Se Elimina la Tabla en Caso de Requerirse así
+     */
 	public function down()
 	{
-		//Se Elimina la Tabla en Caso de Requerirse así
-
         DB::statement('DROP TABLES redbpim.departamento') ;
 	}
 

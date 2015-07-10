@@ -1,21 +1,19 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateNotificacionesRed extends Migration {
 
 	/**
 	 * Run the migrations.
-	 *
-	 * @return void
+     * Migracion Para la Creacion de la Tabla Notificaciones Red Departamental a través del metodo up
+     * @return voidE
 	 */
 	public function up()
     {
-        //Migracion Para la Creacion de la Tabla Notificaciones Red Departamental
 
         DB::statement('CREATE TABLE IF NOT EXISTS redbpim.notificaciones_red (
-                      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                      id INT NOT NULL AUTO_INCREMENT,
                       nombre_notif_red VARCHAR(200) NOT NULL,
                       consecutivo_notif_red INT NOT NULL,
                       asunto_notifi_red VARCHAR(100) NOT NULL,
@@ -35,14 +33,12 @@ class CreateNotificacionesRed extends Migration {
     }
 
 	/**
-	 * Reverse the migrations.
-	 *
+     *  ELIMINAR LAS MIGRACIONES.
+     * Se Elimina la Tabla NOTIFICACIONES RED en Caso de Requerirse a traves del metodo down()
 	 * @return void
 	 */
 	public function down()
 	{
-		//Se Elimina la Tabla en Caso de Requerirse así
-
         DB::statement('DROP TABLES redbpim.notificaciones_red') ;
 	}
 

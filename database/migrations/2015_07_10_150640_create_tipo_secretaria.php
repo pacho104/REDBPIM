@@ -5,8 +5,8 @@ use Illuminate\Database\Migrations\Migration;
 class CreateTipoSecretaria extends Migration {
 
 	/**
-	 * Run the migrations.
-	 *
+     * Cargar la migracion.
+     * Migracion Para la Creacion de la Tabla TIPO SECRETARIA a través del metodo up
 	 * @return void
 	 */
 	public function up()
@@ -21,7 +21,7 @@ class CreateTipoSecretaria extends Migration {
 	}
 
 	/**
-	 * Reverse the migrations.
+     * Eliminar la Migracion.
 	 *
 	 * @return void
 	 */

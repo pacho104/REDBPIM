@@ -1,19 +1,16 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateTipoIdentificacion extends Migration {
 
 	/**
-	 * Run the migrations.
-	 *
-	 * @return void
+     * Crear la Migracion.
+     * Migracion Para la Creacion de la Tabla Tipo Identificación con el método up()
+     * @return void
 	 */
 	public function up()
 	{
-        //Migracion Para la Creacion de la Tabla Tipo Identificación
-
         DB::statement('CREATE TABLE IF NOT EXISTS redbpim.tipo_identificacion (
                       id INT NOT NULL AUTO_INCREMENT,
                       nom_identificacion VARCHAR(45) NOT NULL,
@@ -22,16 +19,13 @@ class CreateTipoIdentificacion extends Migration {
 	}
 
 	/**
-	 * Reverse the migrations.
-	 *
+     * Eliminar la Migracion.
+     * Se Elimina la Tabla Tipo Identificacion en caso de Requerirse así
 	 * @return void
 	 */
 	public function down()
 	{
-        //Se Elimina la Tabla en Caso de Requerirse así
-
-            DB::statement('DROP TABLES redbpim.tipo_identificacion') ;
-
+        DB::statement('DROP TABLES redbpim.tipo_identificacion');
 	}
 
 }

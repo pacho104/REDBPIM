@@ -5,17 +5,13 @@ use Illuminate\Database\Migrations\Migration;
 class CreateMunicipio extends Migration {
 
 	/**
-	 * Run the migrations.
-	 *
+     * Crear la Migracion.
+     * Migracion Para la Creacion de la Tabla municipio a traves del método Up y el comando de Laravel DB::STAMENT
 	 * @return void
 	 */
 	public function up()
 	{
-
-        //Migracion Para la Creacion de la Tabla municipio l
-
-
-            DB::statement('CREATE TABLE IF NOT EXISTS redbpim.municipio (
+        DB::statement('CREATE TABLE IF NOT EXISTS redbpim.municipio (
                 id INT NOT NULL AUTO_INCREMENT,
                 cod_dane_mun INT NOT NULL,
                 nom_municipio VARCHAR(100),
@@ -31,14 +27,12 @@ class CreateMunicipio extends Migration {
 
 	/**
 	 * Reverse the migrations.
-	 *
+     * Se Elimina la Tabla MUNICIPIO en Caso de Requerirse así a traves del metodo down()
 	 * @return void
 	 */
 	public function down()
 	{
-		//Se Elimina la Tabla en Caso de Requerirse así
         DB::statement('DROP TABLES redbpim.municipio') ;
-
 	}
 
 }
