@@ -15,8 +15,8 @@ class CreateActaBanco extends Migration {
               id INT NOT NULL AUTO_INCREMENT,
               documento_acta_banco VARCHAR(45) NOT NULL,
               id_municipio INT NOT NULL,
-              PRIMARY KEY (id),
-              CONSTRAINT fk_acta_banco_mun
+                PRIMARY KEY (id),
+                CONSTRAINT fk_acta_banco_mun
                 FOREIGN KEY (id_municipio)
                 REFERENCES redbpim.municipio (id)
                 ON DELETE RESTRICT
