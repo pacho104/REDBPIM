@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a263b393-27a6-4e0c-a203-9a4e512ca585" name="Default" comment="h" />
+    <list default="true" id="a263b393-27a6-4e0c-a203-9a4e512ca585" name="Default" comment="h">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="redbpim.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -30,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="714">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.23809524" vertical-offset="153" max-vertical-offset="714">
+              <caret line="15" column="43" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -52,13 +55,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015_07_10_155821_create_noticia.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2015_07_10_155821_create_noticia.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_155821_create_noticia.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61904764" vertical-offset="102" max-vertical-offset="714">
-              <caret line="20" column="31" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="31" />
+            <state vertical-scroll-proportion="-7.8461537" vertical-offset="306" max-vertical-offset="714">
+              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="55" />
               <folding>
                 <marker date="1436544155774" expanded="true" signature="298:586" placeholder="CREATE TABLE..IF..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2015_07_10_160543_create_notificaciones_red.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_160543_create_notificaciones_red.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.0" vertical-offset="319" max-vertical-offset="918">
+              <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+              <folding>
+                <marker date="1436547549588" expanded="true" signature="336:1119" placeholder="CREATE TABLE..IF..." />
+                <marker date="1436547549588" expanded="true" signature="1245:1302" placeholder="/** * Revers..." />
               </folding>
             </state>
           </provider>
@@ -112,8 +128,8 @@
       <file leaf-file-name="2015_07_10_145044_create_municipio.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_145044_create_municipio.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="850">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.8846154" vertical-offset="272" max-vertical-offset="850">
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
                 <marker date="1436542246947" expanded="false" signature="7:52" placeholder="..." />
                 <marker date="1436542246947" expanded="true" signature="268:774" placeholder="CREATE TABLE..IF..." />
@@ -125,7 +141,7 @@
       <file leaf-file-name="2015_07_10_150640_create_tipo_secretaria.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_150640_create_tipo_secretaria.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="697">
+            <state vertical-scroll-proportion="-9.153846" vertical-offset="255" max-vertical-offset="697">
               <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="55" />
               <folding>
                 <marker date="1436542246935" expanded="false" signature="7:52" placeholder="..." />
@@ -150,6 +166,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_07_10_150640_create_tipo_secretaria.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_07_10_152627_create_tipo_identificacion.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_07_10_155821_create_noticia.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_07_10_160543_create_notificaciones_red.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
       </list>
     </option>
   </component>
@@ -677,20 +695,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_145044_create_municipio.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_152727_create_cargo_usuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="850">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="7.8461537" vertical-offset="204" max-vertical-offset="646">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1436542246947" expanded="false" signature="7:52" placeholder="..." />
-            <marker date="1436542246947" expanded="true" signature="268:774" placeholder="CREATE TABLE..IF..." />
+            <marker date="1436543002892" expanded="true" signature="245:473" placeholder="CREATE TABLE..IF..." />
+            <marker date="1436543002892" expanded="true" signature="595:637" placeholder="DROP TABLE I..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_150640_create_tipo_secretaria.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="697">
+        <state vertical-scroll-proportion="-9.153846" vertical-offset="255" max-vertical-offset="697">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="55" />
           <folding>
             <marker date="1436542246935" expanded="false" signature="7:52" placeholder="..." />
@@ -699,21 +717,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_145044_create_municipio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="697">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-5.8846154" vertical-offset="272" max-vertical-offset="850">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <marker date="1436542246947" expanded="false" signature="7:52" placeholder="..." />
+            <marker date="1436542246947" expanded="true" signature="268:774" placeholder="CREATE TABLE..IF..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_152727_create_cargo_usuario.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_155821_create_noticia.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.8461537" vertical-offset="204" max-vertical-offset="646">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-7.8461537" vertical-offset="306" max-vertical-offset="714">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="55" />
           <folding>
-            <marker date="1436543002892" expanded="true" signature="245:473" placeholder="CREATE TABLE..IF..." />
-            <marker date="1436543002892" expanded="true" signature="595:637" placeholder="DROP TABLE I..." />
+            <marker date="1436544155774" expanded="true" signature="298:586" placeholder="CREATE TABLE..IF..." />
           </folding>
         </state>
       </provider>
@@ -728,13 +748,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_155821_create_noticia.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_10_160543_create_notificaciones_red.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61904764" vertical-offset="102" max-vertical-offset="714">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="31" />
+        <state vertical-scroll-proportion="-8.0" vertical-offset="319" max-vertical-offset="918">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
           <folding>
-            <marker date="1436544155774" expanded="true" signature="298:586" placeholder="CREATE TABLE..IF..." />
+            <marker date="1436547549588" expanded="true" signature="336:1119" placeholder="CREATE TABLE..IF..." />
+            <marker date="1436547549588" expanded="true" signature="1245:1302" placeholder="/** * Revers..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23809524" vertical-offset="153" max-vertical-offset="714">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
