@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateMunicipio extends Migration {
@@ -13,7 +12,7 @@ class CreateMunicipio extends Migration {
 	public function up()
 	{
 
-		//Migracion Para la Creacion de la Tabla municipio
+        //Migracion Para la Creacion de la Tabla municipio l
 
 
             DB::statement('CREATE TABLE IF NOT EXISTS redbpim.municipio (
