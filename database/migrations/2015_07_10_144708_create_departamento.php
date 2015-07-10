@@ -25,7 +25,7 @@ class CreateDepartamento extends Migration {
      */
 	public function down()
 	{
-        DB::statement('DROP TABLE redbpim.departamento');
+        DB::statement('DROP TABLES redbpim.departamento');
 	}
 
 }
