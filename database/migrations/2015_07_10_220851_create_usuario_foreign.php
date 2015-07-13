@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateUsuarioForeign extends Migration {
@@ -26,7 +25,14 @@ class CreateUsuarioForeign extends Migration {
 	 */
 	public function down()
 	{
-		//
+
+        Schema::table('users', function ($table) {
+            $table->dropForeign('fk_usuario_municipio');
+            $table->dropForeign('fk_tipo_secretaria_aplica');
+            $table->dropForeign('fk_usuario_tipo_identificacion');
+            $table->dropForeign('fk_usuario_cargo_usuario');
+        });
+
 	}
 
 }
