@@ -5,9 +5,8 @@ use Illuminate\Database\Migrations\Migration;
 class CreateUsuarioForeign extends Migration {
 
 	/**
-	 * Run the migrations.
-	 *
-	 * @return void
+	 * Crear una Migracion para crear las llaves foraneas para la tabla users en el método up().
+     * @return void
 	 */
 	public function up()
     {
@@ -19,20 +18,17 @@ class CreateUsuarioForeign extends Migration {
 
 
 	/**
-	 * Reverse the migrations.
-	 *
+	 * Migracion para Eliminar las las llaves foráneas de la tabla users en el método down()
 	 * @return void
 	 */
-	public function down()
+    	public function down()
 	{
-
         Schema::table('users', function ($table) {
             $table->dropForeign('fk_usuario_municipio');
             $table->dropForeign('fk_tipo_secretaria_aplica');
             $table->dropForeign('fk_usuario_tipo_identificacion');
             $table->dropForeign('fk_usuario_cargo_usuario');
         });
-
 	}
 
 }
