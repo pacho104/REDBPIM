@@ -12,12 +12,15 @@ class CreateBiblioteca extends Migration {
 	 */
 	public function up()
 	{
-        DB::statement('CREATE TABLE IF NOT EXISTS redbpim.biblioteca (
-                    id INT NOT NULL AUTO_INCREMENT,
-                    titulo_biblioteca VARCHAR(100) NOT NULL,
-                    documento_biblbioteca TEXT NOT NULL,
-                    PRIMARY KEY (id))
-                    ENGINE = InnoDB');
+
+        Schema::create('biblioteca',function(Blueprint $table) {
+
+                $table->increments('id');
+                $table->string('titulo_biblioteca',100);
+                $table->text('documento_biblioteca');
+
+
+        });
 
 	}
 
@@ -28,7 +31,9 @@ class CreateBiblioteca extends Migration {
 	 */
 	public function down()
 	{
-        DB::statement('DROP TABLE IF EXISTS redbpim.biblioteca') ;
+
+        Schema::drop('biblioteca');
+
 	}
 
 }

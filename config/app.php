@@ -136,11 +136,6 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
-        /*
-         * paquete para roles
-         *  'Zizaco\Entrust\EntrustServiceProvider',
-         * */
-
 
 		/*
 		 * Application Service Providers...
@@ -155,6 +150,19 @@ return [
          * html illuminata
          * */
         'Illuminate\Html\HtmlServiceProvider',
+
+         /*
+          *   Vendor service provides
+         */
+         Collective\Html\HtmlServiceProvider::class,
+
+        /*
+         * paquete para roles
+         *
+        */
+        'Zizaco\Entrust\EntrustServiceProvider',
+
+
 
 	],
 
@@ -206,15 +214,23 @@ return [
 
         /*
          * alisen para los roles
-         *  'Entrust' => 'Zizaco\Entrust\EntrustFacade',
-         * */
-
+         *
+         */
+        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
         /*
          * html
          * */
         'Form'=> 'Illuminate\Html\FormFacade',
         'HTML'=> 'Illuminate\Html\HtmlFacade',
+
+        /*
+        * Vendor Aliases
+        *
+        * */
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
 	],
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTipoIdentificacion extends Migration {
 
@@ -11,11 +12,14 @@ class CreateTipoIdentificacion extends Migration {
 	 */
 	public function up()
 	{
-        DB::statement('CREATE TABLE IF NOT EXISTS redbpim.tipo_identificacion (
-                      id INT NOT NULL AUTO_INCREMENT,
-                      nom_identificacion VARCHAR(45) NOT NULL,
-                      PRIMARY KEY (id))
-                      ENGINE = InnoDB');
+
+        Schema::create('tipo_identificacion',function(Blueprint $table){
+
+            $table->increments('id');
+            $table->string('nom_identificacion',45);
+
+        });
+
 	}
 
 	/**
@@ -25,7 +29,7 @@ class CreateTipoIdentificacion extends Migration {
 	 */
 	public function down()
 	{
-        DB::statement('DROP TABLE redbpim.tipo_identificacion');
+        Schema::drop('tipo_identificacion');
 	}
 
 }

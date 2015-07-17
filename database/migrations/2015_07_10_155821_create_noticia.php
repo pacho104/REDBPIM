@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateNoticia extends Migration {
 
@@ -11,14 +12,16 @@ class CreateNoticia extends Migration {
 	 */
 	public function up()
 	{
-        //Migracion Para la Creacion de la Tabla Noticia
 
-        DB::statement('CREATE TABLE IF NOT EXISTS redbpim.noticia (
-                      id INT NOT NULL AUTO_INCREMENT,
-                      titulo_noticia VARCHAR(150) NOT NULL,
-                      cuerpo_noticia TEXT NOT NULL,
-                      PRIMARY KEY (id))
-                      ENGINE = InnoDB');
+        Schema::create('noticia',function(Blueprint $table){
+
+            $table->increments('id');
+            $table->string('titulo_noticia',150);
+            $table->text('cuerpo_noticia');
+
+
+        });
+
 	}
 
 	/**
@@ -30,7 +33,8 @@ class CreateNoticia extends Migration {
 	{
         //Se Elimina la Tabla en Caso de Requerirse así
 
-        DB::statement('DROP TABLE redbpim.noticia');
+        Schema::drop('noticia');
+        //DB::statement('DROP TABLE redbpim.noticia');
 	}
 
 }

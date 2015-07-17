@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTipoSecretaria extends Migration {
 
@@ -11,13 +12,13 @@ class CreateTipoSecretaria extends Migration {
 	 */
 	public function up()
 	{
-        // //Migracion Para la Creacion de la Tabla Tipo Secretaria
+        Schema::create('tipo_secretaria',function(Blueprint $table){
 
-        DB::statement('CREATE TABLE IF NOT EXISTS RedBpim.tipo_secretaria (
-                      id INT NOT NULL AUTO_INCREMENT,
-                      nombre_secretaria VARCHAR(60) NOT NULL,
-                      PRIMARY KEY (id))
-                      ENGINE = InnoDB');
+            $table->increments('id');
+            $table->string('nombre_secretaria',60);
+
+        });
+
 	}
 
 	/**
@@ -29,7 +30,8 @@ class CreateTipoSecretaria extends Migration {
 	{
 		//Se Elimina la Tabla en Caso de Requerirse así
 
-        DB::statement('DROP TABLE redbpim.tipo_secretaria');
+        Schema::drop('tipo_secretaria');
+
 	}
 
 }

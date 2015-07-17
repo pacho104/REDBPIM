@@ -13,11 +13,14 @@ class CreateCargoUsuario extends Migration {
 	 */
 	public function up()
 	{
-        DB::statement('CREATE TABLE IF NOT EXISTS redbpim.cargo_usuario(
-                    id INT NOT NULL AUTO_INCREMENT,
-                    nom_cargo VARCHAR(100) NOT NULL,
-                    PRIMARY KEY (id))
-                    ENGINE = InnoDB');
+        Schema::create('cargo_usuario',function(Blueprint $table){
+
+
+            $table->increments('id');
+            $table->string('nom_cargo',100);
+
+        });
+
 	}
 
 	/**
@@ -28,7 +31,8 @@ class CreateCargoUsuario extends Migration {
 	public function down()
     {
 
-        DB::statement('DROP TABLE IF EXISTS redbpim.cargo_usuario');
+        Schema::drop('cargo_usuario');
+
 
     }
 }
