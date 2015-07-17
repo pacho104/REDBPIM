@@ -151,10 +151,10 @@ return [
          * */
         'Illuminate\Html\HtmlServiceProvider',
 
-         /*
-          *   Vendor service provides
-         */
-         Collective\Html\HtmlServiceProvider::class,
+        /*
+         *   Vendor service provides
+        */
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * paquete para roles

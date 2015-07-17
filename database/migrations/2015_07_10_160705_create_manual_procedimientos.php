@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateManualProcedimientos extends Migration {
 
@@ -12,11 +12,11 @@ class CreateManualProcedimientos extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('manual_procedimientos',function(Blueprint $table){
+        Schema::create('manual_procedimientos', function (Blueprint $table) {
 
 
             $table->increments('id');
-            $table->string('nom_manual',100);
+            $table->string('nom_manual', 100);
             $table->text('documento_manual');
 
         });

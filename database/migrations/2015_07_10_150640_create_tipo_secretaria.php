@@ -12,10 +12,10 @@ class CreateTipoSecretaria extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('tipo_secretaria',function(Blueprint $table){
+        Schema::create('tipo_secretaria', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->string('nombre_secretaria',60);
+            $table->string('nombre_secretaria', 60);
 
         });
 

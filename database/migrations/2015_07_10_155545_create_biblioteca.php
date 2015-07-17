@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateBiblioteca extends Migration {
 
@@ -13,11 +13,11 @@ class CreateBiblioteca extends Migration {
 	public function up()
 	{
 
-        Schema::create('biblioteca',function(Blueprint $table) {
+        Schema::create('biblioteca', function (Blueprint $table) {
 
-                $table->increments('id');
-                $table->string('titulo_biblioteca',100);
-                $table->text('documento_biblioteca');
+            $table->increments('id');
+            $table->string('titulo_biblioteca', 100);
+            $table->text('documento_biblioteca');
 
 
         });
