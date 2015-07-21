@@ -17,7 +17,7 @@
                             <strong>Ups!</strong> Exiten problemas con los campos ingresados. <br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
+                                    <li>{!! $error !!}</li>
 								@endforeach
 							</ul>
 						</div>

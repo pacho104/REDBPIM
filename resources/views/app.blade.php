@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
 
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/public/css/app.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -41,13 +41,16 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-                        <li><a href="{{ url('/auth/login') }}" style="font-size: 16px">    <i class="fa fa-user"></i> Iniciar Sesión  </a> </li>
-						<li><a href="{{ url('/auth/register') }}" style="font-size: 16px"> <i class="fa fa-user-plus"></i> Registrar Usuario </a> </li>
+                                <li><a href='/auth/login' style="font-size: 16px"> <i class="fa fa-user"></i> Iniciar
+                                        Sesión </a></li>
+                                <li><a href='/auth/register' style="font-size: 16px"> <i class="fa fa-user-plus"></i>
+                                        Registrar Usuario </a></li>
 					@else
                         <li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">{!! Auth::user()->name !!} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/login') }}">Logout</a></li>
+                                <li><a href='/auth/login'>Logout</a></li>
 							</ul>
 						</li>
 					@endif

@@ -4,7 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <a href="{{ url('/auth/login') }}" class="close" style="font-size: 18px"> <i class="fa fa-times"></i>
+                <a href='/auth/login' class="close" style="font-size: 18px"> <i class="fa fa-times"></i>
                 </a>
                 <h4 class="modal-title">Importante!</h4>
             </div>
