@@ -135,7 +135,14 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
 
+
+        /**
+         * Third Party Service Providers...
+         */
+        Bican\Roles\RolesServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -145,6 +152,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+        'Anhskohbo\NoCaptcha\NoCaptchaServiceProvider',
+
 
         /*
          * html illuminata
@@ -155,12 +164,14 @@ return [
          *   Vendor service provides
         */
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
 
         /*
          * paquete para roles
          *
         */
-        'Zizaco\Entrust\EntrustServiceProvider',
+        //'Zizaco\Entrust\EntrustServiceProvider',
 
 
 
@@ -216,7 +227,7 @@ return [
          * alisen para los roles
          *
          */
-        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        //'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
         /*
          * html

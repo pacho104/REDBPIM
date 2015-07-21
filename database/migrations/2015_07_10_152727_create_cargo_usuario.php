@@ -17,7 +17,7 @@ class CreateCargoUsuario extends Migration {
 
 
             $table->increments('id');
-            $table->string('nom_cargo', 100);
+            $table->string('nom_cargo', 100)->unique();
 
         });
 
