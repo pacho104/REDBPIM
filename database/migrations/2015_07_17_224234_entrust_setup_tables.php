@@ -69,3 +69,4 @@ class EntrustSetupTables extends Migration
         Schema::drop('roles');
     }
 }
+//hola
