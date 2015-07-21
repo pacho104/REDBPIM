@@ -1,40 +1,39 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Departamento;
+use App\Http\Requests;
 use App\Municipio;
-use Illuminate\Http\Request;
 
 class MunicipioController extends Controller {
 
+    /**
+     * Método contructor que determina que las funciones de la clase DepartamentoController las
+     * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-
     /**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+     * Muestra los Municipios que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
+     * @return Vista municipios
+     */
 	public function index()
 	{
         $municipio = \DB::table('municipio')
             ->join('departamento', 'municipio.id_departamento', '=', 'departamento.id')
             ->select('municipio.*', 'departamento.nom_departamento')
-            ->orderBy('municipio.id', 'asc')->paginate(10);
+            ->orderBy('municipio.id', 'asc')->paginate(8);
 
         return view('template.CRUD_municipio.municipio')
             ->with('municipio', $municipio);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Redirecciona a la vista new municipio para crear un  nuevo municipio - Metodo create()
+     * @return view new_municipio
+     */
 	public function create()
 	{
         $list_dep = Departamento::lists('nom_departamento', 'id');
@@ -42,11 +41,11 @@ class MunicipioController extends Controller {
             ->with('list_dep',$list_dep);
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Realiza las validaciones necesarios en el momento de guardar un nuevo municipio usando el recurso \Validator
+     * Guardar un nuevo municipio - Metodo Store()
+     * @return Redirecciona a la view principal Municipio luego de Guardar los cambios
+     */
 	public function store()
 	{
         $data = \Request::all();
@@ -76,21 +75,17 @@ class MunicipioController extends Controller {
 
 	/**
 	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
 	 */
 	public function show($id)
 	{
 		//
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+    /**
+     * Muestra la vista principal para editar un municipio - Metodo edit()     *
+     * @param  int $id - el id primary key tabla municipio
+     * @return vista de edicion municipio
+     */
 	public function edit($id)
 	{
         $mun = Municipio::find($id);
@@ -104,17 +99,18 @@ class MunicipioController extends Controller {
             ->with('list_mun', $list_mun);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+    /**
+     * Actualiza los campos realizados en la vista edit_municipio
+     * Realiza las validaciones necesarios utilzando el recurso \Validator
+     * @param  int $id - primary Key tabla municipio
+     * @return Redirecciona a la vista principal de municipio luego de guardar los cambios
+     */
 	public function update($id)
 	{
         $data = \Request::all();
         $rules = array(
             'codigo_dane_municipio' => "required|max:11|unique:municipio,cod_dane_mun,$id",
+            'codigo_dane_municipio' => 'integer',
             'nombre_municipio' => "required|max:255|unique:municipio,nom_municipio,$id",
             'departamento' => 'exists:departamento,id',
         );
@@ -136,32 +132,34 @@ class MunicipioController extends Controller {
 
         return \Redirect::route('municipio')
             ->with('alert', 'Actualización realizada exitosamente!');
+
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+    /**
+     * Elimina un registro de la tabla municipio - Metodo destroy()
+     * Realiza las validaciones usando el recurso \Validator
+     * @param  int $id - primary key tabla municipio
+     * @return Redirecciona a la vista principal de municipio luego de eliminar el registro
+     */
 	public function destroy($id)
 	{
-        $data = \Request::all();
-        $rules = array(
-            $id => 'max:1',
+        $data = array(
+            'id_mun' => "$id"
         );
-        $error = \Validator::make($data,$rules);
+        $rules = array(
+            'id_mun' => 'exists:users,id_municipio',
+        );
 
-        if($error->fails())
+        $ifExistsMunInUsersTable = \Validator::make($data, $rules);
+
+        if ($ifExistsMunInUsersTable->passes())
         {
             return \Redirect::route('municipio')
-                ->withErrors($error->errors())
-                ->withInput(\Request::all());
+                ->with('ValidationDelete1', 'No se puede eliminar el registro seleccionado ya que el Municipio tiene usuarios asignados.!');
+        } else {
+            $municipio = Municipio::find($id)->delete();
+            return \Redirect::route('municipio')
+                ->with('alert', 'Registro eliminado con exito!');
         }
-        $post = Municipio::find($id)->delete();
-
-        return \Redirect::route('municipio')
-            ->with('alert', 'Registro eliminado con exito!');
-	}
-
+    }
 }

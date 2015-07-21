@@ -1,5 +1,5 @@
 /* FUENTE DE GOOGLE */
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 .crolsant
 {
@@ -10,12 +10,22 @@
 {
     font-family: 'Source Sans Pro', sans-serif;
     font-size:16px;
-    padding-top: 8px;
+}
+
+.navbarlog {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    padding-top: 1.5vh;
 }
 
 #dangercolor
 {
-    background-color:#ff4a3d;
+    background-color: #ff3425;
+}
+
+.textareaContent {
+    max-height: 35vh;
+    overflow: hidden;
 }
 
 .fontbig
@@ -24,12 +34,17 @@
     font-size: 14px;
 }
 
+
 .white{
     color: white;
 }
 
 .blue{
     color: #15ACD1;
+}
+
+#alignrightCreate {
+    padding-right: 2vh;
 }
 
 /* Navbars */
@@ -222,6 +237,25 @@ footer{
         color: white;
         text-align: center;
         padding-top: 10%;
+    }
+
+    .navbarfont {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 12px;
+    }
+
+    .navbarlog {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 12px;
+    }
+
+    #dangercolor {
+        background-color: #ff3425;
+    }
+
+    .fontbig {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 11px;
     }
 
     #subtitle{

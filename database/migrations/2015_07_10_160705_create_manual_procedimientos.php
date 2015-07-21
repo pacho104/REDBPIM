@@ -14,11 +14,9 @@ class CreateManualProcedimientos extends Migration {
 	{
         Schema::create('manual_procedimientos', function (Blueprint $table) {
 
-
             $table->increments('id');
             $table->string('nom_manual', 100);
             $table->text('documento_manual');
-
         });
 	}
 

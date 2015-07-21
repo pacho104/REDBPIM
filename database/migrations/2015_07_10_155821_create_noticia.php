@@ -19,7 +19,6 @@ class CreateNoticia extends Migration {
             $table->string('titulo_noticia', 150);
             $table->text('cuerpo_noticia');
 
-
         });
 
 	}

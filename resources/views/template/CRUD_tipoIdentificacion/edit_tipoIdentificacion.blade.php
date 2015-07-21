@@ -19,7 +19,7 @@
         <div class="container">
             <div class="jumbotrom">
                 <h3 class="text-center">
-                    Edición de Departamento
+                    Edición del tipo de identificación
                 </h3>
             </div>
         </div>
@@ -28,32 +28,30 @@
         <div class="container">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                {!! Form::open(['url' => 'admin/departamento/'.$dep->id.'/refresh', 'autocomplete' => 'off']) !!}
+                {!! Form::open(['url' => 'admin/tipo_identificacion/'.$tipIden->id.'/refresh', 'autocomplete' => 'off'])
+                !!}
                 <fieldset>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Código Dane del Departamento:</label>
+                        <label class="col-md-4 control-label">Tipo de identificación:</label>
+
                         <div class="col-md-6">
-                            <input type="text" name="codigo_dane_departamento" value="{{$dep->cod_dane_dep}}" class="form-control">
+                            <input type="text" name="nombre_identificacion" value="{{$tipIden->nom_identificacion}}"
+                                   class="form-control">
                         </div>
                     </div>
                     <br><br>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label right">Nombre del Departamento:</label>
-                        <div class="col-md-6">
-                            <input type="text" name="nombre_departamento" value="{{$dep->nom_departamento}}" class="form-control">
-                        </div>
-                    </div>
-                    <br><br>
-
-                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
+                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">
+                        Actualizar
+                    </button>
 
                     <div id="myModal" class="modal">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
                                     <h4 class="modal-title">Confirmación</h4>
                                 </div>
                                 <div class="modal-body">

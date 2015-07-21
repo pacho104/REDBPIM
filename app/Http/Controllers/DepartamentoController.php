@@ -1,52 +1,57 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Departamento;
-use App\Municipio;
-
-use Illuminate\Http\Request;
+use App\Http\Requests;
 
 class DepartamentoController extends Controller {
 
+    /**
+     * Método contructor que determina que las funciones de la clase DepartamentoController las
+     * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-
+     * Muestra los Departamentos que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
+     * @return Vista departamento
+     */
 	public function index()
 	{
-        $departamento = Departamento::all();
+        $user = \Auth::user();
+
+        if ($user->isAdminMunicipal()) {
+
+        }
+
+
+        $departamento = \DB::table('departamento')->orderBy('id', 'asc')->paginate(8);
         return view('template.CRUD_departamento.departamento')
             ->with('departamento', $departamento);
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+     * Redirecciona a la vista new departamento para crear un  nuevo departamento - Metodo create()
+     * @return view new_departamento
+     */
 	public function create()
 	{
         return view('template.CRUD_departamento.new_departamento');
 	}
 
 	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+     * Realiza las validaciones necesarios en el momento de guardar un nuevo departamento usando el recurso \Validator
+     * Guardar un nuevo departamento - Metodo Store()
+     * @return Redirecciona a la view principal Departamento luego de Guardar los cambios
+     */
 	public function store()
 	{
         $data = \Request::all();
         $rules = array(
             'codigo_dane_departamento' => 'required|max:11|unique:departamento,cod_dane_dep',
+            'codigo_dane_departamento' => 'integer',
             'nombre_departamento' => 'required|max:100|string|unique:departamento,nom_departamento',
         );
 
@@ -70,21 +75,19 @@ class DepartamentoController extends Controller {
 
 	/**
 	 * Display the specified resource.
-	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+     */
 	public function show($id)
 	{
 		//
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+     * Muestra la vista principal para editar un departamento - Metodo edit()     *
+     * @param  int $id - el id primary key tabla departamento
+     * @return vista de edicion departamento
+     */
 	public function edit($id)
 	{
         $dep = Departamento::find($id);
@@ -93,16 +96,17 @@ class DepartamentoController extends Controller {
 	}
 
 	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+     * Actualiza los campos realizados en la vista edit_departamento
+     * Realiza las validaciones necesarios utilzando el recurso \Validator
+     * @param  int $id - primary Key tabla departamento
+     * @return Redirecciona a la vista principal de departamento luego de guardar los cambios
+     */
 	public function update($id)
 	{
         $data = \Request::all();
         $rules = array(
             'codigo_dane_departamento' => "required|max:11|unique:departamento,cod_dane_dep,$id",
+            'codigo_dane_departamento' => 'integer',
             'nombre_departamento' => "required|max:255|unique:departamento,nom_departamento,$id",
         );
         $error = \Validator::make($data,$rules);
@@ -120,34 +124,36 @@ class DepartamentoController extends Controller {
         $p ->save();
 
         return \Redirect::route('departamento')
+
             ->with('alert', 'Actualización realizada exitosamente!');
     }
 
 	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-
+     * Elimina un registro de la tabla departamento - Metodo destroy()
+     * Realiza las validaciones usando el recurso \Validator
+     * @param  int $id - primary key tabla departamento
+     * @return Redirecciona a la vista principal de departamento luego de eliminar el registro
+     */
 	public function destroy($id)
 	{
-        $data = \Request::all();
-        $rules = array(
-            $id => 'max:1',
+        $data = array(
+            'id_dep' => "$id"
         );
-        $error = \Validator::make($data,$rules);
+        $rules = array(
+            'id_dep' => 'exists:municipio,id_departamento',
+        );
 
-        if($error->fails())
+        $ifExistsDepInMunTable = \Validator::make($data, $rules);
+
+        if ($ifExistsDepInMunTable->passes())
         {
             return \Redirect::route('departamento')
-                ->withErrors($error->errors())
-                ->withInput(\Request::all());
+                ->with('ValidationDelete', 'No se puede eliminar el registro seleccionado ya que el Departamento tiene Municipios asignados.!');
+        } else {
+            $post = Departamento::find($id)->delete();
+            return \Redirect::route('departamento')
+                ->with('alert', 'Registro eliminado con exito!');
         }
-        $post = Departamento::find($id)->delete();
-
-        return \Redirect::route('departamento')
-            ->with('alert', 'Registro eliminado con exito!');
 	}
 
 }

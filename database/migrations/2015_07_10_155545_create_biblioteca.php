@@ -12,14 +12,11 @@ class CreateBiblioteca extends Migration {
 	 */
 	public function up()
 	{
-
         Schema::create('biblioteca', function (Blueprint $table) {
 
             $table->increments('id');
             $table->string('titulo_biblioteca', 100);
             $table->text('documento_biblioteca');
-
-
         });
 
 	}

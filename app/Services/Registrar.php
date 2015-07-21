@@ -1,8 +1,10 @@
 <?php namespace App\Services;
 
+use App\RolesUsers;
 use App\User;
-use Validator;
+use App\Variables;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
+use Validator;
 
 class Registrar implements RegistrarContract {
 
@@ -12,12 +14,13 @@ class Registrar implements RegistrarContract {
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function validator(array $data)
+
+    public function validator(array $data)
 	{
 		return Validator::make($data, [
 			'nombres' => 'required|max:255',
             'apellidos' => 'required|max:100',
-            'numero_identificacion' => 'required|numeric',
+            'numero_identificacion' => 'required|numeric|unique:users,num_identificacion',
             'tel_usuario' => 'max:30',
             'cel_usuario' => 'max:30',
 			'correo_electronico' => 'required|email|max:255|unique:users,email',
@@ -40,6 +43,8 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{
+        $estado = new Variables();
+
       		return User::create([
 			'nom_usuario' => $data['nombres'],
             'ape_usuario' => $data['apellidos'],
@@ -49,6 +54,7 @@ class Registrar implements RegistrarContract {
             'user_login' => $data['nombre_usuario'],
 			'email' => $data['correo_electronico'],
 			'password' => bcrypt($data['contrasenia']),
+                'estado_user' => $estado->UserRegistrado(),
             'id_municipio' => $data['municipio'],
             'id_tipo_secretaria' => $data['secretaria'],
             'id_tipo_identificacion' => $data['tipo_identificacion'],
@@ -56,4 +62,15 @@ class Registrar implements RegistrarContract {
 		]);
 	}
 
+    public function createRole(array $data)
+    {
+        $getid = \DB::table('users')->where('email', '=', $data['correo_electronico'])
+            ->where('user_login', '=', $data['nombre_usuario'])
+            ->where('num_identificacion', '=', $data['numero_identificacion'])->first();
+
+        return RolesUsers::create([
+            'user_id' => $getid->id,
+            'role_id' => $data['rol_usuario'],
+        ]);
+    }
 }

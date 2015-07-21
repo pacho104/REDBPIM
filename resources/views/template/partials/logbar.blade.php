@@ -12,7 +12,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav nav-pills navbarfont">
+            <ul class="nav nav-pills navbarlog">
                <li class="dropdown">
                     <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#">
                         Gestión General <span class="caret"></span>
@@ -21,10 +21,23 @@
                         <li><a href="{{route('departamento')}}">Departamentos</a></li>
                         <li><a href="{{route('municipio')}}">Municipios</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="{{route('cargoUsuario')}}">Cargos Laborales</a></li>
+                        <li><a href="{{route('tipoIdentificacion')}}">Tipo de identificación</a></li>
+                        <li><a href="{{route('tipoSecretaria')}}">Tipo de Secretaría</a></li>
                     </ul>
                 </li>
-                <li class=" nav navbar-nav navbar-right dropdown">
+                <li class="dropdown">
+                    <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Gestión De Notificaciones <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Biblioteca</a></li>
+                        <li><a href="{{route('noticia')}}">Noticias</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Cargos Laborales</a></li>
+                    </ul>
+                </li>
+                <li class=" nav navbar-right dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i>  {{Auth::user()->user_login}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Cerrar Sesión </a></li>

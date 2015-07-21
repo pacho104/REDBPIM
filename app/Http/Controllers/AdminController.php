@@ -1,8 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Municipio;
-use App\Departamento;
-
 class AdminController extends Controller
 {
     public function __construct()
@@ -16,7 +13,7 @@ class AdminController extends Controller
 
     public function logout(){
         \Auth::logout();
-        return \Redirect::route('login');
+        return \Redirect::route('login_admin');
     }
 
 }

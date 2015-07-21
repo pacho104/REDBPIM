@@ -1,7 +1,10 @@
-@extends('app')
+@extends('template.main')
+
+@section('title') Red BPIM - Iniciar Sesión @endsection
 
 @section('content')
-<div class="container-fluid">
+    @include('template.partials.loginbar')
+    <div class="container-fluid crolsant">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -34,6 +37,18 @@
 								<input type="password" class="form-control" placeholder="Escriba su contraseña" name="password">
 							</div>
 						</div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Rol de usuario</label>
+
+                                <div class="col-md-6">
+                                    {!! Form::select('rol_usuario',
+                                    (['0' => 'Seleccione su rol de usuario'] + $listroles),
+                                    null,
+                                    ['class' => 'form-control'])
+                                    !!}
+                                </div>
+                            </div>
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">

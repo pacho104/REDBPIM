@@ -16,7 +16,7 @@ class CreateTipoIdentificacion extends Migration {
         Schema::create('tipo_identificacion', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->string('nom_identificacion', 45);
+            $table->string('nom_identificacion', 45)->unique();
 
         });
 

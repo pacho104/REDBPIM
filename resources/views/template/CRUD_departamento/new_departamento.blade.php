@@ -1,5 +1,5 @@
 @extends('template.main')
-@section('title') Nuevo Departamento @endsection
+@section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
     @include('template.partials.logbar')

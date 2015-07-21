@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title'){{ 'Escritorio | ' . Auth::user()->login_user }} @endsection
+@section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 
 @section('content')
 
@@ -14,29 +14,25 @@
                     <strong>{{Session::get('alert')}}</strong>
                 </div>
             @endif
-            @if (count($errors) > 0)
-                    <div id="dangercolor" class="alert alert-danger">
-                        <strong>Ups!</strong> Exiten problemas con los campos ingresados. <br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                @if(\Session::has('ValidationDelete1'))
+                    <div id="dangercolor" class="alert alert-dismissible alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <i class="fa fa-exclamation-triangle"></i>
+                        {{Session::get('ValidationDelete1')}}
                     </div>
             @endif
 
-                <ul class="nav nav-tabs navbarfont">
+                <ul id="alignrightCreate" class="nav nav-tabs navbarfont navbar-right">
                     <li ><a href="{{route('nuevo_mun')}}">
                     <i class="fa fa-plus"></i> &nbsp Crear nuevo Municipio </a> </li>
+                    <br><br>
                 </ul>
 
-                <br>
-
-                <table class="table table-striped  table-bordered">
+                <table class="table table-striped table-bordered ">
                         <thead>
-                            <th>Código Dane del Municipio</th>
-                            <th> Nombre del Municipio</th>
-                            <th>Nombre del Departamento</th>
+                        <th class="col-md-3">Código Dane del Municipio</th>
+                        <th class="col-md-4"> Nombre del Municipio</th>
+                        <th class="col-md-3">Nombre del Departamento</th>
                             <th class="foo">Acciones</th>
                         </thead>
                     <tbody>
@@ -47,9 +43,11 @@
                             <td>{{$mun->nom_departamento}}</td>
                             <td>
                                 <div class="btn-group-justified">
-                                <a  href="municipio/{{$mun->id}}/editar" class="btn btn-warning"><i class="fa fa-edit"> </i></a>
-                                <a data-toggle="modal" data-target="#ConfirmDelete-{{$mun->id}}" href="#ConfirmDelete-{{$mun->id}}"
-                                   class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="municipio/{{$mun->id}}/editar" class="btn btn-warning"><i
+                                                class="fa fa-edit"> </i></a>
+                                    <a data-toggle="modal" data-target="#ConfirmDelete-{{$mun->id}}"
+                                       href="#ConfirmDelete-{{$mun->id}}"
+                                       class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -77,5 +75,12 @@
                     </div>
                 @endforeach
         </div>
+
+        <div class="col-md-2"></div>
+        <div class="container" align="center">
+            <?php echo str_replace('/?', '?', $municipio->render()) ?>
+        </div>
+
     </div>
+
 @stop

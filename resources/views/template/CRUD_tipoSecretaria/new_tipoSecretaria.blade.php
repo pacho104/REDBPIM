@@ -19,41 +19,38 @@
         <div class="container">
             <div class="jumbotrom">
                 <h3 class="text-center">
-                    Edición de Departamento
+                    Crear Nuevo tipo de Secretaría
                 </h3>
             </div>
         </div>
-        <br>
+        <br><br>
 
         <div class="container">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                {!! Form::open(['url' => 'admin/departamento/'.$dep->id.'/refresh', 'autocomplete' => 'off']) !!}
+                {!! Form::open(['url' => 'admin/tipo_secretaria/new_secretaria', 'autocomplete' => 'off']) !!}
                 <fieldset>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Código Dane del Departamento:</label>
+                        <label class="col-md-4 control-label">Tipo de Secretaría:</label>
+
                         <div class="col-md-6">
-                            <input type="text" name="codigo_dane_departamento" value="{{$dep->cod_dane_dep}}" class="form-control">
+                            <input type="text" class="form-control" name="nombre_secretaria"
+                                   placeholder="ingrese el tipo de secretaría" value="{{ old('nombre_secretaria')}}">
                         </div>
                     </div>
                     <br><br>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label right">Nombre del Departamento:</label>
-                        <div class="col-md-6">
-                            <input type="text" name="nombre_departamento" value="{{$dep->nom_departamento}}" class="form-control">
-                        </div>
-                    </div>
-                    <br><br>
-
-                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
+                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">
+                        Registrar tipo de Secretaría
+                    </button>
 
                     <div id="myModal" class="modal">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
                                     <h4 class="modal-title">Confirmación</h4>
                                 </div>
                                 <div class="modal-body">
@@ -69,7 +66,6 @@
                 </fieldset>
                 {!! Form::close() !!}
             </div>
-            <div class="col-md-2"></div>
         </div>
     </div>
 @stop

@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title'){{ 'Escritorio | ' . Auth::user()->login_user }} @endsection
+@section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 
 @section('content')
 
@@ -14,27 +14,26 @@
                     <strong>{{Session::get('alert')}}</strong>
                 </div>
             @endif
-            @if (count($errors) > 0)
-                <div id="dangercolor" class="alert alert-danger">
-                    <strong>Ups!</strong> Exiten problemas con los campos ingresados. <br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+
+                @if(\Session::has('ValidationDelete'))
+                    <div id="dangercolor" class="alert alert-dismissible alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <i class="fa fa-exclamation-triangle"></i>
+                        {{Session::get('ValidationDelete')}}
                 </div>
             @endif
 
-            <ul class="nav nav-tabs navbarfont">
+                <ul id="alignrightCreate" class="nav nav-tabs navbarfont navbar-right">
                 <li ><a href="{{route('nuevo_dep')}}">
-                        <i class="fa fa-plus"></i> &nbsp Crear nuevo Departamento </a> </li>
+                        <i class="fa fa-plus"></i> &nbsp Crear nuevo Departamento </a></li>
+                    <br><br>
             </ul>
             <br>
 
             <table class="table table-striped  table-bordered">
                 <thead>
-                    <th>Código Dane del Departamento</th>
-                    <th>Nombre del Departamento</th>
+                <th class="col-md-4">Código Dane del Departamento</th>
+                <th class="col-md-5">Nombre del Departamento</th>
                     <th class="foo">Acciones</th>
                 </thead>
                 <tbody>
@@ -73,9 +72,10 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
-
+        <div class="col-md-2"></div>
+        <div class="container" align="center">
+            <?php echo str_replace('/?', '?', $departamento->render()) ?>
+        </div>
     </div>
-
 @stop

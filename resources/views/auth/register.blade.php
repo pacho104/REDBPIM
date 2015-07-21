@@ -1,6 +1,11 @@
-@extends('app')
+@extends('template.main')
+
+@section('title') Red BPIM - Registro de Usuario @endsection
 
 @section('content')
+
+    @include('template.partials.loginbar')
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -16,9 +21,9 @@
 								@endforeach
 							</ul>
 						</div>
-					@endif
+                    @endif
 
-					<form class="form-horizontal" role="form" method="POST" action="../auth/register">
+                    <form class="form-horizontal crolsant" role="form" method="POST" action="../auth/register">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
@@ -54,7 +59,8 @@
                                 <label class="col-md-4 control-label"> Número de Identificación:</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="numero_identificacion"
-                                    placeholder="ingrese sus número de identificación" value="{{ old('numero_identificacion')}}">
+                                           placeholder="ingrese su número de identificación"
+                                           value="{{ old('numero_identificacion')}}">
                                 </div>
                             </div>
 
@@ -126,6 +132,19 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="col-md-4 control-label">Rol de Usuario::</label>
+
+                                <div class="col-md-6">
+                                    {!! Form::select('rol_usuario',
+                                    (['0' => 'Seleccione el rol al cuál aplica'] + $listroles),
+                                    null,
+                                    ['class' => 'form-control'])
+                                    !!}
+                                </div>
+                            </div>
+
+
+                        <div class="form-group">
                                 <label class="col-md-4 control-label">Contraseña:</label>
                                 <div class="col-md-6">
                                     <input type="password" class="form-control" name="contrasenia">
@@ -147,17 +166,22 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 col-md-offset-4 ">
+                                <button type="submit" class="btn btn-primary" style="margin-right: 15px">
                                     Registrar Usuario
                                 </button>
                             </div>
                         </div>
 
                     </form>
+
 				</div>
 			</div>
 		</div>
 	</div>
+
 </div>
+
 @endsection
+
+

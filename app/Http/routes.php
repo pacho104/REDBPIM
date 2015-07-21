@@ -9,17 +9,20 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
-*/
+
 
 Route::get('/', [
     'uses' => 'WelcomeController@index',
     'as' => 'welcome'
 ]);
 
+*/
+
 Route::get('/', [
     'uses' => 'HomeController@index',
     'as' => 'home'
 ]);
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -30,10 +33,8 @@ Route::controllers([
 //ROUTES TO REGISTER USER///////////////////////////////////////////
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 
-Route::get('/desktop', 'AdminController@desktop');
-
-Route::get('/desktop',[
-    'as' => 'login',
+Route::get('/admin', [
+    'as' => 'login_admin',
     'uses' => 'AdminController@desktop'
 ]);
 Route::get('/logout', [
@@ -87,7 +88,99 @@ Route::get('admin/departamento/{id}/eliminar', [
     'uses' => 'DepartamentoController@destroy',
     'as' => 'eliminar_dep'
 ]);
-////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+//////////////7///ROUTES TO CRUD CARGO_USUARIO ////////////////////////////
+Route::get('/admin/cargo_usuario', [
+    'as' => 'cargoUsuario',
+    'uses' => 'CargoUsuarioController@index'
+]);
+
+Route::get('admin/cargo_usuario/{id}/editar', 'CargoUsuarioController@edit');
+
+Route::post('admin/cargo_usuario/{id}/refresh', 'CargoUsuarioController@update');
+
+Route::get('admin/cargo_usuario/nuevo', [
+    'as' => 'nuevo_cargo',
+    'uses' => 'CargoUsuarioController@create'
+]);
+
+Route::post('admin/cargo_usuario/new_cargo', 'CargoUsuarioController@store');
+
+Route::get('admin/cargo_usuario/{id}/eliminar', [
+    'uses' => 'CargoUsuarioController@destroy',
+    'as' => 'eliminar_cargo'
+]);
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD TIPO DE IDENTIFICACION //////////////////////////////////////////
+Route::get('/admin/tipo_identificacion', [
+    'as' => 'tipoIdentificacion',
+    'uses' => 'TipoIdentificacionController@index'
+]);
+
+Route::get('admin/tipo_identificacion/{id}/editar', 'TipoIdentificacionController@edit');
+
+Route::post('admin/tipo_identificacion/{id}/refresh', 'TipoIdentificacionController@update');
+
+Route::get('admin/tipo_identificacion/nuevo', [
+    'as' => 'new_identificacion',
+    'uses' => 'TipoIdentificacionController@create'
+]);
+
+Route::post('admin/tipo_identificacion/new_identificacion', 'TipoIdentificacionController@store');
+
+Route::get('admin/tipo_identificacion/{id}/eliminar', [
+    'uses' => 'TipoIdentificacionController@destroy',
+    'as' => 'eliminar_identificacion'
+]);
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD TIPO DE SECRETARIA////////////////////////////////////////////////
+Route::get('/admin/tipo_secretaria', [
+    'as' => 'tipoSecretaria',
+    'uses' => 'TipoSecretariaController@index'
+]);
+
+Route::get('admin/tipo_secretaria/{id}/editar', 'TipoSecretariaController@edit');
+
+Route::post('admin/tipo_secretaria/{id}/refresh', 'TipoSecretariaController@update');
+
+Route::get('admin/tipo_secretaria/nuevo', [
+    'as' => 'new_secretaria',
+    'uses' => 'TipoSecretariaController@create'
+]);
+
+Route::post('admin/tipo_secretaria/new_secretaria', 'TipoSecretariaController@store');
+
+Route::get('admin/tipo_secretaria/{id}/eliminar', [
+    'uses' => 'TipoSecretariaController@destroy',
+    'as' => 'eliminar_sec'
+]);
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD NOTICIA//////////////////////////////////////////////////////////
+Route::get('/admin/noticia', [
+    'as' => 'noticia',
+    'uses' => 'NoticiaController@index'
+]);
+
+Route::get('admin/noticia/{id}/editar', 'NoticiaController@edit');
+
+Route::post('admin/noticia/{id}/refresh', 'NoticiaController@update');
+
+Route::get('admin/noticia/nuevo', [
+    'as' => 'new_noticia',
+    'uses' => 'NoticiaController@create'
+]);
+
+Route::post('admin/noticia/new_noticia', 'NoticiaController@store');
+
+Route::get('admin/noticia/{id}/eliminar', [
+    'uses' => 'NoticiaController@destroy',
+    'as' => 'eliminar_noti'
+]);
+
 
 
 
