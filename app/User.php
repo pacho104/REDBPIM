@@ -1,17 +1,17 @@
 <?php namespace App;
 
-use Bican\Roles\Contracts\HasRoleAndPermissionContract as HasRoleAndPermissionContract;
-use Bican\Roles\Traits\HasRoleAndPermission;
+
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract, HasRoleAndPermissionContract
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
 
-    use Authenticatable, CanResetPassword, HasRoleAndPermission;
+    use Authenticatable, CanResetPassword, EntrustUserTrait;
 
 	/**
 	 * The database table used by the model.
@@ -36,24 +36,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
-    public function isAdminGeneral()
-    {
-        foreach ($this->roles()->get() as $role) {
-            if ($role->name == 'Admin') {
-                return true;
-            }
-        }
-        return false;
-    }
 
-    public function isAdminMunicipal()
-    {
-        foreach ($this->roles()->get() as $role) {
-            if ($role->name == 'AdminMunicipal') {
-                return true;
-            }
-        }
-        return false;
-    }
 
 }

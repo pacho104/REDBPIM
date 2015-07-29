@@ -2,6 +2,8 @@
 
 use App\Departamento;
 use App\Http\Requests;
+use App\User;
+use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller {
 
@@ -12,22 +14,19 @@ class DepartamentoController extends Controller {
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->beforeFilter('gestion_gene', array('only' => 'delete') );
+
+
     }
 
 	/**
      * Muestra los Departamentos que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
      * @return Vista departamento
      */
-	public function index()
-	{
-        $user = \Auth::user();
+	public function index(Request $request)	{
 
-        if ($user->isAdminMunicipal()) {
-
-        }
-
-
-        $departamento = \DB::table('departamento')->orderBy('id', 'asc')->paginate(8);
+        $departamento = Departamento::filtroAndPaginacion($request->get('dep'));
         return view('template.CRUD_departamento.departamento')
             ->with('departamento', $departamento);
 	}
@@ -78,9 +77,10 @@ class DepartamentoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
      */
-	public function show($id)
+	public function show()
 	{
-		//
+          return  \Redirect::route('departamento')
+            ->with('alert', 'No Cuenta Con El Permiso!');
 	}
 
 	/**
@@ -89,10 +89,20 @@ class DepartamentoController extends Controller {
      * @return vista de edicion departamento
      */
 	public function edit($id)
-	{
-        $dep = Departamento::find($id);
-        return view('template.CRUD_departamento.edit_departamento')
-            ->with('dep', $dep);
+    {
+
+        if (\Auth::user()->can('gestion_dep')) {
+
+            $dep = Departamento::find($id);
+            return view('template.CRUD_departamento.edit_departamento')
+                ->with('dep', $dep);
+        }
+        else
+        {
+             return $this->show();
+        }
+
+
 	}
 
 	/**

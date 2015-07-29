@@ -14,7 +14,7 @@
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger", style="background-color:#ff4a3d">
-                            <strong>Ups!</strong> Exiten problemas con los campos ingresados. <br><br>
+                            <strong>Verifique La Información!</strong> Exiten problemas con los campos ingresados. <br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
                                     <li>{!! $error !!}</li>
@@ -76,7 +76,8 @@
                                 <label class="col-md-4 control-label">Número de Celular:</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="celular_usuario"
-                                    value="{{ old('celular_usuario') }}">
+                                    value="{{ old('celular_usuario') }}" required pattern="[0-9]"
+                                    title="Solo Numeros Enteros sin puntos ni comas">
                                 </div>
                             </div>
 
@@ -103,7 +104,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Cargo Usuario::</label>
+                                <label class="col-md-4 control-label">Cargo Usuario:</label>
                                 <div class="col-md-6">
                                     {!! Form::select('cargo_usuario',
                                     (['0' => 'Seleccione su cargo de trabajo'] + $list_cargo),

@@ -38,8 +38,8 @@ Route::get('/admin', [
     'uses' => 'AdminController@desktop'
 ]);
 Route::get('/logout', [
-    'uses' => 'AdminController@logout',
-    'as' => 'logout'
+    'as' => 'logout',
+    'uses' => 'AdminController@logout'
 ]);
 //////////////////////////////////////////////////////////////////////
 
@@ -67,7 +67,7 @@ Route::get('admin/municipio/{id}/eliminar', [
 ]);
 //////////////////////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//////////////7///ROUTES TO CRUD DEPARTAMENTO ////////////////////////////
+/////////////////ROUTES TO CRUD DEPARTAMENTO ////////////////////////////
 Route::get('/admin/departamento',[
     'as' => 'departamento',
     'uses' => 'DepartamentoController@index'
@@ -182,7 +182,15 @@ Route::get('admin/noticia/{id}/eliminar', [
 ]);
 
 
+Route::group(['middleware' => ['auth']], function () {
 
+    Route::resource('roles', 'RolesController');
+
+    Route::get('/permisos','PermissionController@index');
+    Route::get('/permisos/asignar','PermissionController@asignar');
+    Route::get('/permisos/desasignar','PermissionController@desasignar');
+
+});
 
 
 

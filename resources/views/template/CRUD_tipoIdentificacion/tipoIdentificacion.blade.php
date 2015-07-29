@@ -26,18 +26,25 @@
             <ul id="alignrightCreate" class="nav nav-tabs navbarfont navbar-right">
                 <li><a href="{{route('new_identificacion')}}">
                         <i class="fa fa-plus"></i> &nbsp Crear nuevo tipo de identificación </a></li>
-                <br><br>
             </ul>
-            <br>
+                {!!Form::model(Request::all(),['route'=>'tipoIdentificacion','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search']) !!}
+                <div class="form-group">
+                    {!!Form::text('identi',null,['class'=>'form-control','placeholder'=>'Tipo Identificación'])!!}
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+                {!!Form::close()!!}
+
 
             <table class="table table-striped  table-bordered">
                 <thead>
-                <th>Nombre del tipo de identificación</th>
-                <th class="foo">Acciones</th>
+                <th class="col-md-1">Identificador</th>
+                <th class="col-md-4">Nombre del tipo de identificación</th>
+                <th class="col-md-1">Acciones</th>
                 </thead>
                 <tbody>
                 @foreach($tip_identificacion as $identif)
                     <tr>
+                        <td>{{$identif->id}}</td>
                         <td>{{$identif->nom_identificacion}}</td>
                         <td>
                             <div class="btn-group-justified">
@@ -76,7 +83,7 @@
         </div>
         <div class="col-md-2"></div>
         <div class="container" align="center">
-            <?php echo str_replace('/?', '?', $tip_identificacion->render()) ?>
+            {!!$tip_identificacion->appends(Request::only(['identi']))->render()!!}
         </div>
     </div>
 @stop

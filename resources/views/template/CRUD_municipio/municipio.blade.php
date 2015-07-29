@@ -25,15 +25,23 @@
                 <ul id="alignrightCreate" class="nav nav-tabs navbarfont navbar-right">
                     <li ><a href="{{route('nuevo_mun')}}">
                     <i class="fa fa-plus"></i> &nbsp Crear nuevo Municipio </a> </li>
-                    <br><br>
+
                 </ul>
+                {!!Form::model(Request::all(),['route'=>'municipio','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search']) !!}
+                    <div class="form-group">
+                        {!!Form::text('muni',null,['class'=>'form-control','placeholder'=>'Nombre o Código Dane'])!!}
+                    </div>
+                    <button type="submit" class="btn btn-default">Buscar</button>
+                {!!Form::close()!!}
 
                 <table class="table table-striped table-bordered ">
                         <thead>
                         <th class="col-md-3">Código Dane del Municipio</th>
                         <th class="col-md-4"> Nombre del Municipio</th>
                         <th class="col-md-3">Nombre del Departamento</th>
-                            <th class="foo">Acciones</th>
+                            <th class="col-md-1">Acciones</th>
+
+
                         </thead>
                     <tbody>
                     @foreach($municipio as $mun)
@@ -77,10 +85,9 @@
         </div>
 
         <div class="col-md-2"></div>
-        <div class="container" align="center">
-            <?php echo str_replace('/?', '?', $municipio->render()) ?>
-        </div>
-
+            <div class="container" align="center">
+                {!!$municipio->appends(Request::only(['cargo']))->render()!!}
+            </div>
     </div>
 
 @stop

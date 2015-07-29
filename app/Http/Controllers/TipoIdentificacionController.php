@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\TipoIdentificacion;
+use Illuminate\Http\Request;
 
 class TipoIdentificacionController extends Controller
 {
@@ -20,9 +21,10 @@ class TipoIdentificacionController extends Controller
      * que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
      * @return Vista tipo_identificacion
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tip_identificacion = \DB::table('tipo_identificacion')->orderBy('id', 'asc')->paginate(8);
+
+        $tip_identificacion = TipoIdentificacion::filtroAndPaginacion($request->get('identi'));
         return view('template.CRUD_tipoIdentificacion.tipoIdentificacion')
             ->with('tip_identificacion', $tip_identificacion);
     }

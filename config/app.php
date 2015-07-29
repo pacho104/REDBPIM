@@ -142,7 +142,7 @@ return [
         /**
          * Third Party Service Providers...
          */
-        Bican\Roles\RolesServiceProvider::class,
+        // Bican\Roles\RolesServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -171,8 +171,13 @@ return [
          * paquete para roles
          *
         */
-        //'Zizaco\Entrust\EntrustServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
 
+        /*
+         * Autocompletado
+         */
+
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
 
 	],
@@ -227,7 +232,7 @@ return [
          * alisen para los roles
          *
          */
-        //'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
         /*
          * html

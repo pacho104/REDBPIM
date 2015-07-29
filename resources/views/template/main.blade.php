@@ -21,6 +21,8 @@
     <![endif]-->
 
 
+
+
 </head>
 <body>
 
@@ -57,6 +59,8 @@
 
 
 @yield('js')
+
+
 </body>
 
 </html>

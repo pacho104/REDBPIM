@@ -10,4 +10,23 @@ class Departamento extends Model {
 
     public $timestamps = false;
 
+
+    /*
+     * Devuelve el departamento por nombre, enviando el nombre por parametro
+     */
+    public function scopeNombre($query, $name){
+
+        if(trim($name) != "") {
+
+            $query->where('nom_departamento',"LIKE", "%$name%")->orWhere('cod_dane_dep',"LIKE","%$name%");
+
+        }
+
+    }
+
+    public static function filtroAndPaginacion($name)
+    {
+
+        return Departamento::nombre($name)->orderBy('id', 'asc')->paginate(8);
+    }
 }

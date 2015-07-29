@@ -2,6 +2,7 @@
 
 use App\CargoUsuario;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class CargoUsuarioController extends Controller
 {
@@ -19,9 +20,9 @@ class CargoUsuarioController extends Controller
      * Muestra los Cargos de usuario que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
      * @return Vista cargo_usuario
      */
-    public function index()
+    public function index(Request $request)
     {
-        $cargo_usuario = \DB::table('cargo_usuario')->orderBy('id', 'asc')->paginate(8);
+        $cargo_usuario = CargoUsuario::filtroAndPaginacion($request->get('cargo'));
         return view('template.CRUD_CargoUsuario.cargoUsuario')
             ->with('cargo_usuario', $cargo_usuario);
     }

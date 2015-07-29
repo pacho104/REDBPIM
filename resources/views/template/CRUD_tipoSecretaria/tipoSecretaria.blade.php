@@ -26,18 +26,25 @@
             <ul id="alignrightCreate" class="nav nav-tabs navbarfont navbar-right">
                 <li><a href="{{route('new_secretaria')}}">
                         <i class="fa fa-plus"></i> &nbsp Crear nuevo tipo de Secretaría </a></li>
-                <br><br>
             </ul>
-            <br>
+                {!!Form::model(Request::all(),['route'=>'tipoSecretaria','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search']) !!}
+                <div class="form-group">
+                    {!!Form::text('secre',null,['class'=>'form-control','placeholder'=>'Secretaria'])!!}
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+                {!!Form::close()!!}
+
 
             <table class="table table-striped  table-bordered">
                 <thead>
-                <th>Nombre del tipo de Secretaría</th>
-                <th class="foo">Acciones</th>
+                <th class="col-lg-1">Identificador</th>
+                <th class="col-md-4">Nombre del tipo de Secretaría</th>
+                <th class="col-md-1">Acciones</th>
                 </thead>
                 <tbody>
                 @foreach($tip_secretaria as $secretaria)
                     <tr>
+                        <td>{{$secretaria->id}}</td>
                         <td>{{$secretaria->nombre_secretaria}}</td>
                         <td>
                             <div class="btn-group-justified">
@@ -76,7 +83,7 @@
         </div>
         <div class="col-md-2"></div>
         <div class="container" align="center">
-            <?php echo str_replace('/?', '?', $tip_secretaria->render()) ?>
+            {!!$tip_secretaria->appends(Request::only(['secre']))->render()!!}
         </div>
     </div>
 @stop

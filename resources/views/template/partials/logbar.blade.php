@@ -18,23 +18,27 @@
                         Gestión General <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+
                         <li><a href="{{route('departamento')}}">Departamentos</a></li>
                         <li><a href="{{route('municipio')}}">Municipios</a></li>
                         <li class="divider"></li>
                         <li><a href="{{route('cargoUsuario')}}">Cargos Laborales</a></li>
                         <li><a href="{{route('tipoIdentificacion')}}">Tipo de identificación</a></li>
                         <li><a href="{{route('tipoSecretaria')}}">Tipo de Secretaría</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{route('roles.index')}}">Roles</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Gestión De Notificaciones <span class="caret"></span>
+                        Gestión De Notificaciones
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Biblioteca</a></li>
                         <li><a href="{{route('noticia')}}">Noticias</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Cargos Laborales</a></li>
+                        <li><a href="#">xxxx</a></li>
                     </ul>
                 </li>
                 <li class=" nav navbar-right dropdown">

@@ -10,4 +10,19 @@ class CargoUsuario extends Model {
 
     public $timestamps = false;
 
+    public function scopeNombre($query, $name)
+    {
+        if(trim($name) != "") {
+
+            $query->where('nom_cargo',"LIKE", "%$name%");
+
+        }
+
+    }
+    public static function filtroAndPaginacion($name)
+    {
+        return CargoUsuario::nombre($name)->orderBy('id', 'asc')->paginate(8);
+
+    }
+
 }

@@ -26,18 +26,24 @@
             <ul id="alignrightCreate" class="nav nav-tabs navbarfont navbar-right">
                 <li><a href="{{route('nuevo_cargo')}}">
                         <i class="fa fa-plus"></i> &nbsp Crear nuevo Cargo </a></li>
-                <br><br>
             </ul>
-            <br>
+                {!!Form::model(Request::all(),['route'=>'cargoUsuario','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search']) !!}
+                <div class="form-group">
+                    {!!Form::text('cargo',null,['class'=>'form-control','placeholder'=>'Cargo'])!!}
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+                {!!Form::close()!!}
 
             <table class="table table-striped  table-bordered">
                 <thead>
-                <th>Nombre del cargo laboral</th>
-                <th class="foo">Acciones</th>
+                <th class="col-md-1">Identificador</th>
+                <th class="col-md-4">Nombre del cargo laboral</th>
+                <th class="col-md-1">Acciones</th>
                 </thead>
                 <tbody>
                 @foreach($cargo_usuario as $cargo)
                     <tr>
+                        <td>{{$cargo->id}}</td>
                         <td>{{$cargo->nom_cargo}}</td>
                         <td>
                             <div class="btn-group-justified">
@@ -76,7 +82,7 @@
         </div>
         <div class="col-md-2"></div>
         <div class="container" align="center">
-            <?php echo str_replace('/?', '?', $cargo_usuario->render()) ?>
+           {!!$cargo_usuario->appends(Request::only(['cargo']))->render()!!}
         </div>
     </div>
 @stop

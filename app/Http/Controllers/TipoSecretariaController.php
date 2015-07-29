@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Secretaria;
+use Illuminate\Http\Request;
 
 class TipoSecretariaController extends Controller
 {
@@ -19,9 +20,9 @@ class TipoSecretariaController extends Controller
      * Muestra los campos de Tipo de Secretaria que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
      * @return Vista tipoSecretaria
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tip_secretaria = \DB::table('tipo_secretaria')->orderBy('id', 'asc')->paginate(8);
+        $tip_secretaria =Secretaria::filtroAndPaginacion($request->get('secre'));
         return view('template.CRUD_tipoSecretaria.tipoSecretaria')
             ->with('tip_secretaria', $tip_secretaria);
     }

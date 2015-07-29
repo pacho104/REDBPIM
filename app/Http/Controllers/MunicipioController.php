@@ -3,6 +3,7 @@
 use App\Departamento;
 use App\Http\Requests;
 use App\Municipio;
+use Illuminate\Http\Request;
 
 class MunicipioController extends Controller {
 
@@ -19,12 +20,9 @@ class MunicipioController extends Controller {
      * Muestra los Municipios que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
      * @return Vista municipios
      */
-	public function index()
+	public function index(Request $request)
 	{
-        $municipio = \DB::table('municipio')
-            ->join('departamento', 'municipio.id_departamento', '=', 'departamento.id')
-            ->select('municipio.*', 'departamento.nom_departamento')
-            ->orderBy('municipio.id', 'asc')->paginate(8);
+        $municipio = Municipio::filtroAndPaginacion($request->get('muni'));
 
         return view('template.CRUD_municipio.municipio')
             ->with('municipio', $municipio);

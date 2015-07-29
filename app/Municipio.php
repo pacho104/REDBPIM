@@ -10,4 +10,29 @@ class Municipio extends Model {
 
     public $timestamps = false;
 
+
+    /*
+     * Devuelve el municipio por nombre, enviando el nombre por parametro
+     */
+    public function scopeNombre($query, $name){
+
+        if(trim($name) != "") {
+
+            $query->where('nom_municipio',"LIKE", "%$name%")->orWhere('cod_dane_mun',"LIKE","%$name%");
+
+        }
+
+    }
+    /*
+     * Devuelve la lista de los municipios que estan registrados
+     * */
+    public static function  filtroAndPaginacion($name){
+
+       return Municipio::nombre($name)
+        ->join('departamento', 'municipio.id_departamento', '=', 'departamento.id')
+        ->select('municipio.*', 'departamento.nom_departamento')
+        ->orderBy('municipio.id', 'asc')->paginate(8);
+    }
+
+
 }
