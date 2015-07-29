@@ -2,55 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a263b393-27a6-4e0c-a203-9a4e512ca585" name="Default" comment="h">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/switch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/AsignarRolesTableSeeder.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/SILVER.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/chat.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/template/role/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/template/role/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/jquery.multi-select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/login.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/multi-select.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/template/role/role.blade.php" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\app\RolesUsers.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\migrations\2015_07_18_105324_create_roles_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\migrations\2015_07_18_114412_create_role_user_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\migrations\2015_07_18_115212_create_permissions_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\migrations\2015_07_18_115523_create_permission_role_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\migrations\2015_07_18_132439_create_permission_user_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\seeds\RoleTableSeeder.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\seeds\RolesUsersTableSeeder.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\seeds\UserTableSeeder.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CargoUsuario.php" afterPath="$PROJECT_DIR$/app/CargoUsuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CargoUsuarioController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CargoUsuarioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Departamento.php" afterPath="$PROJECT_DIR$/app/Departamento.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DepartamentoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartamentoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Municipio.php" afterPath="$PROJECT_DIR$/app/Municipio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MunicipioController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MunicipioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Secretaria.php" afterPath="$PROJECT_DIR$/app/Secretaria.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/TipoIdentificacion.php" afterPath="$PROJECT_DIR$/app/TipoIdentificacion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TipoIdentificacionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TipoIdentificacionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TipoSecretariaController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TipoSecretariaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/CRUD_cargoUsuario/cargoUsuario.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/CRUD_cargoUsuario/cargoUsuario.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/CRUD_departamento/departamento.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/CRUD_departamento/departamento.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/partials/logbar.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/partials/logbar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mail.php" afterPath="$PROJECT_DIR$/config/mail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/main.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/CRUD_municipio/municipio.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/CRUD_municipio/municipio.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/redbpim.iml" afterPath="$PROJECT_DIR$/.idea/redbpim.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/reset.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/reset.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/CRUD_tipoIdentificacion/tipoIdentificacion.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/CRUD_tipoIdentificacion/tipoIdentificacion.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/template/CRUD_tipoSecretaria/tipoSecretaria.blade.php" afterPath="$PROJECT_DIR$/resources/views/template/CRUD_tipoSecretaria/tipoSecretaria.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\redbpim\database\migrations\2015_07_22_154929_entrust_setup_tables.php" afterPath="" />
     </list>
     <ignored path="redbpim.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -251,6 +203,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="redbpim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="redbpim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="redbpim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
