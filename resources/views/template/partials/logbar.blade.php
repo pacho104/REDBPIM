@@ -26,19 +26,20 @@
                         <li><a href="{{route('tipoIdentificacion')}}">Tipo de identificación</a></li>
                         <li><a href="{{route('tipoSecretaria')}}">Tipo de Secretaría</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{route('roles.index')}}">Roles</a></li>
+                        <li><a href="#">Roles</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Gestión De Notificaciones
+                        Gestión De Comunicaciones
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Biblioteca</a></li>
-                        <li><a href="{{route('noticia')}}">Noticias</a></li>
+                        <li><a href="#">Gestionar Biblioteca</a></li>
+                        <li><a href="{{route('noticia')}}">Gestionar Noticias</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">xxxx</a></li>
+                        <li><a href="{{route('salas.index')}}">Gestionar Sala de Chat</a></li>
+                        <li><a href="../salasDis">Ingresar a Sala de Chat</a></li>
                     </ul>
                 </li>
                 <li class=" nav navbar-right dropdown">

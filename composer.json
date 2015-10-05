@@ -11,6 +11,8 @@
       "illuminate/html": "5.0.*",
       "laravelcollective/html": "5.0.",
       "anhskohbo/no-captcha": "2.*",
+      "vinelab/minion": "*",
+      "pmill/php-chat":"0.2.0",
 
       "barryvdh/laravel-ide-helper":"2.0.5"
 	},
@@ -20,10 +22,12 @@
 	},
 	"autoload": {
 		"classmap": [
-			"database"
+			"database",
+            "App/Chat.php"
 		],
 		"psr-4": {
-			"App\\": "app/"
+			"App\\": "app/",
+            "React\\ZMQ\\": "src"
 		}
 	},
 	"autoload-dev": {

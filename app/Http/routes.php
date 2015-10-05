@@ -184,13 +184,32 @@ Route::get('admin/noticia/{id}/eliminar', [
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::resource('roles', 'RolesController');
+   // Route::resource('roles', 'RolesController');
 
-    Route::get('/permisos','PermissionController@index');
-    Route::get('/permisos/asignar','PermissionController@asignar');
-    Route::get('/permisos/desasignar','PermissionController@desasignar');
+   // Route::get('/permisos','PermissionController@index');
+   // Route::get('/permisos/asignar','PermissionController@asignar');
+   // Route::get('/permisos/desasignar','PermissionController@desasignar');
+
+    Route::get('msj/{id}','UsuarioSalaController@mjsUsuarioSala');
+
+    Route::get('sala/{id}','UsuarioSalaController@registrarUsuarioSala');
+
+    Route::get('crearMesa/{id}','MensajeController@crearMensaje');
+
+
+    Route::get('salasDis','SalasChatController@salasOn');
+
+    Route::resource('salas','SalasChatController');
+    Route::resource('mensaje','MensajeController');
+    Route::resource('usuarioSala','UsuarioSalaController');
+    Route::resource('chats','ChatController');
+
+    Route::post('esta/{id}','SalasChatController@cambiarEstado');
+
 
 });
+
+
 
 
 

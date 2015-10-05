@@ -42,11 +42,7 @@
                                 <label class="col-md-4 control-label">Rol de usuario</label>
 
                                 <div class="col-md-6">
-                                    {!! Form::select('rol_usuario',
-                                    (['0' => 'Seleccione su rol de usuario'] + $listroles),
-                                    null,
-                                    ['class' => 'form-control'])
-                                    !!}
+
                                 </div>
                             </div>
 

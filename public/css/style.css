@@ -1,0 +1,90 @@
+#connectFormDialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.formInicio {
+    width: 450px;
+
+}
+#chatwindow{
+     height: 380px;
+     width: 100%;
+     overflow: auto;
+
+ }
+#chatwindowMensa{
+    height: 440px;
+    width: 100%;
+
+}
+#messageDialog {
+
+    display: none;
+}
+#messagebox{
+  resize:none;
+}
+
+
+tbody{
+    height: 260px;
+    width: 100%;
+    border-bottom-width: 0;
+    display: block;
+    overflow: auto;
+}
+tr {
+    width: 100%;
+    display: inline-table;
+
+}
+.cell1{
+    width: 10px;
+
+}
+.cell2{
+    width: 645px;
+
+}
+.cell3{
+    width: 105px;
+
+}
+.tbody1{
+
+    height: 380px;
+}
+
+.login {
+    margin-top: 50px;
+}
+
+.messages-container {
+    height: 260px;
+    border: 1px solid #DDD;
+    position: relative;
+}
+
+.messages {
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: auto;
+    height: 498px;
+    width: 80%;
+}
+.username {
+
+    font-weight: bold;
+    color: orange;
+
+}
+
+li.away {
+    opacity: .5;
+}
+
+
+
+

@@ -7,8 +7,8 @@
         {{-- Librerias CSS --}}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('public/css/redbpi.css')}}">
-    <link rel="stylesheet" href="{{asset('public/css/trumbowyg.min.css')}}">
+    <link rel="stylesheet" href="/css/redbpi.css">
+    <link rel="stylesheet" href="/css/trumbowyg.min.css">
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -23,6 +23,10 @@
 
 
 
+
+
+
+
 </head>
 <body>
 
@@ -31,8 +35,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<script src="{{asset('public/js/animatescroll.min.js')}}"></script>
-<script src="{{asset('public/js/trumbowyg.min.js')}}"></script>
+<script src="{{asset('/js/animatescroll.min.js')}}"></script>
+<script src="{{asset('/js/trumbowyg.min.js')}}"></script>
+
+<link href="/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="/js/bootstrap-toggle.min.js"></script>
+
+
 
 <!-- Script No permitir usar la barra espaciadora en el momento de realizar el registro de usuario al
          campo(nom_usuario)-->
