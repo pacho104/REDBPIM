@@ -1,3 +1,4 @@
+<link href="/css/bootstrap1.min.css" rel="stylesheet">
 <nav class="navbar navbar-default " role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -40,6 +41,40 @@
                         <li class="divider"></li>
                         <li><a href="{{route('salas.index')}}">Gestionar Sala de Chat</a></li>
                         <li><a href="../salasDis">Ingresar a Sala de Chat</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Elementos Del Banco<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('estados.index')}}">Gestionar Estados</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Listas de Chequeo</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{route('proceso.index')}}">Gestionar Procesos</a></li>
+                                <li><a href="{{route('recurso.index')}}">Gestionar Recurso</a></li>
+                                <li><a href="{{route('etapaLista.index')}}">Gestionar Etapa</a></li>
+                                <li><a href="{{route('sectorInversion.index')}}">Gestionar Sector de Inversion</a></li>
+                                <li><a href="{{route('requisito.index')}}">Gestionar Requisitos</a></li>
+                                <li><a href="{{route('lista.index')}}">Gestionar Lista de Chequeo Red</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-submenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Listas de Chequeo Municipio</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{route('reqM')}}">Gestionar Requisitos Municipales</a></li>
+                                        <li><a href="{{route('lisM')}}">Gestionar Lista de Chequeo Municipio</a></li>
+                                        <li class="divider"></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">XX</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">xx</a></li>
+                                <li><a href="#">xx</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li class=" nav navbar-right dropdown">

@@ -33,7 +33,7 @@
 
                         <table class="table">
                             <thead>
-                            <th class="col-md-6 " >Mensaje</th>
+                            <th class="col-md-6 " >MENSAJE</th>
                             <th class="col-md-1 " >SELECCIONAR</th>
                             </thead>
                                 <tbody class="messages-container" id="chatwindowMensa">

@@ -9,22 +9,9 @@
 
     <div class="row-fluid">
         <div class="container" id="admin">
-                @if(\Session::has('alert'))
-                    <div class="alert alert-dismissible alert-success fontbig">
-
-                        {!!Form::submit('×',['class'=>'close','data-dismiss'=>'alert'])!!}
-                        <strong>{{\Session::get('alert')}}</strong>
-                    </div>
-                @endif
-                @if(\Session::has('ValidationDelete'))
-                    <div id="dangercolor" class="alert alert-dismissible alert-danger">
-                        {!!Form::submit('×',['class'=>'close','data-dismiss'=>'alert'])!!}
-                        <i class="fa fa-exclamation-triangle"></i>
-                        {{Session::get('ValidationDelete')}}
-                    </div>
-                @endif
 
 
+            @include('template.partials.mensajes')
 
 
                 <ul id="alignrightCreate" class="nav nav-tabs navbarfont navbar-right">
@@ -40,7 +27,6 @@
 
             <table class="table table-striped  table-bordered">
                 <thead>
-                <th class="col-md-1" align="center">Identificador</th>
                 <th class="col-md-4" align="center">Nombre de la Sala que Administras</th>
                 <th class="col-md-1" align="center">Estado</th>
                 <th class="col-md-3" align="center">Acciones</th>
@@ -51,7 +37,7 @@
 
                 @foreach($sala_chat as $sal)
                     <tr>
-                        <td>{{$sal->id}}</td>
+
                         <td>{{$sal->nombre_sala_chat}}</td>
 
                         {!!Form::open(['url'=> ['esta',$sal->id],'method'=>'POST'])!!}

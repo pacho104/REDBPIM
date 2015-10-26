@@ -26,7 +26,7 @@
                                 </div>
                         </div>
                         <br><br>
-                           {!!Form::submit('Actualizar',['class'=>'btn btn-block btn-primary','data-toggle'=>'modal','data-target'=>'#myModal']) !!}
+                           {!!Form::button('Actualizar',['class'=>'btn btn-block btn-primary','data-toggle'=>'modal','data-target'=>'#myModal']) !!}
 
                         @include('template.partials.confirmar')
                 </fieldset>

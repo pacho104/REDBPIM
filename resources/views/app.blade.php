@@ -18,6 +18,8 @@
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
 	<![endif]-->
 
 
@@ -26,6 +28,7 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">
+
 
 
 
@@ -41,6 +44,8 @@
             </div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
            				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
                                 <li><a href='/auth/login' style="font-size: 16px"> <i class="fa fa-user"></i> Iniciar

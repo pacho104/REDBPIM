@@ -72,9 +72,10 @@ return [
     ],
     "string" => "The :attribute must be a string.",
     "timezone" => "El :attribute debe ser una zona válida.",
-    "unique" => ":attribute ya ha sido registrado.",
+    "unique" => ":attribute ya ha sido registrado en la red..",
     "url" => "El formato :attribute es inválido.",
-    "exists"=>":attribute ya no esta disponible",
+    "exists"=>":attribute ya no esta disponible o Ud no lo ha Seleccionado",
+
 
     /*
     |--------------------------------------------------------------------------

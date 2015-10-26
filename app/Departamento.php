@@ -27,6 +27,6 @@ class Departamento extends Model {
     public static function filtroAndPaginacion($name)
     {
 
-        return Departamento::nombre($name)->orderBy('id', 'asc')->paginate(8);
+        return Departamento::nombre($name)->orderBy('id', 'asc')->paginate(15);
     }
 }

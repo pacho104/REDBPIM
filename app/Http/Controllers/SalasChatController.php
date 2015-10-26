@@ -20,7 +20,7 @@ class SalasChatController extends Controller {
 
 
     /**
-     * Método contructor que determina que las funciones de la clase DepartamentoController las
+     * Método contructor que determina que las funciones de la clase SalasController las
      * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
      */
     public function __construct()

@@ -10,12 +10,8 @@
 
     <div class="row-fluid">
         <div class="container" id="admin">
-            @if(\Session::has('alert'))
-                <div class="alert alert-dismissible alert-success fontbig">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{\Session::get('alert')}}</strong>
-                </div>
-            @endif
+
+            @include('template.partials.mensajes')
 
 
             {!!Form::open(['url'=>'salasDis','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search']) !!}
@@ -27,7 +23,6 @@
 
             <table class="table table-striped  table-bordered">
                 <thead>
-                <th class="col-md-1">Identificador</th>
                 <th class="col-md-5">Salas Disponibles</th>
                 <th class="col-md-1">Acciones</th>
                 </thead>
@@ -36,7 +31,7 @@
 
                 @foreach($sala_chat as $sal)
                         <tr>
-                            <td>{{$sal->id}}</td>
+
                             <td>{{$sal->nombre_sala_chat}}</td>
                             {!!Form::open(['url'=> ['sala',$sal->id],'method'=>'GET'])!!}
                             <td>

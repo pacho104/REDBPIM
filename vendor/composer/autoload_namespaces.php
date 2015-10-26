@@ -30,6 +30,7 @@ return array(
     'Guzzle\\Parser' => array($vendorDir . '/guzzle/parser'),
     'Guzzle\\Http' => array($vendorDir . '/guzzle/http'),
     'Guzzle\\Common' => array($vendorDir . '/guzzle/common'),
+    'Felixkiss\\UniqueWithValidator\\' => array($vendorDir . '/felixkiss/uniquewith-validator/src'),
     'Evenement' => array($vendorDir . '/evenement/evenement/src'),
     'Dotenv' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),

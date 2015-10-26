@@ -38,7 +38,7 @@ class SalasChat extends Model {
     public static function filtroAndPaginacion($name,$idUsu)
     {
 
-            return SalasChat::nombre($idUsu,$name)->orderBy('id', 'asc')->paginate(8);
+            return SalasChat::nombre($idUsu,$name)->orderBy('id', 'asc')->paginate(15);
     }
 
     public function scopeSalas($query,$estado,$name){
@@ -61,7 +61,7 @@ class SalasChat extends Model {
      */
     public static function salasDisponibles($estado,$name){
 
-        return SalasChat::salas($estado,$name)->orderBy('id','asc')->paginate(8);
+        return SalasChat::salas($estado,$name)->orderBy('id','asc')->paginate(15);
     }
 
     /**Cambia el estado de la sala de chat

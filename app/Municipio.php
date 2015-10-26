@@ -31,7 +31,7 @@ class Municipio extends Model {
        return Municipio::nombre($name)
         ->join('departamento', 'municipio.id_departamento', '=', 'departamento.id')
         ->select('municipio.*', 'departamento.nom_departamento')
-        ->orderBy('municipio.id', 'asc')->paginate(8);
+        ->orderBy('municipio.id', 'asc')->paginate(15);
     }
 
 
