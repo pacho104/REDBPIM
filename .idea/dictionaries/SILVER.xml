@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="SILVER">
     <words>
+      <w>actualizado</w>
       <w>anyo</w>
       <w>asignar</w>
       <w>autocomplete</w>
@@ -16,10 +17,14 @@
       <w>crea</w>
       <w>creado</w>
       <w>crear</w>
+      <w>cuerpo</w>
       <w>datos</w>
       <w>desasignar</w>
       <w>desconectado</w>
+      <w>editar</w>
       <w>eliminar</w>
+      <w>encabezado</w>
+      <w>enctype</w>
       <w>enviado</w>
       <w>enviar</w>
       <w>enviarlo</w>
@@ -28,11 +33,14 @@
       <w>estados</w>
       <w>estapa</w>
       <w>etapa</w>
+      <w>evidencia</w>
+      <w>evidencias</w>
       <w>exito</w>
       <w>fecha</w>
       <w>fila</w>
       <w>fillable</w>
       <w>filtro</w>
+      <w>formato</w>
       <w>formu</w>
       <w>formulario</w>
       <w>grabar</w>
@@ -43,6 +51,7 @@
       <w>mensajes</w>
       <w>messagebox</w>
       <w>mostrar</w>
+      <w>multipart</w>
       <w>municipio</w>
       <w>nombre</w>
       <w>nueva</w>

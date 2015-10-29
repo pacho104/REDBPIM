@@ -68,9 +68,9 @@
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">XX</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Evidencias</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">xx</a></li>
+                                <li><a href="{{route('formatoEvidencia.index')}}">Gestionar Formatos</a></li>
                                 <li><a href="#">xx</a></li>
                                 <li class="divider"></li>
                             </ul>

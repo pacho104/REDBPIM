@@ -41,7 +41,7 @@ tr {
 
 }
 .cell1{
-    width: 10px;
+    width: 100px;
 
 }
 .cell2{
@@ -83,6 +83,35 @@ tr {
 
 li.away {
     opacity: .5;
+}
+.caja-nombreCuerpo{
+    height: 260px;
+    width: 645px;
+    border: 1px solid #022241;
+    position: relative;
+    resize: none
+}
+.caja-nombreEncabezado{
+    height: 90px;
+    width: 645px;
+    border: 1px solid #022241;
+    position: relative;
+    resize: none
+}
+.caja-nombre{
+
+    width: 645px;
+    border: 1px solid #022241;
+    position: relative;
+}
+.boton1{
+
+    width: 645px;
+    position: relative;
+}
+.dialogo{
+
+    width: 800px;
 }
 
 

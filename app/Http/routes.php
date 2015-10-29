@@ -217,6 +217,8 @@ Route::group(['middleware' => ['auth']], /**
 
     Route::get('elReq/{id}','ListaChequeoController@eliminarReq');
 
+    Route::get('elLogo/{id}','FormatoEvidenciaController@eliminarLogo');
+
     Route::get('reqMun', [
         'as' => 'reqM',
         'uses' => 'RequisitoController@indexReqMun'
@@ -255,6 +257,7 @@ Route::group(['middleware' => ['auth']], /**
     Route::resource('recurso','RecursoController');
     Route::resource('etapaLista','EtapaListaController');
     Route::resource('sectorInversion','SectorInversionController');
+    Route::resource('formatoEvidencia','FormatoEvidenciaController');
 
     Route::post('esta/{id}','SalasChatController@cambiarEstado');
 

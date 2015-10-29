@@ -29,3 +29,9 @@ function sendReq(event) {
         document.reqFrom.submit();
 
 }
+function sendLogo(event){
+
+
+        document.reqFromLogo.submit();
+}
+
