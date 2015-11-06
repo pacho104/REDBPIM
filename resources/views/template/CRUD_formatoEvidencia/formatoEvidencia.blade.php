@@ -46,7 +46,7 @@
                                     <i class="fa fa-edit"></i>
 
                                 </a>
-                                <a  href="#" class="btn btn-success">VER FORMATO
+                                <a  href="{{route('ftoEviPdf',"$fo->id")}}" class="btn btn-success">VER FORMATO
                                     <i class="fa fa-bars"></i>
 
                                 </a>

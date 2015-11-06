@@ -1,18 +1,27 @@
 <?php namespace App\Http\Controllers;
 
+use App;
 use App\FormatoEvidencia;
+use App\FormatoEvidenciaPDF;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\FormatoEvidenciaRequest;
 use App\Logo;
+use App\User;
+use Auth;
+
+use DOMPDF;
 use File;
 use Illuminate\Http\Request;
 
 
 use Intervention\Image\Facades\Image;
+use NumberFormatter;
 use Redirect;
 use Storage;
+use View;
+
 
 class FormatoEvidenciaController extends Controller {
 
@@ -126,8 +135,8 @@ class FormatoEvidenciaController extends Controller {
                         $formatoEBan = new FormatoEvidencia();
 
                         $formatoEBan->fill($request->all());
-                        $formatoEBan->nom_formato        = $request->get('nombre_formato');
-                        $formatoEBan->encabezado_formato = $request->get('encabezado_formato');
+                        $formatoEBan->nom_formato        = strtoupper($request->get('nombre_formato'));
+                        $formatoEBan->encabezado_formato = strtoupper($request->get('encabezado_formato'));
                         $formatoEBan->cuerpo_formato     = $request->get('cuerpo_formato');
                         $formatoEBan->id_logo            = $idLogo;
 
@@ -249,8 +258,8 @@ class FormatoEvidenciaController extends Controller {
 
 
         $formatoEBan->fill($request->all());
-        $formatoEBan->nom_formato        = $request->get('nombre_formato');
-        $formatoEBan->encabezado_formato = $request->get('encabezado_formato');
+        $formatoEBan->nom_formato        = strtoupper($request->get('nombre_formato'));
+        $formatoEBan->encabezado_formato = strtoupper($request->get('encabezado_formato'));
         $formatoEBan->cuerpo_formato     = $request->get('cuerpo_formato');
         $formatoEBan->id_logo            = $idLogo;
 
@@ -297,4 +306,39 @@ class FormatoEvidenciaController extends Controller {
 
 
     }
+
+
+    /**
+     * Genrera el pdf con la variables que se extraen de los otros modelos
+     * @param $id
+     * @return mixed
+     */
+    public function invoice($id)
+    {
+
+
+        $idUser    = Auth::user()->id;
+        $user      = User::filtro($idUser);
+        $nombreUsu = $user->toArray()[0]['nom_usuario'].' '.$user->toArray()[0]['ape_usuario'];
+        $cc        = $user->toArray()[0]['num_identificacion'];
+        $nuevaC    = number_format($cc,0,",",".");
+
+
+
+
+        $formatoEBan = FormatoEvidencia::findOrFail($id);
+        $nombre      = $formatoEBan->nom_formato;
+        $cuerpo      = $formatoEBan->cuerpo_formato;
+
+
+
+        $view    = View::make('template.CRUD_formatoEvidencia.formato_pdf', compact('formatoEBan','nombreUsu','nuevaC','cuerpo'))->render();
+        $pdf     = App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+
+        return $pdf->stream($nombre.'.pdf');
+    }
+
+
+
 }

@@ -21,6 +21,7 @@ class CreateListaChequeo extends Migration {
             $table->integer('etapa_lista_id_etapa')->unsigned();
             $table->integer('proceso_id_proceso')->unsigned();
             $table->integer('municipio_id_municipio')->unsigned()->nullable();
+            $table->timestamps();
 
 
             $table->foreign('tipo_lista')

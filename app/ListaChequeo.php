@@ -10,7 +10,7 @@ class ListaChequeo extends Model {
      * @var string
      */
     protected $table = 'lista_chequeo';
-    public $timestamps = false;
+
 
     /**
      * The attributes that are mass assignable.

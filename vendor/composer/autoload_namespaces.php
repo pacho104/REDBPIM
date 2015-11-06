@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'pmill\\Chat' => array($vendorDir . '/pmill/php-chat/src'),
     'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
+    'fpdf' => array($vendorDir . '/itbz/fpdf/src'),
     'Vinelab\\Minion' => array($vendorDir . '/vinelab/minion/src'),
     'Thruway' => array($vendorDir . '/voryx/thruway/src'),
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
@@ -36,5 +37,4 @@ return array(
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),
     'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
-    'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
 );

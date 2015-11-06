@@ -8,7 +8,7 @@
 
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <section class="formInicio" id="connectFormDialog" >
         <h3  class="blue">BIENVENIDO!!!</h3>
@@ -74,7 +74,7 @@
     </section>
 
 
-    <script type="text/javascript" src="../js/chat.js"></script>
+    <script type="text/javascript" src="{{asset('js/chat.js')}}"></script>
 
 @stop
 

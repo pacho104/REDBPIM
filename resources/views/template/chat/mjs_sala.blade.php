@@ -7,7 +7,7 @@
     @include('template.partials.logbar')
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
     <div class="container">
@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="../js/chat.js"></script>
+    <script type="text/javascript" src="{{asset('js/chat.js')}}"></script>
 
 @stop
 

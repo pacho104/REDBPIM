@@ -224,6 +224,13 @@ Route::group(['middleware' => ['auth']], /**
         'uses' => 'RequisitoController@indexReqMun'
     ]);
 
+    Route::get('ftoEvi/{id}', [
+
+        'as'  => 'ftoEviPdf',
+        'uses'=> 'FormatoEvidenciaController@invoice'
+
+    ]);
+
     Route::get('creaMun','RequisitoController@createReqMun');
 
     Route::post('newMun','RequisitoController@storeReqMun');

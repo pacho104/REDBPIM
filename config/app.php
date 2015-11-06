@@ -139,6 +139,7 @@ return [
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
+        'Barryvdh\DomPDF\ServiceProvider',
 
 
 
@@ -231,6 +232,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
         'Image' => 'Intervention\Image\Facades\Image',
+        'PDF' => 'Barryvdh\DomPDF\Facade',
 
         /*
          * alisen para los roles

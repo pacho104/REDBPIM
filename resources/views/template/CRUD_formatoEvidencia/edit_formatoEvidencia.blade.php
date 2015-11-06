@@ -4,7 +4,7 @@
 
     @include('template.partials.logbar')
 
-    <link rel="stylesheet" href="/css/tablaEditarFormato.css">
+    <link rel="stylesheet" href="{{url('css/tablaEditarFormato.css')}}">
 
 
     <div class="row-fluid">
@@ -55,8 +55,8 @@
                     </table>
                     <br><br>
 
-                    {!! Form::label('', 'Encabezado:',['class'=>'col-md-2 control-label'])!!}
-                    {!!Form::textarea('encabezado_formato',$formatoEBan->nom_formato,['class'=>'caja-nombreEncabezado', 'placeholder'=>'Encabezado del Formato'])!!}
+                    {!! Form::label('', 'Encabezado/Título:',['class'=>'col-md-2 control-label'])!!}
+                    {!!Form::textarea('encabezado_formato',$formatoEBan->encabezado_formato,['class'=>'caja-nombreEncabezado', 'placeholder'=>'Encabezado/Título del Formato'])!!}
                     <br><br><br>
 
                     {!! Form::label('', 'Cuerpo del Formato:',['class'=>'col-md-2 control-label'])!!}
