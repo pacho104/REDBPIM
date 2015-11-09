@@ -31,17 +31,18 @@
 
                     {!! Form::model($formatoEBan,['route' => ['formatoEvidencia.update',$formatoEBan->id],'method'=>'PUT','class'=>'form-inline','enctype'=>'multipart/form-data'])!!}
 
-
-                    {!! Form::label('', 'Nombre Del Formato:',['class'=>'col-md-2 control-label'])!!}
-                    {!!Form::text('nombre_formato',$formatoEBan->nom_formato,['class'=>'caja-nombre','placeholder'=>'Nombre'])!!}
-                    <br><br><br>
-
-                    {!! Form::label('', 'Logo:',['class'=>'col-md-2 control-label'])!!}
-
                     <table>
+                    {!! Form::label('', 'Nombre Del Formato:',['class'=>'col-md-2 control-label'])!!}
+                        <td class="col-lg-4">
+                    {!!Form::text('nombre_formato',$formatoEBan->nom_formato,['class'=>'caja-nombre','placeholder'=>'Nombre'])!!}
+                        </td>
+                    </table>
+                    <br><br><br>
+                    <table>
+                    {!! Form::label('', 'Logo:',['class'=>'col-md-2 control-label'])!!}
                         <tbody id="tbody1">
                            <tr id="tr1">
-                                <td>
+                                <td class="col-lg-4">
                                   <img src = "{{url($url)}}" name="img" class="img-thumbnail">
                                 </td>
                                 <td class="col-lg-1">
@@ -55,13 +56,22 @@
                     </table>
                     <br><br>
 
-                    {!! Form::label('', 'Encabezado/Título:',['class'=>'col-md-2 control-label'])!!}
-                    {!!Form::textarea('encabezado_formato',$formatoEBan->encabezado_formato,['class'=>'caja-nombreEncabezado', 'placeholder'=>'Encabezado/Título del Formato'])!!}
+                    <table>
+                      {!! Form::label('', 'Encabezado/Título:',['class'=>'col-md-2 control-label'])!!}
+                        <td class="col-lg-4">
+                      {!!Form::textarea('encabezado_formato',$formatoEBan->encabezado_formato,['class'=>'ckeditor caja-nombreEncabezado','placeholder'=>'Encabezado/Título del Formato'])!!}
+                        </td>
+                    </table>
                     <br><br><br>
 
+                    <table>
                     {!! Form::label('', 'Cuerpo del Formato:',['class'=>'col-md-2 control-label'])!!}
-                    {!!Form::textarea('cuerpo_formato',$formatoEBan->cuerpo_formato,['class'=>'caja-nombreCuerpo','placeholder'=>'Cuerpo del Formato'])!!}
+                        <td class="col-lg-4">
+                    {!!Form::textarea('cuerpo_formato',$formatoEBan->cuerpo_formato,['class'=>'caja-nombreCuerpo ckeditor','placeholder'=>'Cuerpo del Formato'])!!}
+                        </td>
+                    </table>
                     <br><br><br>
+
 
                 </div>
                 <div>
@@ -78,5 +88,6 @@
             </div>
         </div>
         <script type="text/javascript" src="{{asset('js/listaChequeo.js')}}"></script>
+        <script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
     </div>
 @stop

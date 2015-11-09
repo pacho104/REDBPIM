@@ -4,7 +4,7 @@
 
     @include('template.partials.logbar')
 
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{url('css/tablaEditarFormato.css')}}">
 
 
     <div class="row-fluid">
@@ -28,21 +28,35 @@
 
                <div>
                    {!!Form::open(['route'=>'formatoEvidencia.store','method'=>'POST','class'=>'form-inline','enctype'=>'multipart/form-data'])!!}
-
+                   <table>
                    {!! Form::label('', 'Nombre Del Formato:',['class'=>'col-md-2 control-label'])!!}
+                       <td class="col-lg-4">
                    {!!Form::text('nombre_formato','',['class'=>'caja-nombre','placeholder'=>'Nombre','value'=>'{{old("nombre_formatoE")}}'])!!}
-                   <br><br><br>
+                       </td>
+                   </table>
+                   <br><br><br><br>
 
+                   <table>
                    {!! Form::label('', 'Logo:',['class'=>'col-md-2 control-label'])!!}
+                       <td class="col-lg-4">
                    <input type="file" accept="image/*" name="logo"/>
-                   <br><br><br>
+                       </td>
+                       </table>
+                   <br><br>
 
+                   <table>
                        {!! Form::label('', 'Encabezado/Título:',['class'=>'col-md-2 control-label'])!!}
-                       {!!Form::textarea('encabezado_formato','',['class'=>'caja-nombreEncabezado', 'placeholder'=>'Encabezado/Título del Formato'])!!}
+                       <td class="col-lg-4">
+                       {!!Form::textarea('encabezado_formato','',['class'=>'caja-nombreEncabezado ckeditor', 'placeholder'=>'Encabezado/Título del Formato'])!!}
+                       </td>
+                   </table>
                    <br><br><br>
-
+                   <table>
                        {!! Form::label('', 'Cuerpo del Formato:',['class'=>'col-md-2 control-label'])!!}
-                       {!!Form::textarea('cuerpo_formato','',['class'=>'caja-nombreCuerpo','placeholder'=>'Cuerpo del Formato'])!!}
+                       <td class="col-lg-4">
+                       {!!Form::textarea('cuerpo_formato','',['class'=>'caja-nombreCuerpo ckeditor','placeholder'=>'Cuerpo del Formato'])!!}
+                       </td>
+                   </table>
                    <br><br><br>
 
                 </div>
@@ -58,6 +72,8 @@
 
                </div>
         </div>
-
+        <script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
     </div>
+
+
 @stop

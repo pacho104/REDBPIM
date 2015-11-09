@@ -92,7 +92,7 @@ li.away {
     resize: none
 }
 .caja-nombreEncabezado{
-    height: 90px;
+    height: 60px;
     width: 645px;
     border: 1px solid #022241;
     position: relative;
@@ -100,7 +100,7 @@ li.away {
 }
 .caja-nombre{
 
-    width: 645px;
+    width: 735px;
     border: 1px solid #022241;
     position: relative;
 }

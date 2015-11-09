@@ -136,7 +136,7 @@ class FormatoEvidenciaController extends Controller {
 
                         $formatoEBan->fill($request->all());
                         $formatoEBan->nom_formato        = strtoupper($request->get('nombre_formato'));
-                        $formatoEBan->encabezado_formato = strtoupper($request->get('encabezado_formato'));
+                        $formatoEBan->encabezado_formato = $request->get('encabezado_formato');
                         $formatoEBan->cuerpo_formato     = $request->get('cuerpo_formato');
                         $formatoEBan->id_logo            = $idLogo;
 
@@ -259,7 +259,7 @@ class FormatoEvidenciaController extends Controller {
 
         $formatoEBan->fill($request->all());
         $formatoEBan->nom_formato        = strtoupper($request->get('nombre_formato'));
-        $formatoEBan->encabezado_formato = strtoupper($request->get('encabezado_formato'));
+        $formatoEBan->encabezado_formato = $request->get('encabezado_formato');
         $formatoEBan->cuerpo_formato     = $request->get('cuerpo_formato');
         $formatoEBan->id_logo            = $idLogo;
 
@@ -332,7 +332,14 @@ class FormatoEvidenciaController extends Controller {
 
 
 
-        $view    = View::make('template.CRUD_formatoEvidencia.formato_pdf', compact('formatoEBan','nombreUsu','nuevaC','cuerpo'))->render();
+        $idLogo      = $formatoEBan->id_logo;
+
+
+        $logo        ='';
+        if($idLogo==null){$logo='';}else{$logo= url($formatoEBan->logo->toArray()['url']);}
+
+
+        $view    = View::make('template.CRUD_formatoEvidencia.formato_pdf', compact('formatoEBan','nombreUsu','nuevaC','cuerpo','logo'))->render();
         $pdf     = App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
 

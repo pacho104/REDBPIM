@@ -11,5 +11,6 @@
 
 <body>
 @yield('contenido')
+<script src="{{ url('vendors/ckeditor/ckeditor.js') }}"></script>
 </body>
 </html>
