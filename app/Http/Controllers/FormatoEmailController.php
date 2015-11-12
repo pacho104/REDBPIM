@@ -1,20 +1,31 @@
 <?php namespace App\Http\Controllers;
 
+use App\FormatoEmail;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 
 class FormatoEmailController extends Controller {
+
+
+    /**
+     * Método contructor que determina que las funciones de la clase FormatoEmailController las
+     * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+    public function index(Request $request)
 	{
-		//
+        /** @var TYPE_NAME $request */
+        $formatoEBan = FormatoEmail::filtroAndPaginacion($request->get('nom_formato'), '');
+        return view('template.CRUD_formatoEmail.formatoEmail', compact('procesoBan'));
 	}
 
 	/**
