@@ -11,9 +11,12 @@
         </div>
     @endif
 
-    <div class="row-fluid">
-        <div class="container" id="admin">
-            <h4> Acciones para la Secretaria de Planeacion Municipal </h4>
+
+    <div class="container">
+        <div class="jumbotrom">
+            <h4 class="text-center">
+                Procesos del BPIM - Secretaría Sectorial
+            </h4>
         </div>
     </div>
 
@@ -53,19 +56,19 @@
             </a>
         </li>
 
-        <div>
-        <div class="col-md-1"></div>
-        </div>
-
     </ul>
 
+    <div class="row-fluid">
+        <div class="container"></div>
+    </div>
+
+
     <ul class="ca-menu">
-
         <li>
             <a href="#">
-                <span class="ca-icon">S</span>
+                <span class="ca-icon">Priorización</span>
                 <div class="ca-content">
-                <h2 class="ca-main">Sophisticated Team</h2>
+                <h2 class="ca-main">Priorización</h2>
                 </div>
             </a>
         </li>
@@ -76,9 +79,9 @@
 
         <li>
             <a href="#">
-                <span class="ca-icon">S</span>
+                <span class="ca-icon">Aprobación</span>
                 <div class="ca-content">
-                <h2 class="ca-main">Sophisticated Team</h2>
+                <h2 class="ca-main">Aprobación</h2>
                 </div>
             </a>
         </li>
@@ -89,9 +92,9 @@
 
         <li>
             <a href="#">
-                <span class="ca-icon">S</span>
+                <span class="ca-icon">Ajustes y Correcciones</span>
                 <div class="ca-content">
-                <h2 class="ca-main">Sophisticated Team</h2>
+                <h2 class="ca-main">Ajustes y Correcciones</h2>
                 </div>
             </a>
         </li>
