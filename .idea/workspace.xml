@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a263b393-27a6-4e0c-a203-9a4e512ca585" name="Default" comment="nuevo2 11/11/2015">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/hola" />
+    <list default="true" id="a263b393-27a6-4e0c-a203-9a4e512ca585" name="Default" comment="nuevo3 11/11/2015">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="redbpim.iws" />
@@ -466,7 +465,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447276660262</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="nuevo3 11/11/2015">
+      <created>1447345336535</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1447345336535</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -516,7 +521,8 @@
     <MESSAGE value="h" />
     <MESSAGE value="nuevo 11/11/2015" />
     <MESSAGE value="nuevo2 11/11/2015" />
-    <option name="LAST_COMMIT_MESSAGE" value="nuevo2 11/11/2015" />
+    <MESSAGE value="nuevo3 11/11/2015" />
+    <option name="LAST_COMMIT_MESSAGE" value="nuevo3 11/11/2015" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
