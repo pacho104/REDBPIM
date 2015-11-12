@@ -31,6 +31,7 @@ return array(
     'CreateEstado' => $baseDir . '/database/migrations/2015_10_05_150629_create_estado.php',
     'CreateEtapaLista' => $baseDir . '/database/migrations/2015_10_16_111355_create_etapa_lista.php',
     'CreateFormatoEmail' => $baseDir . '/database/migrations/2015_11_12_151744_create_formato_email.php',
+    'CreateFormatoEmailsTable' => $baseDir . '/database/migrations/2015_11_12_152610_create_formato_emails_table.php',
     'CreateFormatoEvidencia' => $baseDir . '/database/migrations/2015_10_27_103838_create_formato_evidencia.php',
     'CreateListaChequeo' => $baseDir . '/database/migrations/2015_10_21_144938_create_lista_chequeo.php',
     'CreateLogo' => $baseDir . '/database/migrations/2015_10_27_102250_create_logo.php',
