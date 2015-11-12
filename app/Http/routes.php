@@ -23,28 +23,64 @@ Route::get('/', [
     'as' => 'home'
 ]);
 
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
  ]);
 
 
-//ROUTES TO REGISTER USER///////////////////////////////////////////
+//ROUTES TO REGISTER USER//////////////////////////////////////////////////////////////////////////
+
 Route::get('auth/register', 'Auth\AuthController@getRegister');
+
+Route::get('/user', [
+    'as' => 'update_user',
+    'uses' => 'UserController@edit'
+]);
+
+Route::post('/user/{id}/refresh', 'UserController@update');
+
+Route::get('/logout', [
+    'uses' => 'UserController@logout',
+    'as' => 'logout'
+]);
+
+Route::get('/desktop', [
+    'as' => 'login_user',
+    'uses' => 'UserController@desktop'
+]);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------------
+//ROUTES TO USER ADMIN/////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/admin', [
     'as' => 'login_admin',
     'uses' => 'AdminController@desktop'
 ]);
-Route::get('/logout', [
-    'as' => 'logout',
-    'uses' => 'AdminController@logout'
+
+Route::get('/admin/verificar_usuarios', [
+    'as' => 'verificar_usuarios',
+    'uses' => 'AdminController@verificarUsuariosindex'
 ]);
-//////////////////////////////////////////////////////////////////////
 
+Route::get('/admin/verificar_roles', [
+    'as' => 'verificar_roles',
+    'uses' => 'AdminController@GestionRolIndex'
+]);
 
-//ROUTES TO CRUD MUNICIPIO////////////////////////////////////////////
+Route::post('/admin/verificar_roles/{id}/new_rol', 'AdminController@storeRoles');
+
+Route::post('/admin/verificar_roles/search', 'AdminController@GestionRolesSearch');
+
+Route::get('/admin/verificar_usuarios/{id}/aceptar', 'AdminController@aceptarUsuario');
+
+Route::get('/admin/verificar_usuarios/{id}/descartar', 'AdminController@descartarUsuario');
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
+//ROUTES TO CRUD MUNICIPIO//////////////////////////////////////////////////////////////////////////
+
 Route::get('/admin/municipio',[
     'as' => 'municipio',
     'uses' => 'MunicipioController@index'
@@ -65,9 +101,11 @@ Route::get('admin/municipio/{id}/eliminar', [
     'uses' => 'MunicipioController@destroy',
     'as' => 'eliminar_mun'
 ]);
-//////////////////////////////////////////////////////////////////////////
-//-----------------------------------------------------------------------------
-/////////////////ROUTES TO CRUD DEPARTAMENTO ////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD DEPARTAMENTO /////////////////////////////////////////
+
 Route::get('/admin/departamento',[
     'as' => 'departamento',
     'uses' => 'DepartamentoController@index'
@@ -88,9 +126,11 @@ Route::get('admin/departamento/{id}/eliminar', [
     'uses' => 'DepartamentoController@destroy',
     'as' => 'eliminar_dep'
 ]);
-//////////////////////////////////////////////////////////////////////////
-//-----------------------------------------------------------------------------
-//////////////7///ROUTES TO CRUD CARGO_USUARIO ////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD CARGO_USUARIO //////////////////////////////////////////
+
 Route::get('/admin/cargo_usuario', [
     'as' => 'cargoUsuario',
     'uses' => 'CargoUsuarioController@index'
@@ -111,9 +151,11 @@ Route::get('admin/cargo_usuario/{id}/eliminar', [
     'uses' => 'CargoUsuarioController@destroy',
     'as' => 'eliminar_cargo'
 ]);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------------------------
 //////////////////ROUTES TO CRUD TIPO DE IDENTIFICACION //////////////////////////////////////////
+
 Route::get('/admin/tipo_identificacion', [
     'as' => 'tipoIdentificacion',
     'uses' => 'TipoIdentificacionController@index'
@@ -134,9 +176,11 @@ Route::get('admin/tipo_identificacion/{id}/eliminar', [
     'uses' => 'TipoIdentificacionController@destroy',
     'as' => 'eliminar_identificacion'
 ]);
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//-----------------------------------------------------------------------------------------------
-//////////////////ROUTES TO CRUD TIPO DE SECRETARIA////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD TIPO DE SECRETARIA//////////////////////////////////////////////////
+
 Route::get('/admin/tipo_secretaria', [
     'as' => 'tipoSecretaria',
     'uses' => 'TipoSecretariaController@index'
@@ -147,7 +191,7 @@ Route::get('admin/tipo_secretaria/{id}/editar', 'TipoSecretariaController@edit')
 Route::post('admin/tipo_secretaria/{id}/refresh', 'TipoSecretariaController@update');
 
 Route::get('admin/tipo_secretaria/nuevo', [
-    'as'   => 'new_secretaria',
+    'as' => 'new_secretaria',
     'uses' => 'TipoSecretariaController@create'
 ]);
 
@@ -155,11 +199,13 @@ Route::post('admin/tipo_secretaria/new_secretaria', 'TipoSecretariaController@st
 
 Route::get('admin/tipo_secretaria/{id}/eliminar', [
     'uses' => 'TipoSecretariaController@destroy',
-    'as'   => 'eliminar_sec'
+    'as' => 'eliminar_sec'
 ]);
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//-----------------------------------------------------------------------------------------------
-//////////////////ROUTES TO CRUD NOTICIA//////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD NOTICIA/////////////////////////////////////////////////////////////
+
 Route::get('/admin/noticia', [
     'as' => 'noticia',
     'uses' => 'NoticiaController@index'
@@ -181,95 +227,150 @@ Route::get('admin/noticia/{id}/eliminar', [
     'as' => 'eliminar_noti'
 ]);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------
+//////////////////ROUTES TO CRUD BIBLIOTECA/////////////////////////////////////////////////////////////
 
-Route::group(['middleware' => ['auth']], /**
- *
- */
-    function () {
+Route::get('/admin/biblioteca', [
+    'as' => 'biblioteca',
+    'uses' => 'BibliotecaController@index'
+]);
 
-   // Route::resource('roles', 'RolesController');
+Route::get('admin/biblioteca/{id}/editar', 'BibliotecaController@edit');
 
-   // Route::get('/permisos','PermissionController@index');
-   // Route::get('/permisos/asignar','PermissionController@asignar');
-   // Route::get('/permisos/desasignar','PermissionController@desasignar');
+Route::post('admin/biblioteca/{id}/refresh', 'BibliotecaController@update');
 
-    Route::get('msj/{id}','UsuarioSalaController@mjsUsuarioSala');
+Route::get('admin/biblioteca/nuevo', [
+    'as' => 'new_biblioteca',
+    'uses' => 'BibliotecaController@create'
+]);
 
-    Route::get('requisitos/{id}',
-        [
-            'as' => 'req',
-            'uses' => 'ListaChequeoController@requisitoLista'
-        ]);
+Route::post('admin/biblioteca/new_biblioteca', 'BibliotecaController@store');
 
-    Route::get('requisitosMun/{id}',
-        [
-            'as' => 'reqMun',
-            'uses' => 'ListaChequeoController@requisitoListaMun'
-        ]);
+Route::get('admin/biblioteca/{id}/eliminar', [
+    'uses' => 'BibliotecaController@destroy',
+    'as' => 'eliminar_bib'
+]);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------
+//////////////////ROUTES TO CREATE PLAN DE DESARROLLO/////////////////////////////////////////////////////////////
+
+Route::get('/admin/plan_desarrollo', [
+    'as' => 'plan_desarrollo',
+    'uses' => 'planDesarrolloController@indexMainPlanDesarrollo'
+]);
+
+Route::get('admin/plan_desarrollo/{id}/eliminar', [
+    'as' => 'eliminar_plan',
+    'uses' => 'planDesarrolloController@PrincipalEliminarPlanDesarrollo'
+
+]);
+
+Route::get('admin/plan_desarrollo/nuevo_plan', [
+    'as' => 'new_plan_municipal',
+    'uses' => 'planDesarrolloController@nuevoPlanMunicipal',
+    'middleware' => 'existe_plan'
+]);
+
+Route::post('admin/plan_desarrollo/new_plan',[
+    'as' => 'store_plan',
+    'uses' => 'planDesarrolloController@storePlanDesarrolloMunicipal',
+    'middleware' => 'existe_plan'
+]);
+
+Route::get('admin/plan_desarrollo/{id}/editar', 'planDesarrolloController@edit');
+
+Route::post('admin/plan_desarrollo/{id}/refresh', 'planDesarrolloController@update');
+
+//-----eje-------------
+
+Route::get('admin/plan_desarrollo/nuevo_eje_estrategico', [
+    'as' => 'new_eje_estrategico',
+    'uses' => 'ejeEstrategicoController@create'
+]);
+
+Route::post('admin/plan_desarrollo/new_eje_estrategico', 'ejeEstrategicoController@store');
+
+Route::get('admin/plan_desarrollo/next_eje', [
+    'as' => 'next_eje',
+    'uses' => 'ejeEstrategicoController@nextEje'
+]);
+
+Route::get('admin/plan_desarrollo/eje/{id}/editar', 'ejeEstrategicoController@edit');
+
+Route::post('admin/plan_desarrollo/eje/{id}/refresh', 'ejeEstrategicoController@update');
+
+Route::get('admin/plan_desarrollo/eje/{id}/eliminar', 'ejeEstrategicoController@destroy');
+//----------Programa-------------------
+
+Route::get('admin/plan_desarrollo/nuevo_programa', [
+    'as' => 'new_programa',
+    'uses' => 'ProgramaController@create'
+]);
+
+Route::post('admin/plan_desarrollo/new_programa', 'ProgramaController@store');
+
+Route::get('admin/plan_desarrollo/next_program', [
+    'as' => 'next_programa',
+    'uses' => 'ProgramaController@nextPrograma'
+]);
+
+Route::get('admin/plan_desarrollo/programa/{id}/editar', 'ProgramaController@edit');
+
+Route::post('admin/plan_desarrollo/programa/{id}/refresh', 'ProgramaController@update');
+
+Route::get('admin/plan_desarrollo/programa/{id}/eliminar', 'ProgramaController@destroy');
+
+//----------SubPrograma-------------------
+
+Route::get('admin/plan_desarrollo/nuevo_subPrograma', [
+    'as' => 'new_subPrograma',
+    'uses' => 'SubProgramaController@create'
+]);
+
+Route::post('admin/plan_desarrollo/new_subPrograma', 'SubProgramaController@store');
+
+Route::get('admin/plan_desarrollo/next_subProgram', [
+    'as' => 'next_subPrograma',
+    'uses' => 'SubProgramaController@nextPrograma'
+]);
+
+Route::get('admin/plan_desarrollo/subPrograma/{id}/editar', 'SubProgramaController@edit');
+
+Route::post('admin/plan_desarrollo/subPrograma/{id}/refresh', 'SubProgramaController@update');
+
+Route::get('admin/plan_desarrollo/subPrograma/{id}/eliminar', 'SubProgramaController@destroy');
+
+//--------------META-----------------------
+
+Route::get('admin/plan_desarrollo/nueva_meta', [
+    'as' => 'new_meta',
+    'uses' => 'MetaController@create'
+]);
+
+Route::post('admin/plan_desarrollo/new_meta', 'MetaController@store');
+
+Route::get('admin/plan_desarrollo/finish_meta', [
+    'as' => 'finish_meta',
+    'uses' => 'MetaController@finish_meta'
+]);
+
+Route::get('admin/plan_desarrollo/meta/programa/{id}/editar', 'MetaController@edit_meta_programa');
+
+Route::post('admin/plan_desarrollo/meta/programa/{id}/refresh', 'MetaController@update_meta_programa');
+
+
+Route::get('admin/plan_desarrollo/meta/subPrograma/{id}/editar', 'MetaController@edit_meta_subPrograma');
+
+Route::post('admin/plan_desarrollo/meta/subPrograma/{id}/refresh', 'MetaController@update_meta_subPrograma');
+
+Route::get('admin/plan_desarrollo/meta/{id}/eliminar', 'MetaController@destroy');
 
 
 
-    Route::get('sala/{id}','UsuarioSalaController@registrarUsuarioSala');
-
-    Route::get('crearMesa/{id}','MensajeController@crearMensaje');
-
-    Route::get('nue','ListaChequeoController@registrarReq');
-
-    Route::get('elReq/{id}','ListaChequeoController@eliminarReq');
-
-    Route::get('elLogo/{id}','FormatoEvidenciaController@eliminarLogo');
-
-    Route::get('reqMun', [
-        'as' => 'reqM',
-        'uses' => 'RequisitoController@indexReqMun'
-    ]);
-
-    Route::get('ftoEvi/{id}', [
-
-        'as'  => 'ftoEviPdf',
-        'uses'=> 'FormatoEvidenciaController@invoice'
-
-    ]);
-
-    Route::get('creaMun','RequisitoController@createReqMun');
-
-    Route::post('newMun','RequisitoController@storeReqMun');
-
-    Route::get('editMunReq/{id}','RequisitoController@editReqMun');
 
 
-    Route::get('lisMun', [
-        'as' => 'lisM',
-        'uses' => 'ListaChequeoController@indexLiMun'
-    ]);
-
-    Route::get('creaLiMun','ListaChequeoController@createLiMun');
-
-    Route::post('newLiMun','ListaChequeoController@storeLiMun');
-
-    Route::get('editLiMun/{id}','ListaChequeoController@editLiMun');
-
-
-
-    Route::get('salasDis','SalasChatController@salasOn');
-
-    Route::resource('salas','SalasChatController');
-    Route::resource('mensaje','MensajeController');
-    Route::resource('usuarioSala','UsuarioSalaController');
-    Route::resource('chats','ChatController');
-    Route::resource('estados','EstadoController');
-    Route::resource('requisito','RequisitoController');
-    Route::resource('lista','ListaChequeoController');
-    Route::resource('proceso','ProcesoController');
-    Route::resource('recurso','RecursoController');
-    Route::resource('etapaLista','EtapaListaController');
-    Route::resource('sectorInversion','SectorInversionController');
-    Route::resource('formatoEvidencia','FormatoEvidenciaController');
-
-    Route::post('esta/{id}','SalasChatController@cambiarEstado');
-
-
-});
 
 
 

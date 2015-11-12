@@ -345,13 +345,8 @@ class Filesystem
         // Determine how deep the start path is relative to the common path (ie, "web/bundles" = 2 levels)
         $depth = count($startPathArr) - $index;
 
-        // When we need to traverse from the start, and we are starting from a root path, don't add '../'
-        if ('/' === $startPath[0] && 0 === $index && 1 === $depth) {
-            $traverser = '';
-        } else {
-            // Repeated "../" for each level need to reach the common path
-            $traverser = str_repeat('../', $depth);
-        }
+        // Repeated "../" for each level need to reach the common path
+        $traverser = str_repeat('../', $depth);
 
         $endPathRemainder = implode('/', array_slice($endPathArr, $index));
 
@@ -422,7 +417,7 @@ class Filesystem
                 }
             } else {
                 if (is_link($file)) {
-                    $this->symlink($file->getLinkTarget(), $target);
+                    $this->symlink($file->getRealPath(), $target);
                 } elseif (is_dir($file)) {
                     $this->mkdir($target);
                 } elseif (is_file($file)) {

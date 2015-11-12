@@ -1,17 +1,17 @@
 <?php namespace App;
 
-
+use Bican\Roles\Traits\HasRoleAndPermission;
+use Bican\Roles\Contracts\HasRoleAndPermissionContract as HasRoleAndPermissionContract;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract, HasRoleAndPermissionContract
 {
 
-    use Authenticatable, CanResetPassword, EntrustUserTrait;
+    use Authenticatable, CanResetPassword, HasRoleAndPermission;
 
 	/**
 	 * The database table used by the model.
@@ -25,7 +25,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = [ 'id','nom_usuario','ape_usuario','num_identificacion', 'tel_usuario',
+	protected $fillable = [ 'nom_usuario','ape_usuario','num_identificacion', 'tel_usuario',
         'cel_usuario', 'user_login', 'email', 'password', 'estado_user', 'id_municipio',
                             'id_tipo_secretaria','id_tipo_identificacion', 'id_cargo_usuario'];
 
@@ -36,28 +36,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
-
-    public function scopeNombre($query,$id){
-
-
-        $query->where('id',"=", "$id");
-
-
-    }
-
-    public static function filtro($id)
+    public function roles()
     {
 
-        return User::nombre($id)->with('municipio')->get();
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
-     */
-    public function municipio(){
-
-        return $this->belongsTo('App\Municipio','id_municipio');
-
+        return $this->belongsToMany('Bican\Roles\Models\Role');
     }
 
 }

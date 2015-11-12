@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar')
+    @include('template.partials.logbar_admin')
 
     <div class="row-fluid">
         @if (count($errors) > 0)
@@ -32,11 +32,24 @@
                 <fieldset>
 
                     <div class="form-group">
+                        <label class="col-md-2 control-label">Departamento al cuál aplica:</label>
+
+                        <div class="col-md-9">
+                            {!! Form::select('departamento',
+                            ($list_dep),
+                            $noticia->id_departamento,
+                            ['class' => 'form-control'])
+                            !!}
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div class="form-group">
                         <label class="col-md-2 control-label">Título de la noticia:</label>
 
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="titulo_noticia"
-                                   value="{{$noticia->titulo_noticia}}">
+                                   value="{{old('titulo_noticia',$noticia->titulo_noticia)}}">
                         </div>
                     </div>
                     <br><br>
@@ -45,7 +58,8 @@
                         <label class="col-md-2 control-label">Contenido de la noticia:</label>
 
                         <div class="col-md-10">
-                        <textarea name="contenido_noticia" id="editor" cols="30" rows="18"
+                        <textarea name="contenido_noticia" value="{{old('contenido_noticia')}}" id="editor" cols="30"
+                                  rows="18"
                                   class="form-control">
                         {!!$noticia->cuerpo_noticia!!}
 						</textarea>

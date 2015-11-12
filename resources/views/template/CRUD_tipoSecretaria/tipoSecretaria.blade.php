@@ -4,7 +4,7 @@
 
 @section('content')
 
-    @include('template.partials.logbar')
+    @include('template.partials.logbar_admin')
 
     <div class="row-fluid">
         <div class="container" id="admin">

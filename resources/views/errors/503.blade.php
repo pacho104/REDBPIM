@@ -34,7 +34,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Be right back.</div>
+				<div class="title">Usted no tiene los permisos para ingresar a este proceso.</div>
 			</div>
 		</div>
 	</body>
