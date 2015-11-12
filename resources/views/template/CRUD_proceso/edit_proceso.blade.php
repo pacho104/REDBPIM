@@ -1,4 +1,3 @@
-@extends('template.main')
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 

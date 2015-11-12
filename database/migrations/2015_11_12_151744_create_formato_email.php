@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateFormatoEmail extends Migration {
 
@@ -12,7 +12,24 @@ class CreateFormatoEmail extends Migration {
 	 */
 	public function up()
 	{
-		//
+
+        Schema::create('formato_email', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nom_formato', 255);
+            $table->string('asunto', 255);
+            $table->text('cuerpo');
+            $table->string('email_origen');
+            $table->string('email_destino');
+            $table->integer('id_municipio')->unsigned();
+
+            $table->timestamps();
+
+            $table->foreign('id_municipio')
+                ->references('id')->on('municipio')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+
+        });
 	}
 
 	/**
@@ -22,7 +39,7 @@ class CreateFormatoEmail extends Migration {
 	 */
 	public function down()
 	{
-		//
+        Schema::drop('formato_email');
 	}
 
 }
