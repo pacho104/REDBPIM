@@ -2,6 +2,8 @@
 
 use App\FormatoEmail;
 use App\Http\Requests;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class FormatoEmailController extends Controller {
@@ -24,8 +26,9 @@ class FormatoEmailController extends Controller {
     public function index(Request $request)
 	{
         /** @var TYPE_NAME $request */
-        $formatoEBan = FormatoEmail::filtroAndPaginacion($request->get('nom_formato'), '');
-        return view('template.CRUD_formatoEmail.formatoEmail', compact('procesoBan'));
+
+        $formatoEBan = FormatoEmail::filtroAndPaginacion($request->get('nom_formato'));
+
 	}
 
 	/**
@@ -35,7 +38,7 @@ class FormatoEmailController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		  //
 	}
 
 	/**
@@ -43,9 +46,20 @@ class FormatoEmailController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($nom_formato1,$asunto1,$cuerpo1,$email_origen1,$email_destino1)
 	{
-		//
+        $formatoEmailBan = new FormatoEmail();
+
+
+        $formatoEmailBan->nom_formato   = $nom_formato1;
+        $formatoEmailBan->asunto        = $asunto1;
+        $formatoEmailBan->cuerpo        = $cuerpo1;
+        $formatoEmailBan->email_origen  = $email_origen1;
+        $formatoEmailBan->email_destino = $email_destino1;
+        $formatoEmailBan->save();
+
+        return $formatoEmailBan;
+
 	}
 
 	/**

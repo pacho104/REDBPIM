@@ -17,25 +17,26 @@ class FormatoEmail extends Model {
      *
      * @var array
      */
-    protected $fillable = ['id', 'nom_formato', 'asunto', 'cuerpo', 'email_origen', 'email_destino', 'id_municipio'];
+    protected $fillable = ['id', 'nom_formato', 'asunto', 'cuerpo', 'email_origen', 'email_destino'];
 
-    public static function filtroAndPaginacion($name, $id)
+    public static function filtroAndPaginacion($name)
     {
 
-        return FormatoEvidencia::nombre($name, $id)->orderBy('id', 'asc')->paginate(15);
+        return FormatoEmail::nombre($name)->orderBy('id', 'asc')->paginate(15);
     }
 
     /**
      * Devuelve el formatoEmail por nombre, enviando el nombre por parametro y el id del municipio
      */
-    public function scopeNombre($query, $name, $id)
+    public function scopeNombre($query, $name)
     {
 
         // if(trim($name) != "") {
 
-        $query->where('nom_formato', "LIKE", "%$name%")->where('id_municipio', "$id");
+        $query->where('nom_formato', "LIKE", "%$name%");
 
         // }
     }
+
 
 }

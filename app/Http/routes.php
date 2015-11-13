@@ -265,7 +265,7 @@ Route::group(['middleware' => ['auth']], /**
     Route::resource('etapaLista','EtapaListaController');
     Route::resource('sectorInversion','SectorInversionController');
     Route::resource('formatoEvidencia','FormatoEvidenciaController');
-        Route::resource('formatoEmail', 'FormatoEmailController');
+    Route::resource('formatoEmail', 'FormatoEmailController');
 
     Route::post('esta/{id}','SalasChatController@cambiarEstado');
 
