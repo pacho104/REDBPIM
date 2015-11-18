@@ -72,6 +72,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('formatoEvidencia.index')}}">Gestionar Formatos</a></li>
                                 <li><a href="{{route('formatoEmail.index')}}">Gestionar Formatos Email</a></li>
+                                <li><a href="{{route('u')}}">Gestionar Solicitud</a></li>
                                 <li class="divider"></li>
                             </ul>
                         </li>

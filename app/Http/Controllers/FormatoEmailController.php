@@ -18,16 +18,18 @@ class FormatoEmailController extends Controller {
         $this->middleware('auth');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-    public function index(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @param $id
+     * @return Response
+     */
+    public function index($id)
 	{
         /** @var TYPE_NAME $request */
 
-        $formatoEBan = FormatoEmail::filtroAndPaginacion($request->get('nom_formato'));
+        $formatoEBan = FormatoEmail::filtroAndPaginacion($id);
+        return $formatoEBan;
 
 	}
 
@@ -41,11 +43,16 @@ class FormatoEmailController extends Controller {
 		  //
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param $nom_formato1
+     * @param $asunto1
+     * @param $cuerpo1
+     * @param $email_origen1
+     * @param $email_destino1
+     * @return Response
+     */
 	public function store($nom_formato1,$asunto1,$cuerpo1,$email_origen1,$email_destino1)
 	{
         $formatoEmailBan = new FormatoEmail();
@@ -103,7 +110,9 @@ class FormatoEmailController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+        $formatoEmailBan = FormatoEmail::find($id);
+        $formatoEmailBan->delete();
+        return;
 	}
 
 }

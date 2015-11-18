@@ -19,23 +19,27 @@ class FormatoEmail extends Model {
      */
     protected $fillable = ['id', 'nom_formato', 'asunto', 'cuerpo', 'email_origen', 'email_destino'];
 
-    public static function filtroAndPaginacion($name)
+    public static function filtroAndPaginacion($id)
     {
 
-        return FormatoEmail::nombre($name)->orderBy('id', 'asc')->paginate(15);
+        return FormatoEmail::id($id)->orderBy('id', 'asc')->paginate(15);
     }
 
     /**
-     * Devuelve el formatoEmail por nombre, enviando el nombre por parametro y el id del municipio
+     * Devuelve el formatoEmail por id enviando el id por parametro
      */
-    public function scopeNombre($query, $name)
+    public function scopeId($query, $id)
     {
 
-        // if(trim($name) != "") {
 
-        $query->where('nom_formato', "LIKE", "%$name%");
+        $query->where('id',"$id");
 
-        // }
+
+    }
+
+    public function solicitud()
+    {
+        return $this->hasOne('App\Solicitud');
     }
 
 
