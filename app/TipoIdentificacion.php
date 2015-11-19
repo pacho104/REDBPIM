@@ -30,7 +30,7 @@ class TipoIdentificacion extends Model {
     public static function  filtroAndPaginacion($name){
 
         return TipoIdentificacion::nombre($name)
-            ->orderBy('id', 'asc')->paginate(8);
+            ->orderBy('id', 'asc')->paginate(15);
     }
 
 }

@@ -10,6 +10,7 @@ class Municipio extends Model {
 
     public $timestamps = false;
 
+
     /*
      * Devuelve el municipio por nombre, enviando el nombre por parametro
      */
@@ -25,17 +26,13 @@ class Municipio extends Model {
     /*
      * Devuelve la lista de los municipios que estan registrados
      * */
-    public static function  filtroAndPaginacion($name)
-    {
+    public static function  filtroAndPaginacion($name){
+
        return Municipio::nombre($name)
         ->join('departamento', 'municipio.id_departamento', '=', 'departamento.id')
         ->select('municipio.*', 'departamento.nom_departamento')
-        ->orderBy('municipio.id', 'asc')->paginate(8);
+        ->orderBy('municipio.id', 'asc')->paginate(15);
     }
 
-    public function planDesarrollo()
-    {
-        return $this->hasMany('plan_desarrollo');
-    }
 
 }

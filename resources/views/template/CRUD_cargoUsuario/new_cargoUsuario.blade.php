@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar_admin')
+    @include('template.partials.logbar')
 
     <div class="row-fluid">
         @if (count($errors) > 0)

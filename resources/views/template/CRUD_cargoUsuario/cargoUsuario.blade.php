@@ -4,7 +4,7 @@
 
 @section('content')
 
-    @include('template.partials.logbar_admin')
+    @include('template.partials.logbar')
 
     <div class="row-fluid">
         <div class="container" id="admin">
@@ -47,11 +47,11 @@
                         <td>{{$cargo->nom_cargo}}</td>
                         <td>
                             <div class="btn-group-justified">
-                                <a href="cargo_usuario/{{$cargo->id}}/editar" class="btn btn-warning">
-                                    <i class="fa fa-edit"> </i> </a>
+                                <a href="cargo_usuario/{{$cargo->id}}/editar" class="btn btn-warning"><i
+                                            class="fa fa-edit"> </i></a>
                                 <a data-toggle="modal" data-target="#ConfirmDelete-{{$cargo->id}}"
                                    href="#ConfirmDelete-{{$cargo->id}}"
-                                   class="btn btn-danger"><i class="fa fa-trash"></i> </a>
+                                   class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </div>
                         </td>
                     </tr>

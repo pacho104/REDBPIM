@@ -17,7 +17,6 @@ class CreateTipoSecretaria extends Migration {
             $table->increments('id');
             $table->string('nombre_secretaria', 60);
 
-
         });
 
 	}

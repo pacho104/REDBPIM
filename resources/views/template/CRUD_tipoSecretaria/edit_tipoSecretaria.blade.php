@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar_admin')
+    @include('template.partials.logbar')
 
     <div class="row-fluid">
         @if (count($errors) > 0)
@@ -36,8 +36,7 @@
                         <label class="col-md-4 control-label">Tipo de Secretaría:</label>
 
                         <div class="col-md-6">
-                            <input type="text" name="nombre_secretaria"
-                                   value="{{old('nombre_secretaria',$tipSecre->nombre_secretaria)}}"
+                            <input type="text" name="nombre_secretaria" value="{{$tipSecre->nombre_secretaria}}"
                                    class="form-control">
                         </div>
                     </div>
