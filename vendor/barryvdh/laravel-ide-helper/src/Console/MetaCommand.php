@@ -12,7 +12,6 @@ namespace Barryvdh\LaravelIdeHelper\Console;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * A command to generate phpstorm meta data
@@ -43,10 +42,12 @@ class MetaCommand extends Command {
     protected $view;
     
     protected $methods = [
-      'new \Illuminate\Contracts\Container\Container',
-      '\Illuminate\Contracts\Container\Container::make(\'\')',
-      '\App::make(\'\')',
-      'app(\'\')',
+      '\Illuminate\Foundation\Application::make',
+      '\Illuminate\Contracts\Foundation\Application::make',
+      '\Illuminate\Contracts\Container\Container::make',
+      '\Illuminate\Container\Container::make',
+      '\App::make',
+      'app',
     ];
 
     /**
@@ -71,20 +72,13 @@ class MetaCommand extends Command {
 
         $bindings = array();
         foreach ($this->getAbstracts() as $abstract) {
-            // Validator causes problems in Lumen
-            if ($abstract == 'validator') {
-                continue;
-            }
-            
             try {
                 $concrete = $this->laravel->make($abstract);
                 if (is_object($concrete)) {
                     $bindings[$abstract] = get_class($concrete);
                 }
             }catch (\Exception $e) {
-                if ($this->output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-                    $this->comment("Cannot make '$abstract': ".$e->getMessage());
-                }
+                $this->comment("Cannot make '$abstract': ".$e->getMessage());
             }
         }
 

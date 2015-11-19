@@ -12,10 +12,8 @@ namespace Barryvdh\LaravelIdeHelper\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\ClassLoader\ClassMapGenerator;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\DocBlock\Context;
@@ -29,10 +27,6 @@ use phpDocumentor\Reflection\DocBlock\Serializer as DocBlockSerializer;
  */
 class ModelsCommand extends Command
 {
-    /**
-     * @var Filesystem $files
-     */
-    protected $files;
 
     /**
      * The console command name.
@@ -55,14 +49,6 @@ class ModelsCommand extends Command
     protected $dirs = array();
     protected $reset;
 
-    /**
-     * @param Filesystem $files
-     */
-    public function __construct(Filesystem $files)
-    {
-        parent::__construct();
-        $this->files = $files;
-    }
 
     /**
      * Execute the console command.
@@ -94,7 +80,7 @@ class ModelsCommand extends Command
         $content = $this->generateDocs($model, $ignore);
 
         if (!$this->write) {
-            $written = $this->files->put($filename, $content);
+            $written = \File::put($filename, $content);
             if ($written !== false) {
                 $this->info("Model information was written to $filename");
             } else {
@@ -162,9 +148,7 @@ class ModelsCommand extends Command
 
         foreach ($models as $name) {
             if (in_array($name, $ignore)) {
-                if ($this->output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-                    $this->comment("Ignoring model '$name'");
-                }
+                $this->comment("Ignoring model '$name'");
                 continue;
             }
             $this->properties = array();
@@ -178,9 +162,7 @@ class ModelsCommand extends Command
                         continue;
                     }
 
-                    if ($this->output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-                        $this->comment("Loading model '$name'");
-                    }
+                    $this->comment("Loading model '$name'");
 
                     if (!$reflectionClass->IsInstantiable()) {
                         throw new \Exception($name . ' is not instantiable.');
@@ -194,7 +176,6 @@ class ModelsCommand extends Command
 
                     $this->getPropertiesFromMethods($model);
                     $output .= $this->createPhpDocs($name);
-                    $ignore[] = $name;
                 } catch (\Exception $e) {
                     $this->error("Exception: " . $e->getMessage() . "\nCould not analyze class $name.");
                 }
@@ -349,7 +330,6 @@ class ModelsCommand extends Command
                         $code .= $file->current();
                         $file->next();
                     }
-                    $code = trim(preg_replace('/\s\s+/', '', $code));
                     $begin = strpos($code, 'function(');
                     $code = substr($code, $begin, strrpos($code, '}') - $begin + 1);
 
@@ -365,29 +345,24 @@ class ModelsCommand extends Command
                         $search = '$this->' . $relation . '(';
                         if ($pos = stripos($code, $search)) {
                             $code = substr($code, $pos + strlen($search));
-                            $end = strpos($code, ')->') ?:strpos($code, ');');
-                            if (false !== $end) {
-                                $arguments = substr($code, 0, $end);
-                                $arguments = array_map(function($item) {
-                                    return trim($item, ' \'\"');
-                                }, explode(',', $arguments));
-                                //Remove quotes, ensure 1 \ in front of the model
-                                $returnModel = $this->getClassName($arguments[0], $model);
-                                if ($relation === "belongsToMany" or $relation === 'hasMany' or $relation === 'morphMany' or $relation === 'morphToMany') {
-                                    //Collection or array of models (because Collection is Arrayable)
-                                    $this->setProperty(
-                                        $method,
-                                        '\Illuminate\Database\Eloquent\Collection|' . $returnModel . '[]',
-                                        true,
-                                        null
-                                    );
-                                } else {
-                                    //Single model is returned
-                                    $this->setProperty($method, $returnModel, true, null);
-                                }
+                            $arguments = explode(',', substr($code, 0, strpos($code, ')')));
+                            //Remove quotes, ensure 1 \ in front of the model
+                            $returnModel = $this->getClassName($arguments[0], $model);
+                            if ($relation === "belongsToMany" or $relation === 'hasMany' or $relation === 'morphMany' or $relation === 'morphToMany') {
+                                //Collection or array of models (because Collection is Arrayable)
+                                $this->setProperty(
+                                    $method,
+                                    '\Illuminate\Database\Eloquent\Collection|' . $returnModel . '[]',
+                                    true,
+                                    null
+                                );
+                            } else {
+                                //Single model is returned
+                                $this->setProperty($method, $returnModel, true, null);
                             }
                         }
                     }
+
                 }
             }
         }
@@ -474,8 +449,7 @@ class ModelsCommand extends Command
             } else {
                 $attr = 'property-read';
             }
-            $tagLine = trim("@{$attr} {$property['type']} {$name} {$property['comment']}");
-            $tag = Tag::createInstance($tagLine, $phpdoc);
+            $tag = Tag::createInstance("@{$attr} {$property['type']} {$name} {$property['comment']}", $phpdoc);
             $phpdoc->appendTag($tag);
         }
 
@@ -495,7 +469,7 @@ class ModelsCommand extends Command
 
         if ($this->write) {
             $filename = $reflection->getFileName();
-            $contents = $this->files->get($filename);
+            $contents = \File::get($filename);
             if ($originalDoc) {
                 $contents = str_replace($originalDoc, $docComment, $contents);
             } else {
@@ -506,7 +480,7 @@ class ModelsCommand extends Command
                     $contents = substr_replace($contents, $replace, $pos, strlen($needle));
                 }
             }
-            if ($this->files->put($filename, $contents)) {
+            if (\File::put($filename, $contents)) {
                 $this->info('Written new phpDocBlock to ' . $filename);
             }
         }
@@ -558,7 +532,7 @@ class ModelsCommand extends Command
     {
         // If the class name was resolved via get_class($this) or static::class
         if (strpos($className, 'get_class($this)') !== false || strpos($className, 'static::class') !== false) {
-            return "\\" . get_class($model);
+            return get_class($model);
         }
 
         // If the class name was resolved via ::class (PHP 5.5+)

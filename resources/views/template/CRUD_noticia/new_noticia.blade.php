@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar_admin')
+    @include('template.partials.logbar')
 
     <div class="row-fluid">
         @if (count($errors) > 0)
@@ -30,19 +30,6 @@
             <div class="col-md-11">
                 {!! Form::open(['url' => 'admin/noticia/new_noticia', 'autocomplete' => 'off']) !!}
                 <fieldset>
-
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">Departamento:</label>
-
-                        <div class="col-md-10">
-                            {!! Form::select('departamento',
-                            (['0' => 'Seleccione el departamento al cuál aplica la noticia'] + $list_dep),
-                            null,
-                            ['class' => 'form-control'])
-                            !!}
-                        </div>
-                    </div>
-                    <br><br>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">Título de la noticia:</label>

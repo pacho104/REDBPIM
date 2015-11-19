@@ -9,7 +9,6 @@ class MunicipioTableSeeder extends Seeder
     Public Function run()
     {
 
-
         Municipio::create(
             [
                 'nom_municipio' => 'Pasto',
