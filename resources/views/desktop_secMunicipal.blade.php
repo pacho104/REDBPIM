@@ -25,7 +25,7 @@
             <a href="#">
                 <span class="ca-icon">Verificación de Requisitos</span>
                 <div class="ca-content">
-                <h2 class="ca-main">Verificación de Requisitos</h2>
+                <h||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| class="ca-main">Verificación de Requisitos</h2>
                 </div>
             </a>
         </li>
