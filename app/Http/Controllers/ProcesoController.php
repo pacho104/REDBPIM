@@ -31,8 +31,6 @@ class ProcesoController extends Controller {
 	public function index(Request $request)
 	{
         /** @var TYPE_NAME $request */
-
-
         $procesoBan = Proceso::filtroAndPaginacion($request->get('nom_proceso'));
         return view('template.CRUD_proceso.proceso',compact('procesoBan'));
 	}
