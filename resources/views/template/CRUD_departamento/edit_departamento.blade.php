@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar_admin')
+    @include('template.partials.logbar')
 
     <div class="row-fluid">
         @if (count($errors) > 0)
@@ -34,8 +34,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label">Código Dane del Departamento:</label>
                         <div class="col-md-6">
-                            <input type="text" name="codigo_dane_departamento"
-                                   value="{{old('codigo_dane_departamento',$dep->cod_dane_dep)}}" class="form-control">
+                            <input type="text" name="codigo_dane_departamento" value="{{$dep->cod_dane_dep}}" class="form-control">
                         </div>
                     </div>
                     <br><br>
@@ -43,8 +42,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label right">Nombre del Departamento:</label>
                         <div class="col-md-6">
-                            <input type="text" name="nombre_departamento"
-                                   value="{{old('nombre_departamento',$dep->nom_departamento)}}" class="form-control">
+                            <input type="text" name="nombre_departamento" value="{{$dep->nom_departamento}}" class="form-control">
                         </div>
                     </div>
                     <br><br>

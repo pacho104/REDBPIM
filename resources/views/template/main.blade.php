@@ -20,19 +20,28 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+
+
+
+
+
+
 </head>
-
 <body>
-
-@yield('search')
 
 @yield('content')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<script src="{{asset('js/animatescroll.min.js')}}"></script>
-<script src="{{asset('js/trumbowyg.min.js')}}"></script>
+<script src="{{asset('/js/animatescroll.min.js')}}"></script>
+<script src="{{asset('/js/trumbowyg.min.js')}}"></script>
+
+<link href="{{asset('css/bootstrap-toggle.min.css ')}}" rel="stylesheet">
+<script src="{{asset('js/bootstrap-toggle.min.js')}}" ></script>
+
+
 
 <!-- Script No permitir usar la barra espaciadora en el momento de realizar el registro de usuario al
          campo(nom_usuario)-->
@@ -57,90 +66,9 @@
     })
 </script>
 
-<script type="text/javascript">
-    jQuery(function ($) {
-        $('.panel-heading span.clickable').on("click", function (e) {
-            if ($(this).hasClass('panel-collapsed')) {
-                // expand the panel
-                $(this).parents('.panel').find('.panel-body').slideDown();
-                $(this).removeClass('panel-collapsed');
-                $(this).find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-            }
-            else {
-                // collapse the panel
-                $(this).parents('.panel').find('.panel-body').slideUp();
-                $(this).addClass('panel-collapsed');
-                $(this).find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-            }
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-        $("#onlynumbers").keydown(function (event) {
-            if (event.shiftKey) {
-                event.preventDefault();
-            }
-            if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9) {
-            }
-            else {
-                if (event.keyCode < 95) {
-                    if (event.keyCode < 48 || event.keyCode > 57) {
-                        event.preventDefault();
-                    }
-                }
-                else {
-                    if (event.keyCode < 96 || event.keyCode > 105) {
-                        event.preventDefault();
-                    }
-                }
-            }
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function()
-    {
-        $("#select_programa").change(function()
-        {
-            if($(this).val() == 1)
-            {
-                $("#valuePrograma").show();
-                $("#valueProgramaedit").show();
-            }
-            else
-            {
-                $("#valuePrograma").hide();
-                $("#valueProgramaedit").hide();
-            }
-        });
-        $("#valuePrograma").hide();
-    });
-</script>
-
-<script>
-    $(document).ready(function()
-    {
-        $("#select_programa").change(function()
-        {
-            if($(this).val() == 2)
-            {
-                $("#valuesubPrograma").show();
-                $("#valuesubProgramaedit").show();
-            }
-            else
-            {
-                $("#valuesubPrograma").hide();
-                $("#valuesubProgramaedit").hide();
-            }
-        });
-        $("#valuesubPrograma").hide();
-    });
-</script>
 
 @yield('js')
+
 
 </body>
 

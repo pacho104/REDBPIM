@@ -10,27 +10,18 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Iniciar Sesión</div>
 				<div class="panel-body">
-                    @if(\Session::has('alertRol'))
-                        <div id="dangercolor" class="alert alert-dismissible alert-danger">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <i class="fa fa-exclamation-triangle"></i>
-                            {{Session::get('alertRol')}}
-                        </div>
-                    @endif
-
 					@if (count($errors) > 0)
 						<div class="alert alert-danger" style="background-color:#ff4a3d" >
 							<strong>Ups!</strong> Exiten problemas con los campos ingresados. <br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
+                                    <li>{!! $error !!}</li>
 								@endforeach
 							</ul>
 						</div>
 					@endif
 
-
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="../auth/login">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
@@ -51,11 +42,7 @@
                                 <label class="col-md-4 control-label">Rol de usuario</label>
 
                                 <div class="col-md-6">
-                                    {!! Form::select('rol_usuario',
-                                    (['0' => 'Seleccione su rol de usuario'] + $listroles),
-                                    null,
-                                    ['class' => 'form-control'])
-                                    !!}
+
                                 </div>
                             </div>
 

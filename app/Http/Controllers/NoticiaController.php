@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Departamento;
 use App\Http\Requests;
 use App\Noticia;
 
@@ -10,26 +9,19 @@ class NoticiaController extends Controller
     /**
      * Método contructor que determina que las funciones de la clase NoticiaController las
      * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
-     * puede usar un usuario tipo administrador  utilizando el middelware admin.
      */
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin');
     }
 
     /**
-     * Muestra la notica que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
+     * Muestra los Departamentos que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
      * @return Vista noticia
      */
     public function index()
     {
-        $noticia = \DB::table('noticia')
-            ->join('departamento', 'noticia.id_departamento', '=', 'departamento.id')
-            ->select('noticia.*', 'departamento.nom_departamento')
-            ->orderBy('id', 'desc')
-            ->paginate(3);
-
+        $noticia = \DB::table('noticia')->orderBy('id', 'asc')->paginate(3);
         return view('template.CRUD_noticia.noticia')
             ->with('noticia', $noticia);
     }
@@ -40,10 +32,7 @@ class NoticiaController extends Controller
      */
     public function create()
     {
-        $list_dep = Departamento::lists('nom_departamento', 'id');
-
-        return view('template.CRUD_noticia.new_noticia')
-            ->with('list_dep', $list_dep);
+        return view('template.CRUD_noticia.new_noticia');
     }
 
     /**
@@ -57,7 +46,6 @@ class NoticiaController extends Controller
         $rules = array(
             'titulo_noticia' => 'required|max:150',
             'contenido_noticia' => 'required',
-            'departamento' => 'exists:departamento,id',
         );
 
         $error = \Validator::make($data, $rules);
@@ -71,11 +59,21 @@ class NoticiaController extends Controller
         $p = new Noticia;
         $p->titulo_noticia = \Input::get('titulo_noticia');
         $p->cuerpo_noticia = \Input::get('contenido_noticia');
-        $p->id_departamento = \Input::get('departamento');
         $p->save();
 
         return \Redirect::route('noticia')
             ->with('alert', 'Registro creado con exito!');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -85,11 +83,9 @@ class NoticiaController extends Controller
      */
     public function edit($id)
     {
-        $list_dep = Departamento::lists('nom_departamento', 'id');
         $noticia = Noticia::find($id);
         return view('template.CRUD_noticia.edit_noticia')
-            ->with('noticia', $noticia)
-            ->with('list_dep', $list_dep);
+            ->with('noticia', $noticia);
     }
 
     /**
@@ -104,7 +100,6 @@ class NoticiaController extends Controller
         $rules = array(
             'titulo_noticia' => 'required|max:150',
             'contenido_noticia' => 'required',
-            'departamento' => 'exists:departamento,id',
         );
         $error = \Validator::make($data, $rules);
 
@@ -117,7 +112,6 @@ class NoticiaController extends Controller
         $p = Noticia::find($id);
         $p->titulo_noticia = \Input::get('titulo_noticia');
         $p->cuerpo_noticia = \Input::get('contenido_noticia');
-        $p->id_departamento = \Input::get('departamento');
         $p->save();
 
         return \Redirect::route('noticia')
@@ -132,9 +126,23 @@ class NoticiaController extends Controller
      */
     public function destroy($id)
     {
-        $notic = Noticia::find($id)->delete();
+        $data = array(
+            'id_noticia' => "$id"
+        );
+        $rules = array(
+            'id_noticia' => 'exists:red_departamental,id_noticia',
+        );
+
+        $ifExistsNoticiaInRedDepartamentalTable = \Validator::make($data, $rules);
+
+        if ($ifExistsNoticiaInRedDepartamentalTable->passes()) {
+            return \Redirect::route('noticia')
+                ->with('ValidationNoticia', 'No se puede eliminar el registro seleccionado ya que la Noticia se encuentra presente en la Red Departamental.!');
+        } else {
+            $noti = Noticia::find($id)->delete();
             return \Redirect::route('noticia')
                 ->with('alert', 'Registro eliminado con exito!');
+        }
     }
 
 }

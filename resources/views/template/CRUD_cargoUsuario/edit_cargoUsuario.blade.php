@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar_admin')
+    @include('template.partials.logbar')
 
     <div class="row-fluid">
         @if (count($errors) > 0)
@@ -35,8 +35,7 @@
                         <label class="col-md-4 control-label">Cargo laboral:</label>
 
                         <div class="col-md-6">
-                            <input type="text" name="nombre_cargo" value="{{old('nombre_cargo',$cargo->nom_cargo)}}"
-                                   class="form-control">
+                            <input type="text" name="nombre_cargo" value="{{$cargo->nom_cargo}}" class="form-control">
                         </div>
                     </div>
                     <br><br>

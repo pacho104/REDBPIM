@@ -32,7 +32,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-        return \Redirect::route('login_user');
+        return \Redirect::route('login_admin');
+        //return view('home');
 	}
 
 

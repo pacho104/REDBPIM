@@ -9,18 +9,15 @@ class MunicipioController extends Controller {
 
     /**
      * Método contructor que determina que las funciones de la clase DepartamentoController las
-     * Estas funciones puede usar un usuario autenticado en el sistema utilizando el middelware auth.
-     * Tambien las podrá utilizar solo un usuario tipo admin ya que utiliza el middelware admin
+     * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
      */
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin');
     }
 
     /**
      * Muestra los Municipios que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
-     * realiza un join con el departamento para obtener el departamento que aplica al municipio encontrado
      * @return Vista municipios
      */
 	public function index(Request $request)
@@ -74,6 +71,14 @@ class MunicipioController extends Controller {
             ->with('alert' , 'Registro creado con exito!');
 	}
 
+	/**
+	 * Display the specified resource.
+	 */
+	public function show($id)
+	{
+		//
+	}
+
     /**
      * Muestra la vista principal para editar un municipio - Metodo edit()     *
      * @param  int $id - el id primary key tabla municipio
@@ -103,10 +108,10 @@ class MunicipioController extends Controller {
         $data = \Request::all();
         $rules = array(
             'codigo_dane_municipio' => "required|max:11|unique:municipio,cod_dane_mun,$id",
+            'codigo_dane_municipio' => 'integer',
             'nombre_municipio' => "required|max:255|unique:municipio,nom_municipio,$id",
             'departamento' => 'exists:departamento,id',
         );
-
         $error = \Validator::make($data,$rules);
 
         if($error->fails())
@@ -124,7 +129,8 @@ class MunicipioController extends Controller {
         $p ->save();
 
         return \Redirect::route('municipio')
-                ->with('alert', 'Actualización realizada exitosamente!');
+            ->with('alert', 'Actualización realizada exitosamente!');
+
 	}
 
     /**

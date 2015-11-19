@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+SRC_DIR="`pwd`"
+cd "`dirname "$0"`"
+cd "../vinelab/minion"
+BIN_TARGET="`pwd`/minion"
+cd "$SRC_DIR"
+"$BIN_TARGET" "$@"
