@@ -8,6 +8,7 @@ use App\Solicitud;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class FormatoSolicitudController extends Controller {
 

@@ -45,27 +45,11 @@ class FormatoEmailController extends Controller {
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param $nom_formato1
-     * @param $asunto1
-     * @param $cuerpo1
-     * @param $email_origen1
-     * @param $email_destino1
      * @return Response
      */
-	public function store($nom_formato1,$asunto1,$cuerpo1,$email_origen1,$email_destino1)
+	public function store()
 	{
-        $formatoEmailBan = new FormatoEmail();
 
-
-        $formatoEmailBan->nom_formato   = $nom_formato1;
-        $formatoEmailBan->asunto        = $asunto1;
-        $formatoEmailBan->cuerpo        = $cuerpo1;
-        $formatoEmailBan->email_origen  = $email_origen1;
-        $formatoEmailBan->email_destino = $email_destino1;
-        $formatoEmailBan->save();
-
-        return $formatoEmailBan;
 
 	}
 
@@ -115,4 +99,33 @@ class FormatoEmailController extends Controller {
         return;
 	}
 
+
+    /**
+     *
+     * @param $nom_formato1
+     * @param $asunto1
+     * @param $cuerpo1
+     * @param $email_origen1
+     * @param $email_destino1
+     * @return Response
+     * @internal param $nom_formato_solicitud1
+     * @internal param $cuerpo_formato_solicitud1
+     */
+    public static function crearFmtSol($nom_formato1,$asunto1,$cuerpo1,$email_origen1,$email_destino1)
+    {
+
+        $formatoEmailBan = new FormatoEmail();
+
+
+        $formatoEmailBan->nom_formato   = $nom_formato1;
+        $formatoEmailBan->asunto        = $asunto1;
+        $formatoEmailBan->cuerpo        = $cuerpo1;
+        $formatoEmailBan->email_origen  = $email_origen1;
+        $formatoEmailBan->email_destino = $email_destino1;
+        $formatoEmailBan->save();
+
+        return $formatoEmailBan;
+
+
+    }
 }
