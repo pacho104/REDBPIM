@@ -243,6 +243,9 @@ Route::group(['middleware' => ['auth']], /**
         'uses' => 'ListaChequeoController@indexLiMun'
     ]);
 
+
+
+
     Route::get('creaLiMun','ListaChequeoController@createLiMun');
 
     Route::post('newLiMun','ListaChequeoController@storeLiMun');
@@ -265,9 +268,16 @@ Route::group(['middleware' => ['auth']], /**
     Route::resource('etapaLista','EtapaListaController');
     Route::resource('sectorInversion','SectorInversionController');
     Route::resource('formatoEvidencia','FormatoEvidenciaController');
+    Route::resource('formatoEmail', 'FormatoEmailController');
+    Route::resource('formatoSolicitud', 'FormatoSolicitudController');
 
     Route::post('esta/{id}','SalasChatController@cambiarEstado');
 
+
+        Route::get('u', [
+            'as' => 'u',
+            'uses' => 'FormatoSolicitudController@utl'
+        ]);
 
 });
 
