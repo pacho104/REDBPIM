@@ -12,12 +12,10 @@ class CargoUsuario extends Model {
 
     public function scopeNombre($query, $name)
     {
-        if(trim($name) != "") {
-
+        if(trim($name) != "")
+        {
             $query->where('nom_cargo',"LIKE", "%$name%");
-
         }
-
     }
     public static function filtroAndPaginacion($name)
     {

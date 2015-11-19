@@ -1,7 +1,7 @@
 @extends('template.main')
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
-    @include('template.partials.logbar')
+    @include('template.partials.logbar_admin')
     <div class="row-fluid">
         @if (count($errors) > 0)
             <div id="dangercolor" class="alert alert-danger">
@@ -32,7 +32,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label">Código Dane Municipio:</label>
                         <div class="col-md-6">
-                            <input type="text" name="codigo_dane_municipio" value="{{$mun->cod_dane_mun}}" class="form-control">
+                            <input type="text" name="codigo_dane_municipio"
+                                   value="{{old('codigo_dane_municipio',$mun->cod_dane_mun)}}" class="form-control">
                         </div>
                     </div>
                     <br><br>
@@ -40,7 +41,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label right">Nombre del Municipio:</label>
                         <div class="col-md-6">
-                            <input type="text" name="nombre_municipio" value="{{$mun->nom_municipio}}" class="form-control">
+                            <input type="text" name="nombre_municipio"
+                                   value="{{old('nombre_municipio',$mun->nom_municipio)}}" class="form-control">
                         </div>
                     </div>
                     <br><br>
@@ -50,7 +52,7 @@
                         <div class="col-md-6">
                             {!! Form::select('departamento',
                             ($list_dep),
-                            null,
+                            $mun->id_departamento,
                             ['class' => 'form-control'])
                             !!}
                         </div>

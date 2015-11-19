@@ -46,19 +46,19 @@ class Registrar implements RegistrarContract {
         $estado = new Variables();
 
       		return User::create([
-			    'nom_usuario' => $data['nombres'],
-                'ape_usuario' => $data['apellidos'],
-                'num_identificacion' => $data['numero_identificacion'],
-                'tel_usuario' => $data['telefono_usuario'],
-                'cel_usuario' => $data['celular_usuario'],
-                'user_login' => $data['nombre_usuario'],
-			    'email' => $data['correo_electronico'],
-			    'password' => bcrypt($data['contrasenia']),
-                'estado_user' => $estado->UserRegistrado(),
-                'id_municipio' => $data['municipio'],
-                'id_tipo_secretaria' => $data['secretaria'],
-                'id_tipo_identificacion' => $data['tipo_identificacion'],
-                'id_cargo_usuario' => $data['cargo_usuario'],
+			'nom_usuario' => $data['nombres'],
+            'ape_usuario' => $data['apellidos'],
+            'num_identificacion' => $data['numero_identificacion'],
+            'tel_usuario' => $data['telefono_usuario'],
+            'cel_usuario' => $data['celular_usuario'],
+            'user_login' => $data['nombre_usuario'],
+			'email' => $data['correo_electronico'],
+			'password' => bcrypt($data['contrasenia']),
+            'estado_user' => $estado->UserEnVerificacion(),
+            'id_municipio' => $data['municipio'],
+            'id_tipo_secretaria' => $data['secretaria'],
+            'id_tipo_identificacion' => $data['tipo_identificacion'],
+            'id_cargo_usuario' => $data['cargo_usuario'],
 		]);
 	}
 

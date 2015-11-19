@@ -20,7 +20,20 @@
 
 #dangercolor
 {
-    background-color: #ff3425;
+    background-color: #ff4a3d;
+}
+
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 12px;
+}
+
+.row {
+    padding: 0 10px;
+}
+
+.clickable {
+    cursor: pointer;
 }
 
 .textareaContent {
@@ -34,7 +47,6 @@
     font-size: 14px;
 }
 
-
 .white{
     color: white;
 }
@@ -45,6 +57,11 @@
 
 #alignrightCreate {
     padding-right: 2vh;
+}
+
+#alignrightPlanDesarrollo {
+    padding-right: 2vh;
+    padding-bottom: 1vh;
 }
 
 /* Navbars */
@@ -73,6 +90,7 @@ header{
 }
 
 section{
+
     height: auto;
     padding-top: 65px;
 }
@@ -192,7 +210,11 @@ footer{
 }
 
 .foo{
-    width: 150px;
+    width: 180px;
+}
+
+.sec {
+    width: 210px;
 }
 
 /* Sociales */
@@ -226,6 +248,96 @@ footer{
 #logbox{
     min-height: 100vh;
     padding-top: 20vh;
+}
+
+
+.ca-menu{
+    padding:0;
+    margin:20px auto;
+    width: 850px;
+    font-family: 'Dosis', sans-serif;
+}
+
+.ca-menu li{
+
+    width: 215px;
+    height: 215px;
+    border: 7px solid #EFEDF3;
+    overflow: hidden;
+    position: relative;
+    float:left;
+    background: #fff;
+    margin-right: 4px;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    -webkit-border-radius: 125px;
+    -moz-border-radius: 125px;
+    border-radius: 125px;
+  }
+
+.ca-menu li:last-child{
+    margin-right: 0px;
+}
+
+.ca-menu li a{
+
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #333;
+    position: relative;
+    -moz-box-shadow:0px 0px 3px #000000;
+    -webkit-box-shadow:0px 0px 3px #000000;
+    box-shadow:0px 0px 3px #000000;
+
+}
+
+.ca-icon{
+
+    font-size: 12px;
+    color: #f6f6f6;
+    line-height: 30px;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    left: 0px;
+    top: 70px;
+    text-align: center;
+    -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear;
+}
+
+.ca-main{
+
+    font-size: 18px;
+    position: absolute;
+    top: 60px;
+    height: 80px;
+    width: 170px;
+    left: 50%;
+    margin-left: -85px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.ca-menu li:hover{
+    background: #f7f7f7;
+    border-color: #4DA3EF;
+    box-shadow: 0 45px 60px -40px #000000;
+}
+
+.ca-menu li:hover .ca-icon{
+    color: #555;
+    font-size: 20px;
+}
+
+.ca-menu li:hover .ca-main{
+    display: none;
 }
 
 
@@ -276,6 +388,16 @@ footer{
         background-color: #009E66;
         min-height: 150px;
     }
+
+    .foo {
+        width: 150px;
+    }
+
+    .sec {
+        width: 100px;
+        font-size: 8px;
+    }
+
 
     #artitle{
         color: white;

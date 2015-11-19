@@ -1,7 +1,7 @@
 @extends('template.main')
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
-    @include('template.partials.logbar')
+    @include('template.partials.logbar_admin')
     <div class="row-fluid">
         @if (count($errors) > 0)
             <div id="dangercolor" class="alert alert-danger">

@@ -1,12 +1,6 @@
 {
   "devDependencies": {
     "gulp": "^3.8.8",
-    "laravel-elixir": "*",
-    "dependencies": {
-      "express": "3.4.7",
-      "jade": "*",
-      "socket.io":"*"
-    }
+    "laravel-elixir": "*"
   }
-
 }

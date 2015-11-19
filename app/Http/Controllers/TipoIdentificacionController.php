@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 
 class TipoIdentificacionController extends Controller
 {
-
     /**
-     * Método contructor que determina que las funciones de la clase TipoIdentificacionController las
-     * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     * Método contructor que determina que las funciones de la clase TipoIdentificacionController
+     * Estas funcionales las puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     * También solo las puede usar un usuario tipo administrador  utilizando el middelware admin.
      */
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     /**
@@ -64,17 +65,6 @@ class TipoIdentificacionController extends Controller
 
         return \Redirect::route('tipoIdentificacion')
             ->with('alert', 'Registro creado con exito!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
