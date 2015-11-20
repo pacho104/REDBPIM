@@ -111,7 +111,7 @@ class FormatoEmailController extends Controller {
      * @internal param $nom_formato_solicitud1
      * @internal param $cuerpo_formato_solicitud1
      */
-    public static function crearFmtSol($nom_formato1,$asunto1,$cuerpo1,$email_origen1,$email_destino1)
+    public static function crearFmtEmail($nom_formato1,$asunto1,$cuerpo1,$email_origen1,$email_destino1)
     {
 
         $formatoEmailBan = new FormatoEmail();

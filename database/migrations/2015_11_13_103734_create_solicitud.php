@@ -20,6 +20,8 @@ class CreateSolicitud extends Migration {
             $table->integer('id_formato_email')->unsigned();
             $table->integer('id_usuario')->unsigned();
             $table->integer('id_municipio')->unsigned();
+            $table->integer('id_tiempo_solicitud')->unsigned();
+
             $table->timestamps();
 
 
@@ -40,6 +42,11 @@ class CreateSolicitud extends Migration {
 
             $table->foreign('id_municipio')
                 ->references('id')->on('municipio')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+
+            $table->foreign('id_tiempo_solicitud')
+                ->references('id')->on('tiempo_solicitud')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 

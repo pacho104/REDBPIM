@@ -276,7 +276,7 @@ Route::group(['middleware' => ['auth']], /**
 
         Route::get('u', [
             'as' => 'u',
-            'uses' => 'FormatoSolicitudController@utl'
+            'uses' => 'SolicitudController@crearSolicitud'
         ]);
 
 });

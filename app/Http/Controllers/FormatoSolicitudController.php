@@ -117,6 +117,8 @@ class FormatoSolicitudController extends Controller {
         $id_mun              = $user->toArray()['0']['id_municipio'];
         $ultimaSolicitud     = Solicitud::ultimoReg($id_mun);
 
+
+
         if($ultimaSolicitud == null)
         {
             $cosecutivoForSoli = 1;
