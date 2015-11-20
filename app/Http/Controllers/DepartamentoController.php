@@ -2,34 +2,30 @@
 
 use App\Departamento;
 use App\Http\Requests;
-use App\User;
-use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller {
 
     /**
-     * Método contructor que determina que las funciones de la clase DepartamentoController las
-     * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     * Método contructor que determina que las funciones de la clase DepartamentoController
+     * Estas funciones las puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     * Tambien las podrá utilizar solo un usuario tipo admin ya que utiliza el middelware admin
      */
     public function __construct()
     {
         $this->middleware('auth');
-
-        $this->beforeFilter('gestion_gene', array('only' => 'delete') );
-
-
+        $this->middleware('admin');
     }
 
 	/**
      * Muestra los Departamentos que se encuentran en la BD para realizar el respectivo CRUD - Metodo index().
      * @return Vista departamento
      */
-	public function index(Request $request)	{
-
-        $departamento = Departamento::filtroAndPaginacion($request->get('dep'));
+	public function index()
+	{
+        $departamento = \DB::table('departamento')->orderBy('id', 'asc')->paginate(8);
         return view('template.CRUD_departamento.departamento')
             ->with('departamento', $departamento);
-	}
+    }
 
 	/**
      * Redirecciona a la vista new departamento para crear un  nuevo departamento - Metodo create()
@@ -38,7 +34,7 @@ class DepartamentoController extends Controller {
 	public function create()
 	{
         return view('template.CRUD_departamento.new_departamento');
-	}
+    }
 
 	/**
      * Realiza las validaciones necesarios en el momento de guardar un nuevo departamento usando el recurso \Validator
@@ -50,7 +46,6 @@ class DepartamentoController extends Controller {
         $data = \Request::all();
         $rules = array(
             'codigo_dane_departamento' => 'required|max:11|unique:departamento,cod_dane_dep',
-            'codigo_dane_departamento' => 'integer',
             'nombre_departamento' => 'required|max:100|string|unique:departamento,nom_departamento',
         );
 
@@ -69,18 +64,7 @@ class DepartamentoController extends Controller {
         $p ->save();
 
         return \Redirect::route('departamento')
-            ->with('alert' , 'Registro creado con exito!');
-	}
-
-	/**
-	 * Display the specified resource.
-	 * @param  int  $id
-	 * @return Response
-     */
-	public function show()
-	{
-          return  \Redirect::route('departamento')
-            ->with('alert', 'No Cuenta Con El Permiso!');
+                ->with('alert' , 'Registro creado con exito!');
 	}
 
 	/**
@@ -89,20 +73,10 @@ class DepartamentoController extends Controller {
      * @return vista de edicion departamento
      */
 	public function edit($id)
-    {
-
-        if (\Auth::user()->can('gestion_dep')) {
-
-            $dep = Departamento::find($id);
-            return view('template.CRUD_departamento.edit_departamento')
-                ->with('dep', $dep);
-        }
-        else
-        {
-             return $this->show();
-        }
-
-
+	{
+        $dep = Departamento::find($id);
+        return view('template.CRUD_departamento.edit_departamento')
+             ->with('dep', $dep);
 	}
 
 	/**
@@ -116,7 +90,6 @@ class DepartamentoController extends Controller {
         $data = \Request::all();
         $rules = array(
             'codigo_dane_departamento' => "required|max:11|unique:departamento,cod_dane_dep,$id",
-            'codigo_dane_departamento' => 'integer',
             'nombre_departamento' => "required|max:255|unique:departamento,nom_departamento,$id",
         );
         $error = \Validator::make($data,$rules);
@@ -134,8 +107,7 @@ class DepartamentoController extends Controller {
         $p ->save();
 
         return \Redirect::route('departamento')
-
-            ->with('alert', 'Actualización realizada exitosamente!');
+                ->with('alert', 'Actualización realizada exitosamente!');
     }
 
 	/**
@@ -158,11 +130,13 @@ class DepartamentoController extends Controller {
         if ($ifExistsDepInMunTable->passes())
         {
             return \Redirect::route('departamento')
-                ->with('ValidationDelete', 'No se puede eliminar el registro seleccionado ya que el Departamento tiene Municipios asignados.!');
-        } else {
+                   ->with('ValidationDelete', 'No se puede eliminar el registro seleccionado ya que el Departamento tiene Municipios asignados.!');
+        }
+        else
+        {
             $post = Departamento::find($id)->delete();
             return \Redirect::route('departamento')
-                ->with('alert', 'Registro eliminado con exito!');
+                   ->with('alert', 'Registro eliminado con exito!');
         }
 	}
 

@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'America/Bogota',
+	'timezone' => 'UTC',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -135,18 +135,14 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-        'Vinelab\Minion\MinionServiceProvider',
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
-        'Intervention\Image\ImageServiceProvider',
-        'Barryvdh\DomPDF\ServiceProvider',
-
 
 
         /**
          * Third Party Service Providers...
          */
-        // Bican\Roles\RolesServiceProvider::class,
+        Bican\Roles\RolesServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -175,13 +171,7 @@ return [
          * paquete para roles
          *
         */
-        'Zizaco\Entrust\EntrustServiceProvider',
-
-        /*
-         * Autocompletado
-         */
-
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        //'Zizaco\Entrust\EntrustServiceProvider',
 
 
 	],
@@ -231,14 +221,12 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-        'Image' => 'Intervention\Image\Facades\Image',
-        'PDF' => 'Barryvdh\DomPDF\Facade',
 
         /*
          * alisen para los roles
          *
          */
-         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        //'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
         /*
          * html

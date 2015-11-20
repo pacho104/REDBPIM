@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar')
+    @include('template.partials.logbar_admin')
 
     <div class="row-fluid">
         <div class="container" id="admin">
@@ -30,6 +30,7 @@
 
             <table class="table table-striped  table-bordered">
                 <thead>
+                <th>Departamento al cuál aplica</th>
                 <th>Título de la noticia</th>
                 <th>Contenido</th>
                 <th class="foo">Acciones</th>
@@ -37,6 +38,7 @@
                 <tbody>
                 @foreach($noticia as $notic)
                     <tr>
+                        <td>{{$notic->nom_departamento}}</td>
                         <td>{{$notic->titulo_noticia}}</td>
                         <td>
                             <div class="textareaContent">{!!$notic->cuerpo_noticia!!}</div>

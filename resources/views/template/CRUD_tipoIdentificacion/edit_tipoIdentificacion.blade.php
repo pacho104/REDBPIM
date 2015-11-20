@@ -2,7 +2,7 @@
 @section('title'){{ 'Red BPIM - ' . Auth::user()->user_login }} @endsection
 @section('content')
 
-    @include('template.partials.logbar')
+    @include('template.partials.logbar_admin')
 
     <div class="row-fluid">
         @if (count($errors) > 0)
@@ -36,7 +36,8 @@
                         <label class="col-md-4 control-label">Tipo de identificación:</label>
 
                         <div class="col-md-6">
-                            <input type="text" name="nombre_identificacion" value="{{$tipIden->nom_identificacion}}"
+                            <input type="text" name="nombre_identificacion"
+                                   value="{{old('nombre_identificacion',$tipIden->nom_identificacion)}}"
                                    class="form-control">
                         </div>
                     </div>

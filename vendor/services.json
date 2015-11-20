@@ -22,11 +22,9 @@
         "Illuminate\\Translation\\TranslationServiceProvider",
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
-        "Vinelab\\Minion\\MinionServiceProvider",
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
         "Illuminate\\Auth\\AuthServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider",
-        "Barryvdh\\DomPDF\\ServiceProvider",
+        "Bican\\Roles\\RolesServiceProvider",
         "App\\Providers\\AppServiceProvider",
         "App\\Providers\\BusServiceProvider",
         "App\\Providers\\ConfigServiceProvider",
@@ -35,8 +33,6 @@
         "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider",
         "Illuminate\\Html\\HtmlServiceProvider",
         "Collective\\Html\\HtmlServiceProvider",
-        "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
-        "Zizaco\\Entrust\\EntrustServiceProvider",
         "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider"
     ],
     "eager": [
@@ -51,17 +47,14 @@
         "Illuminate\\Session\\SessionServiceProvider",
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
-        "Vinelab\\Minion\\MinionServiceProvider",
         "Illuminate\\Auth\\AuthServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider",
-        "Barryvdh\\DomPDF\\ServiceProvider",
+        "Bican\\Roles\\RolesServiceProvider",
         "App\\Providers\\AppServiceProvider",
         "App\\Providers\\BusServiceProvider",
         "App\\Providers\\ConfigServiceProvider",
         "App\\Providers\\EventServiceProvider",
         "App\\Providers\\RouteServiceProvider",
-        "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider",
-        "Zizaco\\Entrust\\EntrustServiceProvider"
+        "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
@@ -146,47 +139,19 @@
         "command.ide-helper.models": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider"
     },
     "when": {
-        "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
-
-        ],
-        "Illuminate\\Bus\\BusServiceProvider": [
-
-        ],
-        "Illuminate\\Cache\\CacheServiceProvider": [
-
-        ],
-        "Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider": [
-
-        ],
-        "Illuminate\\Hashing\\HashServiceProvider": [
-
-        ],
-        "Illuminate\\Mail\\MailServiceProvider": [
-
-        ],
-        "Illuminate\\Pipeline\\PipelineServiceProvider": [
-
-        ],
-        "Illuminate\\Queue\\QueueServiceProvider": [
-
-        ],
-        "Illuminate\\Redis\\RedisServiceProvider": [
-
-        ],
-        "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider": [
-
-        ],
-        "Illuminate\\Translation\\TranslationServiceProvider": [
-
-        ],
-        "Illuminate\\Html\\HtmlServiceProvider": [
-
-        ],
-        "Collective\\Html\\HtmlServiceProvider": [
-
-        ],
-        "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider": [
-
-        ]
+        "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [],
+        "Illuminate\\Bus\\BusServiceProvider": [],
+        "Illuminate\\Cache\\CacheServiceProvider": [],
+        "Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider": [],
+        "Illuminate\\Hashing\\HashServiceProvider": [],
+        "Illuminate\\Mail\\MailServiceProvider": [],
+        "Illuminate\\Pipeline\\PipelineServiceProvider": [],
+        "Illuminate\\Queue\\QueueServiceProvider": [],
+        "Illuminate\\Redis\\RedisServiceProvider": [],
+        "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider": [],
+        "Illuminate\\Translation\\TranslationServiceProvider": [],
+        "Illuminate\\Html\\HtmlServiceProvider": [],
+        "Collective\\Html\\HtmlServiceProvider": [],
+        "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider": []
     }
 }

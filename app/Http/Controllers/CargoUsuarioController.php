@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 
 class CargoUsuarioController extends Controller
 {
-
     /**
-     * Método contructor que determina que las funciones de la clase CargoUsuarioController las
-     * puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     * Método contructor que determina las funciones de la clase CargoUsuarioController
+     * Los métodos de la clase los puede usar un usuario autenticado en el sistema utilizando el middelware auth.
+     * Tambien los podrá utilizar solo un usuario tipo admin ya que utiliza el middelware admin
      */
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     /**
@@ -24,7 +25,7 @@ class CargoUsuarioController extends Controller
     {
         $cargo_usuario = CargoUsuario::filtroAndPaginacion($request->get('cargo'));
         return view('template.CRUD_CargoUsuario.cargoUsuario')
-            ->with('cargo_usuario', $cargo_usuario);
+                ->with('cargo_usuario', $cargo_usuario);
     }
 
     /**
@@ -65,17 +66,6 @@ class CargoUsuarioController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Muestra la vista principal para editar un cargo - Metodo edit()     *
      * @param  int $id - el id primary key tabla cargo_usuario
      * @return vista de edicion cargo_usuario
@@ -101,7 +91,8 @@ class CargoUsuarioController extends Controller
         );
         $error = \Validator::make($data, $rules);
 
-        if ($error->fails()) {
+        if ($error->fails())
+        {
             return redirect()->back()
                 ->withErrors($error->errors())
                 ->withInput(\Request::all());
@@ -132,14 +123,16 @@ class CargoUsuarioController extends Controller
 
         $ifExistsCargoInUsersTable = \Validator::make($data, $rules);
 
-        if ($ifExistsCargoInUsersTable->passes()) {
+        if ($ifExistsCargoInUsersTable->passes())
+        {
             return \Redirect::route('cargoUsuario')
-                ->with('ValidationDeleteCargo', 'No se puede eliminar el registro seleccionado ya que el Cargo tiene usuarios asignados.!');
-        } else {
+                ->with('ValidationDeleteCargo', 'No se puede eliminar el registro seleccionado ya que el cargo laboral esta asignado a uno o varios usuarios usuarios.!');
+        }
+        else
+        {
             $cargouser = CargoUsuario::find($id)->delete();
             return \Redirect::route('cargoUsuario')
                 ->with('alert', 'Registro eliminado con exito!');
         }
     }
-
 }

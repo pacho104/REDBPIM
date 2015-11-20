@@ -4,9 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Noticia extends Model
 {
-
     public $timestamps = false;
     protected $table = 'noticia';
     protected $fillable = ['titulo_noticia', 'cuerpo_noticia'];
-
 }
