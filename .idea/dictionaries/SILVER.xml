@@ -4,7 +4,6 @@
       <w>actualizado</w>
       <w>anyo</w>
       <w>asignar</w>
-      <w>asunto</w>
       <w>autocomplete</w>
       <w>borra</w>
       <w>cambiar</w>
@@ -16,9 +15,7 @@
       <w>conectado</w>
       <w>confirma</w>
       <w>confirmar</w>
-      <w>consecutivo</w>
       <w>contenido</w>
-      <w>cosecutivo</w>
       <w>crea</w>
       <w>creado</w>
       <w>crear</w>
@@ -26,8 +23,11 @@
       <w>datos</w>
       <w>desasignar</w>
       <w>desconectado</w>
+<<<<<<< HEAD
       <w>destino</w>
       <w>documento</w>
+=======
+>>>>>>> master
       <w>dompdf</w>
       <w>editar</w>
       <w>eliminar</w>
@@ -48,7 +48,6 @@
       <w>fila</w>
       <w>fillable</w>
       <w>filtro</w>
-      <w>fmto</w>
       <w>formato</w>
       <w>formu</w>
       <w>formulario</w>
@@ -71,7 +70,6 @@
       <w>onmessage</w>
       <w>onopen</w>
       <w>onsubmit</w>
-      <w>origen</w>
       <w>paginacion</w>
       <w>permisos</w>
       <w>proceso</w>
@@ -83,21 +81,21 @@
       <w>requisito</w>
       <w>requisitos</w>
       <w>resta</w>
+<<<<<<< HEAD
       <w>retorna</w>
       <w>revisa</w>
+=======
+>>>>>>> master
       <w>sala</w>
       <w>sectore</w>
       <w>sele</w>
       <w>selec</w>
       <w>seleccionar</w>
-      <w>soli</w>
-      <w>solicitud</w>
       <w>tbody</w>
       <w>texto</w>
       <w>tiempo</w>
       <w>tipo</w>
       <w>traer</w>
-      <w>ultima</w>
       <w>usarios</w>
       <w>usuario</w>
       <w>usuarios</w>
