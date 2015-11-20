@@ -18,7 +18,7 @@ class Solicitud extends Model {
      *
      * @var array
      */
-    protected $fillable = ['id', 'nom_solicitud', 'num_solicitud','id_formato_solicitud','id_formato_email','id_usuario','id_municipio'];
+    protected $fillable = ['id', 'nom_solicitud', 'num_solicitud','dias_vigencia','id_formato_solicitud','id_formato_email','id_usuario','id_municipio'];
 
 
     /**

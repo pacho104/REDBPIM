@@ -16,11 +16,12 @@ class CreateSolicitud extends Migration {
             $table->increments('id');
             $table->string('nom_solicitud', 255);
             $table->integer('num_solicitud');
+            $table->integer('dias_vigencia');
             $table->integer('id_formato_solicitud')->unsigned();
             $table->integer('id_formato_email')->unsigned();
             $table->integer('id_usuario')->unsigned();
             $table->integer('id_municipio')->unsigned();
-            $table->integer('id_tiempo_solicitud')->unsigned();
+
 
             $table->timestamps();
 
@@ -45,10 +46,6 @@ class CreateSolicitud extends Migration {
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
-            $table->foreign('id_tiempo_solicitud')
-                ->references('id')->on('tiempo_solicitud')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
 
 
 

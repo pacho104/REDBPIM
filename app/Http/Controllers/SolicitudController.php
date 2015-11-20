@@ -103,6 +103,7 @@ class SolicitudController extends Controller {
 
         $formatoEmail     = FormatoEmailController::crearFmtEmail($nom_solicitud1,$asunto,$cuerpo,$email_origen,$email_destino);
         $formatoSolicitud = FormatoSolicitudController::crearFmtSol($nom_solicitud1,$cuerpo);
+        $diasVigencia     = 0;
 
 
         $solicitudBan = new Solicitud();
@@ -110,6 +111,7 @@ class SolicitudController extends Controller {
 
         $solicitudBan->nom_solicitud         = $nom_solicitud1;
         $solicitudBan->num_solicitud         = SolicitudController::utl();
+        $solicitudBan->dias_vigencia         = $diasVigencia;
         $solicitudBan->id_formato_solicitud  = $formatoSolicitud->toArray()['id'];
         $solicitudBan->id_formato_email      = $formatoEmail->toArray()['id'];
         $solicitudBan->id_usuario            = $idUser;

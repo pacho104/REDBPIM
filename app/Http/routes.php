@@ -270,6 +270,7 @@ Route::group(['middleware' => ['auth']], /**
     Route::resource('formatoEvidencia','FormatoEvidenciaController');
     Route::resource('formatoEmail', 'FormatoEmailController');
     Route::resource('formatoSolicitud', 'FormatoSolicitudController');
+    Route::resource('tiempoSolicitud', 'TiempoSolicitudController');
 
     Route::post('esta/{id}','SalasChatController@cambiarEstado');
 
