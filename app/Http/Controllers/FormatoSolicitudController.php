@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App;
 use App\FormatoSolicitud;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -9,6 +10,7 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class FormatoSolicitudController extends Controller {
 
@@ -115,13 +117,16 @@ class FormatoSolicitudController extends Controller {
         $idUser              = Auth::user()->id;
         $user                = User::filtro($idUser);
         $id_mun              = $user->toArray()['0']['id_municipio'];
-        $ultimaSolicitud     = Solicitud::ultimoReg($id_mun);
 
+        dd($id_mun);
+
+        $ultimaSolicitud     = Solicitud::ultimoRegSolicitud($id_mun);
 
 
         if($ultimaSolicitud == null)
         {
             $cosecutivoForSoli = 1;
+
         }
         else
         {
@@ -139,15 +144,19 @@ class FormatoSolicitudController extends Controller {
      * @param $cuerpo_formato_solicitud1
      * @return Response
      */
-    public static function crearFmtSol($nom_formato_solicitud1,$cuerpo_formato_solicitud1)
+    public static function crearFmtSol($nom_formato_solicitud1,$cuerpo_formato_solicitud1,$idMun)
     {
+
+        $cosecutivo   = SolicitudController::utl($idMun);
+
+
 
         $formatoSoliBan = new FormatoSolicitud();
 
 
         $formatoSoliBan->nom_formato_solicitud           = $nom_formato_solicitud1;
         $formatoSoliBan->cuerpo_formato_solicitud        = $cuerpo_formato_solicitud1;
-        $formatoSoliBan->consecutivo_formato_solicitud   = FormatoSolicitudController::utl();
+        $formatoSoliBan->consecutivo_formato_solicitud   = $cosecutivo;
         $formatoSoliBan->save();
 
         return $formatoSoliBan;

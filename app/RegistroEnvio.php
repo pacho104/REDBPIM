@@ -48,8 +48,32 @@ class RegistroEnvio extends Model {
 
     public function formatoEmail()
     {
-        return $this->hasOne('App\FormatoEmail');
+        return $this->hasOne('App\FormatoEmail','id','id_formato_email');
     }
 
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public static function filtro($idFormato_email)
+    {
+
+        return RegistroEnvio::email($idFormato_email)->with('formatoEmail')->orderBy('id', 'asc')->get();
+    }
+
+
+    /**
+     * @param $query
+     * @param $idFormato_email
+     */
+    public function scopeEmail($query,$idFormato_email)
+    {
+
+
+        $query->where('id_formato_email',"$idFormato_email");
+
+
+    }
 
 }

@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Solicitud;
+use App\TiempoSolicitud;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -101,22 +102,32 @@ class SolicitudController extends Controller {
         $id_mun = $user->toArray()['0']['id_municipio'];
 
 
+
         $formatoEmail     = FormatoEmailController::crearFmtEmail($nom_solicitud1,$asunto,$cuerpo,$email_origen,$email_destino);
-        $formatoSolicitud = FormatoSolicitudController::crearFmtSol($nom_solicitud1,$cuerpo);
-        $diasVigencia     = 0;
+        $formatoSolicitud = FormatoSolicitudController::crearFmtSol($nom_solicitud1,$cuerpo,$id_mun);
+        $tiempoSolicitud  = TiempoSolicitud::filtro($nom_solicitud1,$id_mun);
+
+
+        $diasVigencia     = $tiempoSolicitud->toArray()[0]['tiempo'];
+
 
 
         $solicitudBan = new Solicitud();
 
 
         $solicitudBan->nom_solicitud         = $nom_solicitud1;
-        $solicitudBan->num_solicitud         = SolicitudController::utl();
+        $solicitudBan->num_solicitud         = SolicitudController::utl($id_mun);
         $solicitudBan->dias_vigencia         = $diasVigencia;
         $solicitudBan->id_formato_solicitud  = $formatoSolicitud->toArray()['id'];
         $solicitudBan->id_formato_email      = $formatoEmail->toArray()['id'];
         $solicitudBan->id_usuario            = $idUser;
         $solicitudBan->id_municipio          = $id_mun;
         $solicitudBan->save();
+
+
+        RegistroEnvioController::crearRegEnvEmail($formatoEmail->toArray()['id'],$user,$diasVigencia);
+
+
 
         return $solicitudBan;
 
@@ -127,17 +138,19 @@ class SolicitudController extends Controller {
      * Trae el cosecutivo de las solicitudes creadas
      * @return int
      */
-    public function utl()
+    public static function utl($idMun)
     {
 
-        $idUser              = Auth::user()->id;
-        $user                = User::filtro($idUser);
-        $id_mun              = $user->toArray()['0']['id_municipio'];
-        $ultimaSolicitud     = Solicitud::ultimoReg($id_mun);
+
+        $ultimaSolicitud     = Solicitud::ultimoRegSolicitud($idMun);
+
+
+
 
         if($ultimaSolicitud == null)
         {
             $cosecutivoForSoli = 1;
+
         }
         else
         {

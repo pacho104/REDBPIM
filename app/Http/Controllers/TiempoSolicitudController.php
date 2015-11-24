@@ -39,6 +39,7 @@ class TiempoSolicitudController extends Controller {
 
         /** @var TYPE_NAME $request  */
         $tiempoSolicitudBan = TiempoSolicitud::filtroAndPaginacion($request->get('nom_solicitud'),$id_mun);
+
         return view('template.Update_tiempoSolicitud.tiempoSolicitud',compact('tiempoSolicitudBan'));
 	}
 

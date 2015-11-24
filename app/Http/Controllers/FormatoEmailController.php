@@ -124,6 +124,7 @@ class FormatoEmailController extends Controller {
         $formatoEmailBan->email_destino = $email_destino1;
         $formatoEmailBan->save();
 
+
         return $formatoEmailBan;
 
 

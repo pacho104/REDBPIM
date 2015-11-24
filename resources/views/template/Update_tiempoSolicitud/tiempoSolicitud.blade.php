@@ -6,7 +6,7 @@
 
     @include('template.partials.logbar')
     <h3 class="text-center">
-        Listas de Solicitudes
+        Listado de Solicitudes
     </h3>
 
 

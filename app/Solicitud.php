@@ -52,17 +52,21 @@ class Solicitud extends Model {
      * @return mixed
      * @internal param $id
      */
-    public static function ultimoReg($idMun)
+    public static function ultimoRegSolicitud($idMun)
     {
 
-        return Solicitud::id($idMun)->with('formatoSolicitud','formatoEmail','usuario','municipio')->get()->last();
+
+       $id= Solicitud::muni($idMun)->with('formatoSolicitud','formatoEmail','usuario','municipio')->get()->last();
+
+        return $id;
+
     }
 
     /**
      * @param $query
      * @param $idMun
      */
-    public function scopeId($query,$idMun)
+    public function scopeMuni($query,$idMun)
     {
 
 

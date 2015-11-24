@@ -53,7 +53,8 @@ class TiempoSolicitud extends Model {
     public static function filtro($name,$idMun)
     {
 
-        return Solicitud::tiempo($name,$idMun)->orderBy('id', 'asc')->get();
+        $tiempo1 = TiempoSolicitud::tiempo($name,$idMun)->orderBy('id','asc')->get();
+        return $tiempo1;
     }
 
     /**
