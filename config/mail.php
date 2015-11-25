@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'pacho1042@gmail.com', 'name' => 'pacho'],
+	'from' => ['address' => 'redbpim@gmail.com', 'name' => 'RED DEPARTAMENTAL BANCO DE PROYECTOS DE INVERSION MUNICIPAL'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
 	|
 	*/
 
-	'username' => 'pacho1042@gmail.com',
+	'username' => 'redbpim@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
 	|
 	*/
 
-	'password' => 'interdemilan123',
+	'password' => 'redbpim2015',
 
 	/*
 	|--------------------------------------------------------------------------

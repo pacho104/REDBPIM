@@ -11,6 +11,7 @@
       <w>chatcontainer</w>
       <w>chatwindow</w>
       <w>chequeo</w>
+      <w>concepto</w>
       <w>conectado</w>
       <w>confirma</w>
       <w>confirmar</w>
@@ -22,6 +23,11 @@
       <w>datos</w>
       <w>desasignar</w>
       <w>desconectado</w>
+<<<<<<< HEAD
+      <w>destino</w>
+      <w>documento</w>
+=======
+>>>>>>> master
       <w>dompdf</w>
       <w>editar</w>
       <w>eliminar</w>
@@ -75,6 +81,11 @@
       <w>requisito</w>
       <w>requisitos</w>
       <w>resta</w>
+<<<<<<< HEAD
+      <w>retorna</w>
+      <w>revisa</w>
+=======
+>>>>>>> master
       <w>sala</w>
       <w>sectore</w>
       <w>sele</w>
@@ -82,6 +93,7 @@
       <w>seleccionar</w>
       <w>tbody</w>
       <w>texto</w>
+      <w>tiempo</w>
       <w>tipo</w>
       <w>traer</w>
       <w>usarios</w>

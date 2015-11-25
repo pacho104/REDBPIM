@@ -71,6 +71,9 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Evidencias</a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('formatoEvidencia.index')}}">Gestionar Formatos</a></li>
+                                <li><a href="{{route('formatoEmail.index')}}">Gestionar Formatos Email</a></li>
+                                <li><a href="{{route('u')}}">Gestionar Solicitud</a></li>
+                                <li><a href="{{route('tiempoSolicitud.index')}}">Gestionar Tiempo de Solicitud</a></li>
                                 <li><a href="#">xx</a></li>
                                 <li class="divider"></li>
                             </ul>

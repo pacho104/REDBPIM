@@ -48,15 +48,39 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public static function filtro($id)
     {
 
-        return User::nombre($id)->with('municipio')->get();
+        return User::nombre($id)->with('municipio','secretaria','cargo','identificacion')->get();
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     * @return \Illuminate\Database\Eloquent\Relations\belongstoMany
      */
     public function municipio(){
 
         return $this->belongsTo('App\Municipio','id_municipio');
+
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongstoMany
+     */
+    public function secretaria(){
+
+        return $this->belongsTo('App\Secretaria','id_tipo_secretaria');
+
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongstoMany
+     */
+    public function cargo(){
+
+        return $this->belongsTo('App\CargoUsuario','id_cargo_usuario');
+
+    }
+
+    public function identificacion(){
+
+        return $this->belongsTo('App\TipoIdentificacion','id_tipo_identificacion');
 
     }
 
